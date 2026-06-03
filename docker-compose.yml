@@ -1,0 +1,10 @@
+services:
+  afl:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.afl
+    volumes:
+      - .:/work
+    working_dir: /work
+    stdin_open: true
+    tty: true
