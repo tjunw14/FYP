@@ -1,0 +1,17 @@
+Metric,Baseline AFL++,LLM-seed AFL++
+Target,toy_nas_tlv,toy_nas_tlv
+Seed type,Manual seeds,LLM-generated seeds
+AFL++ version,++4.41a,++4.41a
+Runtime seconds,782,784
+Executions,103790,106106
+Executions per second,132.60,135.20
+Corpus count,50,53
+Corpus found,47,48
+Corpus favored,15,14
+Max depth,7,7
+Bitmap coverage,33.33%,33.33%
+Edges found,24/72,24/72
+Saved crashes,0,1
+Saved hangs,0,0
+Total timeouts,15,13
+Stability,100.00%,100.00%
