@@ -17,17 +17,18 @@ class OllamaClient:
     base_url: str = "http://localhost:11434"
     timeout: int = 120
 
-    def chat(self, system_prompt: str, user_prompt: str) -> str:
+    def chat(self, system_prompt: str, user_prompt: str, json_mode: bool = False) -> str:
         url = f"{self.base_url.rstrip('/')}/api/chat"
         payload: dict[str, Any] = {
             "model": self.model,
             "stream": False,
-            "format": "json",
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
         }
+        if json_mode:
+            payload["format"] = "json"
 
         response = requests.post(url, json=payload, timeout=self.timeout)
         response.raise_for_status()
