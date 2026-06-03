@@ -1,0 +1,143 @@
+# Securing Open Source Software using Large Language Models
+
+**Official title:** Securing Open Source Software using Large Language Models: AFL++-Based Fuzzing and Vulnerability Analysis for 5G/6G Network Software
+
+## Project scope
+
+This project builds an LLM-assisted fuzzing and vulnerability analysis framework for open-source 5G/networking software.
+
+The practical target area is **5G network software**, with **Open5GS** as the main target candidate. 6G is used as future/security motivation in the report.
+
+The framework compares:
+
+1. **Baseline AFL++ fuzzing**
+   - human/manual seed inputs
+   - manually written fuzzing harnesses
+   - normal AFL++ crash outputs
+
+2. **LLM-assisted AFL++ fuzzing**
+   - LLM-assisted seed generation
+   - LLM-assisted harness generation support
+   - LLM-assisted crash triage
+   - LLM-generated vulnerability explanation reports
+
+## Minimum viable version
+
+The MVP is intentionally small and realistic:
+
+1. Build a working AFL++ fuzzing pipeline.
+2. Run AFL++ against a small NAS-like binary parser target as a smoke test.
+3. Generate extra seed inputs using a local lightweight LLM.
+4. Compare baseline seeds vs LLM-generated seeds.
+5. Move the harnessing approach to Open5GS NAS 5GS decoder code.
+6. Generate crash triage reports from AFL++ crashes using the LLM.
+
+## Recommended local LLM
+
+Use **Qwen2.5-Coder 7B Instruct** through Ollama or another local runtime.
+
+Default model name used by this repo:
+
+```bash
+qwen2.5-coder:7b
+```
+
+The Python tools call Ollama's local API at:
+
+```bash
+http://localhost:11434/api/chat
+```
+
+## Machine split
+
+### MacBook Air M2
+
+Use this mainly for:
+
+- writing Python framework code
+- editing harnesses
+- generating reports
+- pushing/pulling GitHub changes
+- light testing
+
+### Windows PC with RTX 2060 Super
+
+Use this mainly for:
+
+- WSL2 Ubuntu
+- Docker
+- AFL++ fuzzing
+- local LLM inference
+- long fuzzing runs
+
+## Folder structure
+
+```text
+FYP/
+├── docker/                 # Docker files for AFL++/fuzzing environment
+├── reports/                # Generated crash and experiment reports
+├── scripts/                # Setup and helper scripts
+├── src/fyp_llm_afl/        # Python framework code
+├── targets/                # Fuzzing targets and harnesses
+│   ├── toy_nas_tlv/        # First AFL++ smoke-test target
+│   └── open5gs/            # Open5GS harnessing notes and future harnesses
+└── README.md
+```
+
+## First AFL++ prototype
+
+The first target is a small NAS-like TLV parser in `targets/toy_nas_tlv`. It is not the final research target. It is used to verify that AFL++, seeds, Docker, scripts, and reporting all work.
+
+From WSL2/Linux:
+
+```bash
+cd targets/toy_nas_tlv
+make
+make fuzz
+```
+
+Or using Docker:
+
+```bash
+docker compose run --rm afl bash
+cd /work/targets/toy_nas_tlv
+make
+make fuzz
+```
+
+## Generate LLM seeds
+
+Make sure Ollama is running and the model is pulled:
+
+```bash
+ollama pull qwen2.5-coder:7b
+```
+
+Then run:
+
+```bash
+python -m fyp_llm_afl.generate_seeds \
+  --target toy_nas_tlv \
+  --count 10 \
+  --out targets/toy_nas_tlv/seeds_llm
+```
+
+## Crash report generation
+
+After AFL++ finds crashes, generate a triage report:
+
+```bash
+python -m fyp_llm_afl.crash_report \
+  --target toy_nas_tlv \
+  --crashes targets/toy_nas_tlv/out/default/crashes \
+  --out reports/toy_nas_tlv_crash_report.md
+```
+
+## Final expected deliverables
+
+- GitHub repository with reproducible setup
+- AFL++ fuzzing harness and experiment scripts
+- baseline vs LLM-assisted fuzzing comparison
+- crash analysis reports
+- final report with methodology, results, limitations, and future 6G relevance
+- demo showing seed generation, AFL++ fuzzing, and crash triage
