@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# AFL++ outputs
+out/
+crashes/
+hangs/
+.fuzz-state/
+*.profraw
+*.profdata
+
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Reports generated locally
+reports/*.md
+!reports/.gitkeep
