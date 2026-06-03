@@ -51,7 +51,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     client = OllamaClient(model=args.model, base_url=args.base_url)
-    response = client.chat(SYSTEM_PROMPT, build_prompt(args.target, args.count))
+    response = client.chat(SYSTEM_PROMPT, build_prompt(args.target, args.count), json_mode=True)
     seeds = extract_json_array(response)
 
     for index, seed in enumerate(seeds[: args.count], start=1):
