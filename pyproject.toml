@@ -1,0 +1,15 @@
+[project]
+name = "fyp-llm-afl"
+version = "0.1.0"
+description = "LLM-assisted AFL++ fuzzing and vulnerability analysis framework for 5G/network software"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.32.0",
+  "rich>=13.7.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
