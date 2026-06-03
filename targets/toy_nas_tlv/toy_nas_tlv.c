@@ -66,7 +66,6 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     return 0;
 }
 
-#ifndef __AFL_FUZZ_TESTCASE_LEN
 int main(int argc, char **argv) {
     if (argc != 2) {
         fprintf(stderr, "usage: %s <input>\n", argv[0]);
@@ -86,4 +85,3 @@ int main(int argc, char **argv) {
     LLVMFuzzerTestOneInput(buf, n);
     return 0;
 }
-#endif
