@@ -8,9 +8,11 @@ from .ollama_client import OllamaClient
 
 
 SYSTEM_PROMPT = """You are assisting with defensive vulnerability analysis for a university FYP.
-Analyse fuzzing crash artifacts at a high level.
-Do not provide exploit instructions.
-Focus on likely root cause, affected parser logic, reproducibility steps, impact, and suggested secure coding fixes.
+Be conservative and evidence-based.
+Do not claim buffer overflow, integer overflow, arbitrary code execution, or exploitable vulnerability unless the provided evidence directly supports it.
+Do not provide exploit-building instructions.
+Focus on crash behaviour, likely parser path, reproducibility, limitations, and defensive fixes.
+Return Markdown, not JSON.
 """
 
 
@@ -27,9 +29,19 @@ def read_crash_files(crash_dir: Path, limit: int) -> str:
         chunks.append(
             f"## {path.name}\n"
             f"size={len(data)} bytes\n"
-            f"hex={data[:128].hex()}\n"
+            f"hex_prefix={data[:128].hex()}\n"
         )
     return "\n".join(chunks)
+
+
+def toy_target_context() -> str:
+    return """
+Important context for toy_nas_tlv:
+- This is an educational NAS-like TLV parser used to validate the AFL++ pipeline.
+- The target intentionally calls abort() when message_type == 0x41, payload_len >= 4, and parser score > 10.
+- Therefore crashes with SIGABRT/signal 6 are expected validation crashes, not proven memory-corruption vulnerabilities.
+- The correct interpretation is that AFL++ discovered inputs that reach the intentional crash condition.
+""".strip()
 
 
 def main() -> None:
@@ -47,24 +59,35 @@ def main() -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     crash_summary = read_crash_files(crash_dir, args.limit)
+    target_context = toy_target_context() if args.target == "toy_nas_tlv" else "No special target context provided."
+
     user_prompt = f"""
 Target: {args.target}
+
+Target context:
+{target_context}
 
 Crash artifacts:
 {crash_summary}
 
 Create a concise Markdown crash triage report with these sections:
 1. Summary
-2. Reproduction command placeholder
-3. Input characteristics
-4. Likely root cause hypothesis
-5. Security impact
-6. Recommended fixes
-7. Next experiments
+2. What AFL++ found
+3. Reproduction command placeholder
+4. Input characteristics
+5. Likely root cause hypothesis
+6. Security impact and limitations
+7. Recommended defensive fixes
+8. Next experiments
+
+Important constraints:
+- Be clear when a conclusion is only a hypothesis.
+- For toy_nas_tlv, state that signal 6/SIGABRT is expected because the program intentionally calls abort().
+- Do not describe exploit construction.
 """.strip()
 
     client = OllamaClient(model=args.model, base_url=args.base_url)
-    report = client.chat(SYSTEM_PROMPT, user_prompt)
+    report = client.chat(SYSTEM_PROMPT, user_prompt, json_mode=False)
     out_path.write_text(report + "\n", encoding="utf-8")
     print(f"Wrote crash report to {out_path}")
 
