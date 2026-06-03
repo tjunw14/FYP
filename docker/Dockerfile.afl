@@ -1,0 +1,21 @@
+FROM aflplusplus/aflplusplus:latest
+
+WORKDIR /work
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    clang \
+    cmake \
+    git \
+    make \
+    ninja-build \
+    pkg-config \
+    python3 \
+    python3-pip \
+    python3-venv \
+    gdb \
+    file \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV CC=afl-clang-fast
+ENV CXX=afl-clang-fast++
