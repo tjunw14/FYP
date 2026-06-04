@@ -1,0 +1,1674 @@
+lib/nas/5gs/decoder.c:37:int ogs_nas_5gs_decode_registration_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:38:int ogs_nas_5gs_decode_registration_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:39:int ogs_nas_5gs_decode_registration_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:40:int ogs_nas_5gs_decode_registration_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:41:int ogs_nas_5gs_decode_deregistration_request_from_ue(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:42:int ogs_nas_5gs_decode_deregistration_request_to_ue(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:43:int ogs_nas_5gs_decode_service_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:44:int ogs_nas_5gs_decode_service_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:45:int ogs_nas_5gs_decode_service_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:46:int ogs_nas_5gs_decode_configuration_update_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:47:int ogs_nas_5gs_decode_authentication_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:48:int ogs_nas_5gs_decode_authentication_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:49:int ogs_nas_5gs_decode_authentication_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:50:int ogs_nas_5gs_decode_authentication_failure(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:51:int ogs_nas_5gs_decode_authentication_result(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:52:int ogs_nas_5gs_decode_identity_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:53:int ogs_nas_5gs_decode_identity_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:54:int ogs_nas_5gs_decode_security_mode_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:55:int ogs_nas_5gs_decode_security_mode_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:56:int ogs_nas_5gs_decode_security_mode_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:57:int ogs_nas_5gs_decode_5gmm_status(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:58:int ogs_nas_5gs_decode_notification(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:59:int ogs_nas_5gs_decode_notification_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:60:int ogs_nas_5gs_decode_ul_nas_transport(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:61:int ogs_nas_5gs_decode_dl_nas_transport(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:62:int ogs_nas_5gs_decode_pdu_session_establishment_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:63:int ogs_nas_5gs_decode_pdu_session_establishment_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:64:int ogs_nas_5gs_decode_pdu_session_establishment_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:65:int ogs_nas_5gs_decode_pdu_session_authentication_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:66:int ogs_nas_5gs_decode_pdu_session_authentication_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:67:int ogs_nas_5gs_decode_pdu_session_authentication_result(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:68:int ogs_nas_5gs_decode_pdu_session_modification_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:69:int ogs_nas_5gs_decode_pdu_session_modification_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:70:int ogs_nas_5gs_decode_pdu_session_modification_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:71:int ogs_nas_5gs_decode_pdu_session_modification_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:72:int ogs_nas_5gs_decode_pdu_session_modification_command_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:73:int ogs_nas_5gs_decode_pdu_session_release_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:74:int ogs_nas_5gs_decode_pdu_session_release_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:75:int ogs_nas_5gs_decode_pdu_session_release_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:76:int ogs_nas_5gs_decode_pdu_session_release_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:77:int ogs_nas_5gs_decode_5gsm_status(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/decoder.c:78:int ogs_nas_5gs_decode_registration_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:81:    int decoded = 0;
+lib/nas/5gs/decoder.c:86:    size = ogs_nas_5gs_decode_5gs_registration_type(&registration_request->registration_type, pkbuf);
+lib/nas/5gs/decoder.c:88:        ogs_error("ogs_nas_5gs_decode_5gs_registration_type() failed");
+lib/nas/5gs/decoder.c:92:    decoded += size;
+lib/nas/5gs/decoder.c:94:    size = ogs_nas_5gs_decode_5gs_mobile_identity(&registration_request->mobile_identity, pkbuf);
+lib/nas/5gs/decoder.c:96:        ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:100:    decoded += size;
+lib/nas/5gs/decoder.c:111:        decoded += size;
+lib/nas/5gs/decoder.c:115:            decoded--;
+lib/nas/5gs/decoder.c:117:            size = ogs_nas_5gs_decode_key_set_identifier(&registration_request->non_current_native_nas_key_set_identifier, pkbuf);
+lib/nas/5gs/decoder.c:119:               ogs_error("ogs_nas_5gs_decode_key_set_identifier() failed");
+lib/nas/5gs/decoder.c:124:            decoded += size;
+lib/nas/5gs/decoder.c:127:            size = ogs_nas_5gs_decode_5gmm_capability(&registration_request->gmm_capability, pkbuf);
+lib/nas/5gs/decoder.c:129:               ogs_error("ogs_nas_5gs_decode_5gmm_capability() failed");
+lib/nas/5gs/decoder.c:134:            decoded += size;
+lib/nas/5gs/decoder.c:137:            size = ogs_nas_5gs_decode_ue_security_capability(&registration_request->ue_security_capability, pkbuf);
+lib/nas/5gs/decoder.c:139:               ogs_error("ogs_nas_5gs_decode_ue_security_capability() failed");
+lib/nas/5gs/decoder.c:144:            decoded += size;
+lib/nas/5gs/decoder.c:147:            size = ogs_nas_5gs_decode_nssai(&registration_request->requested_nssai, pkbuf);
+lib/nas/5gs/decoder.c:149:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:154:            decoded += size;
+lib/nas/5gs/decoder.c:157:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity(&registration_request->last_visited_registered_tai, pkbuf);
+lib/nas/5gs/decoder.c:159:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity() failed");
+lib/nas/5gs/decoder.c:164:            decoded += size;
+lib/nas/5gs/decoder.c:167:            size = ogs_nas_5gs_decode_s1_ue_network_capability(&registration_request->s1_ue_network_capability, pkbuf);
+lib/nas/5gs/decoder.c:169:               ogs_error("ogs_nas_5gs_decode_s1_ue_network_capability() failed");
+lib/nas/5gs/decoder.c:174:            decoded += size;
+lib/nas/5gs/decoder.c:177:            size = ogs_nas_5gs_decode_uplink_data_status(&registration_request->uplink_data_status, pkbuf);
+lib/nas/5gs/decoder.c:179:               ogs_error("ogs_nas_5gs_decode_uplink_data_status() failed");
+lib/nas/5gs/decoder.c:184:            decoded += size;
+lib/nas/5gs/decoder.c:187:            size = ogs_nas_5gs_decode_pdu_session_status(&registration_request->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:189:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:194:            decoded += size;
+lib/nas/5gs/decoder.c:197:            decoded--;
+lib/nas/5gs/decoder.c:199:            size = ogs_nas_5gs_decode_mico_indication(&registration_request->mico_indication, pkbuf);
+lib/nas/5gs/decoder.c:201:               ogs_error("ogs_nas_5gs_decode_mico_indication() failed");
+lib/nas/5gs/decoder.c:206:            decoded += size;
+lib/nas/5gs/decoder.c:209:            size = ogs_nas_5gs_decode_ue_status(&registration_request->ue_status, pkbuf);
+lib/nas/5gs/decoder.c:211:               ogs_error("ogs_nas_5gs_decode_ue_status() failed");
+lib/nas/5gs/decoder.c:216:            decoded += size;
+lib/nas/5gs/decoder.c:219:            size = ogs_nas_5gs_decode_5gs_mobile_identity(&registration_request->additional_guti, pkbuf);
+lib/nas/5gs/decoder.c:221:               ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:226:            decoded += size;
+lib/nas/5gs/decoder.c:229:            size = ogs_nas_5gs_decode_allowed_pdu_session_status(&registration_request->allowed_pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:231:               ogs_error("ogs_nas_5gs_decode_allowed_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:236:            decoded += size;
+lib/nas/5gs/decoder.c:239:            size = ogs_nas_5gs_decode_ue_usage_setting(&registration_request->ue_usage_setting, pkbuf);
+lib/nas/5gs/decoder.c:241:               ogs_error("ogs_nas_5gs_decode_ue_usage_setting() failed");
+lib/nas/5gs/decoder.c:246:            decoded += size;
+lib/nas/5gs/decoder.c:249:            size = ogs_nas_5gs_decode_5gs_drx_parameters(&registration_request->requested_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:251:               ogs_error("ogs_nas_5gs_decode_5gs_drx_parameters() failed");
+lib/nas/5gs/decoder.c:256:            decoded += size;
+lib/nas/5gs/decoder.c:259:            size = ogs_nas_5gs_decode_eps_nas_message_container(&registration_request->eps_nas_message_container, pkbuf);
+lib/nas/5gs/decoder.c:261:               ogs_error("ogs_nas_5gs_decode_eps_nas_message_container() failed");
+lib/nas/5gs/decoder.c:266:            decoded += size;
+lib/nas/5gs/decoder.c:269:            size = ogs_nas_5gs_decode_ladn_indication(&registration_request->ladn_indication, pkbuf);
+lib/nas/5gs/decoder.c:271:               ogs_error("ogs_nas_5gs_decode_ladn_indication() failed");
+lib/nas/5gs/decoder.c:276:            decoded += size;
+lib/nas/5gs/decoder.c:279:            decoded--;
+lib/nas/5gs/decoder.c:281:            size = ogs_nas_5gs_decode_payload_container_type(&registration_request->payload_container_type, pkbuf);
+lib/nas/5gs/decoder.c:283:               ogs_error("ogs_nas_5gs_decode_payload_container_type() failed");
+lib/nas/5gs/decoder.c:288:            decoded += size;
+lib/nas/5gs/decoder.c:291:            size = ogs_nas_5gs_decode_payload_container(&registration_request->payload_container, pkbuf);
+lib/nas/5gs/decoder.c:293:               ogs_error("ogs_nas_5gs_decode_payload_container() failed");
+lib/nas/5gs/decoder.c:298:            decoded += size;
+lib/nas/5gs/decoder.c:301:            decoded--;
+lib/nas/5gs/decoder.c:303:            size = ogs_nas_5gs_decode_network_slicing_indication(&registration_request->network_slicing_indication, pkbuf);
+lib/nas/5gs/decoder.c:305:               ogs_error("ogs_nas_5gs_decode_network_slicing_indication() failed");
+lib/nas/5gs/decoder.c:310:            decoded += size;
+lib/nas/5gs/decoder.c:313:            size = ogs_nas_5gs_decode_5gs_update_type(&registration_request->update_type, pkbuf);
+lib/nas/5gs/decoder.c:315:               ogs_error("ogs_nas_5gs_decode_5gs_update_type() failed");
+lib/nas/5gs/decoder.c:320:            decoded += size;
+lib/nas/5gs/decoder.c:323:            size = ogs_nas_5gs_decode_mobile_station_classmark_2(&registration_request->mobile_station_classmark_2, pkbuf);
+lib/nas/5gs/decoder.c:325:               ogs_error("ogs_nas_5gs_decode_mobile_station_classmark_2() failed");
+lib/nas/5gs/decoder.c:330:            decoded += size;
+lib/nas/5gs/decoder.c:333:            size = ogs_nas_5gs_decode_supported_codec_list(&registration_request->supported_codecs, pkbuf);
+lib/nas/5gs/decoder.c:335:               ogs_error("ogs_nas_5gs_decode_supported_codec_list() failed");
+lib/nas/5gs/decoder.c:340:            decoded += size;
+lib/nas/5gs/decoder.c:343:            size = ogs_nas_5gs_decode_message_container(&registration_request->nas_message_container, pkbuf);
+lib/nas/5gs/decoder.c:345:               ogs_error("ogs_nas_5gs_decode_message_container() failed");
+lib/nas/5gs/decoder.c:350:            decoded += size;
+lib/nas/5gs/decoder.c:353:            size = ogs_nas_5gs_decode_eps_bearer_context_status(&registration_request->eps_bearer_context_status, pkbuf);
+lib/nas/5gs/decoder.c:355:               ogs_error("ogs_nas_5gs_decode_eps_bearer_context_status() failed");
+lib/nas/5gs/decoder.c:360:            decoded += size;
+lib/nas/5gs/decoder.c:363:            size = ogs_nas_5gs_decode_extended_drx_parameters(&registration_request->requested_extended_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:365:               ogs_error("ogs_nas_5gs_decode_extended_drx_parameters() failed");
+lib/nas/5gs/decoder.c:370:            decoded += size;
+lib/nas/5gs/decoder.c:373:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_request->t3324_value, pkbuf);
+lib/nas/5gs/decoder.c:375:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:380:            decoded += size;
+lib/nas/5gs/decoder.c:383:            size = ogs_nas_5gs_decode_ue_radio_capability_id(&registration_request->ue_radio_capability_id, pkbuf);
+lib/nas/5gs/decoder.c:385:               ogs_error("ogs_nas_5gs_decode_ue_radio_capability_id() failed");
+lib/nas/5gs/decoder.c:390:            decoded += size;
+lib/nas/5gs/decoder.c:393:            size = ogs_nas_5gs_decode_mapped_nssai(&registration_request->requested_mapped_nssai, pkbuf);
+lib/nas/5gs/decoder.c:395:               ogs_error("ogs_nas_5gs_decode_mapped_nssai() failed");
+lib/nas/5gs/decoder.c:400:            decoded += size;
+lib/nas/5gs/decoder.c:403:            size = ogs_nas_5gs_decode_additional_information_requested(&registration_request->additional_information_requested, pkbuf);
+lib/nas/5gs/decoder.c:405:               ogs_error("ogs_nas_5gs_decode_additional_information_requested() failed");
+lib/nas/5gs/decoder.c:410:            decoded += size;
+lib/nas/5gs/decoder.c:413:            size = ogs_nas_5gs_decode_wus_assistance_information(&registration_request->requested_wus_assistance_information, pkbuf);
+lib/nas/5gs/decoder.c:415:               ogs_error("ogs_nas_5gs_decode_wus_assistance_information() failed");
+lib/nas/5gs/decoder.c:420:            decoded += size;
+lib/nas/5gs/decoder.c:423:            decoded--;
+lib/nas/5gs/decoder.c:425:            size = ogs_nas_5gs_decode_n5gc_indication(&registration_request->n5gc_indication, pkbuf);
+lib/nas/5gs/decoder.c:427:               ogs_error("ogs_nas_5gs_decode_n5gc_indication() failed");
+lib/nas/5gs/decoder.c:432:            decoded += size;
+lib/nas/5gs/decoder.c:435:            size = ogs_nas_5gs_decode_nb_n1_mode_drx_parameters(&registration_request->requested_nb_n1_mode_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:437:               ogs_error("ogs_nas_5gs_decode_nb_n1_mode_drx_parameters() failed");
+lib/nas/5gs/decoder.c:442:            decoded += size;
+lib/nas/5gs/decoder.c:445:            size = ogs_nas_5gs_decode_ue_request_type(&registration_request->ue_request_type, pkbuf);
+lib/nas/5gs/decoder.c:447:               ogs_error("ogs_nas_5gs_decode_ue_request_type() failed");
+lib/nas/5gs/decoder.c:452:            decoded += size;
+lib/nas/5gs/decoder.c:455:            size = ogs_nas_5gs_decode_paging_restriction(&registration_request->paging_restriction, pkbuf);
+lib/nas/5gs/decoder.c:457:               ogs_error("ogs_nas_5gs_decode_paging_restriction() failed");
+lib/nas/5gs/decoder.c:462:            decoded += size;
+lib/nas/5gs/decoder.c:465:            size = ogs_nas_5gs_decode_service_level_aa_container(&registration_request->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:467:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:472:            decoded += size;
+lib/nas/5gs/decoder.c:475:            size = ogs_nas_5gs_decode_nid(&registration_request->nid, pkbuf);
+lib/nas/5gs/decoder.c:477:               ogs_error("ogs_nas_5gs_decode_nid() failed");
+lib/nas/5gs/decoder.c:482:            decoded += size;
+lib/nas/5gs/decoder.c:485:            size = ogs_nas_5gs_decode_plmn_identity(&registration_request->ms_determined_plmn_with_disaster_condition, pkbuf);
+lib/nas/5gs/decoder.c:487:               ogs_error("ogs_nas_5gs_decode_plmn_identity() failed");
+lib/nas/5gs/decoder.c:492:            decoded += size;
+lib/nas/5gs/decoder.c:495:            size = ogs_nas_5gs_decode_peips_assistance_information(&registration_request->requested_peips_assistance_information, pkbuf);
+lib/nas/5gs/decoder.c:497:               ogs_error("ogs_nas_5gs_decode_peips_assistance_information() failed");
+lib/nas/5gs/decoder.c:502:            decoded += size;
+lib/nas/5gs/decoder.c:505:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_request->requested_t3512_value, pkbuf);
+lib/nas/5gs/decoder.c:507:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:512:            decoded += size;
+lib/nas/5gs/decoder.c:520:    return decoded;
+lib/nas/5gs/decoder.c:523:int ogs_nas_5gs_decode_registration_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:526:    int decoded = 0;
+lib/nas/5gs/decoder.c:531:    size = ogs_nas_5gs_decode_5gs_registration_result(&registration_accept->registration_result, pkbuf);
+lib/nas/5gs/decoder.c:533:        ogs_error("ogs_nas_5gs_decode_5gs_registration_result() failed");
+lib/nas/5gs/decoder.c:537:    decoded += size;
+lib/nas/5gs/decoder.c:548:        decoded += size;
+lib/nas/5gs/decoder.c:552:            size = ogs_nas_5gs_decode_5gs_mobile_identity(&registration_accept->guti, pkbuf);
+lib/nas/5gs/decoder.c:554:               ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:559:            decoded += size;
+lib/nas/5gs/decoder.c:562:            size = ogs_nas_5gs_decode_plmn_list(&registration_accept->equivalent_plmns, pkbuf);
+lib/nas/5gs/decoder.c:564:               ogs_error("ogs_nas_5gs_decode_plmn_list() failed");
+lib/nas/5gs/decoder.c:569:            decoded += size;
+lib/nas/5gs/decoder.c:572:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&registration_accept->tai_list, pkbuf);
+lib/nas/5gs/decoder.c:574:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:579:            decoded += size;
+lib/nas/5gs/decoder.c:582:            size = ogs_nas_5gs_decode_nssai(&registration_accept->allowed_nssai, pkbuf);
+lib/nas/5gs/decoder.c:584:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:589:            decoded += size;
+lib/nas/5gs/decoder.c:592:            size = ogs_nas_5gs_decode_rejected_nssai(&registration_accept->rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:594:               ogs_error("ogs_nas_5gs_decode_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:599:            decoded += size;
+lib/nas/5gs/decoder.c:602:            size = ogs_nas_5gs_decode_nssai(&registration_accept->configured_nssai, pkbuf);
+lib/nas/5gs/decoder.c:604:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:609:            decoded += size;
+lib/nas/5gs/decoder.c:612:            size = ogs_nas_5gs_decode_5gs_network_feature_support(&registration_accept->network_feature_support, pkbuf);
+lib/nas/5gs/decoder.c:614:               ogs_error("ogs_nas_5gs_decode_5gs_network_feature_support() failed");
+lib/nas/5gs/decoder.c:619:            decoded += size;
+lib/nas/5gs/decoder.c:622:            size = ogs_nas_5gs_decode_pdu_session_status(&registration_accept->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:624:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:629:            decoded += size;
+lib/nas/5gs/decoder.c:632:            size = ogs_nas_5gs_decode_pdu_session_reactivation_result(&registration_accept->pdu_session_reactivation_result, pkbuf);
+lib/nas/5gs/decoder.c:634:               ogs_error("ogs_nas_5gs_decode_pdu_session_reactivation_result() failed");
+lib/nas/5gs/decoder.c:639:            decoded += size;
+lib/nas/5gs/decoder.c:642:            size = ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause(&registration_accept->pdu_session_reactivation_result_error_cause, pkbuf);
+lib/nas/5gs/decoder.c:644:               ogs_error("ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause() failed");
+lib/nas/5gs/decoder.c:649:            decoded += size;
+lib/nas/5gs/decoder.c:652:            size = ogs_nas_5gs_decode_ladn_information(&registration_accept->ladn_information, pkbuf);
+lib/nas/5gs/decoder.c:654:               ogs_error("ogs_nas_5gs_decode_ladn_information() failed");
+lib/nas/5gs/decoder.c:659:            decoded += size;
+lib/nas/5gs/decoder.c:662:            decoded--;
+lib/nas/5gs/decoder.c:664:            size = ogs_nas_5gs_decode_mico_indication(&registration_accept->mico_indication, pkbuf);
+lib/nas/5gs/decoder.c:666:               ogs_error("ogs_nas_5gs_decode_mico_indication() failed");
+lib/nas/5gs/decoder.c:671:            decoded += size;
+lib/nas/5gs/decoder.c:674:            decoded--;
+lib/nas/5gs/decoder.c:676:            size = ogs_nas_5gs_decode_network_slicing_indication(&registration_accept->network_slicing_indication, pkbuf);
+lib/nas/5gs/decoder.c:678:               ogs_error("ogs_nas_5gs_decode_network_slicing_indication() failed");
+lib/nas/5gs/decoder.c:683:            decoded += size;
+lib/nas/5gs/decoder.c:686:            size = ogs_nas_5gs_decode_service_area_list(&registration_accept->service_area_list, pkbuf);
+lib/nas/5gs/decoder.c:688:               ogs_error("ogs_nas_5gs_decode_service_area_list() failed");
+lib/nas/5gs/decoder.c:693:            decoded += size;
+lib/nas/5gs/decoder.c:696:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_accept->t3512_value, pkbuf);
+lib/nas/5gs/decoder.c:698:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:703:            decoded += size;
+lib/nas/5gs/decoder.c:706:            size = ogs_nas_5gs_decode_gprs_timer_2(&registration_accept->non_3gpp_de_registration_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:708:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:713:            decoded += size;
+lib/nas/5gs/decoder.c:716:            size = ogs_nas_5gs_decode_gprs_timer_2(&registration_accept->t3502_value, pkbuf);
+lib/nas/5gs/decoder.c:718:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:723:            decoded += size;
+lib/nas/5gs/decoder.c:726:            size = ogs_nas_5gs_decode_emergency_number_list(&registration_accept->emergency_number_list, pkbuf);
+lib/nas/5gs/decoder.c:728:               ogs_error("ogs_nas_5gs_decode_emergency_number_list() failed");
+lib/nas/5gs/decoder.c:733:            decoded += size;
+lib/nas/5gs/decoder.c:736:            size = ogs_nas_5gs_decode_extended_emergency_number_list(&registration_accept->extended_emergency_number_list, pkbuf);
+lib/nas/5gs/decoder.c:738:               ogs_error("ogs_nas_5gs_decode_extended_emergency_number_list() failed");
+lib/nas/5gs/decoder.c:743:            decoded += size;
+lib/nas/5gs/decoder.c:746:            size = ogs_nas_5gs_decode_sor_transparent_container(&registration_accept->sor_transparent_container, pkbuf);
+lib/nas/5gs/decoder.c:748:               ogs_error("ogs_nas_5gs_decode_sor_transparent_container() failed");
+lib/nas/5gs/decoder.c:753:            decoded += size;
+lib/nas/5gs/decoder.c:756:            size = ogs_nas_5gs_decode_eap_message(&registration_accept->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:758:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:763:            decoded += size;
+lib/nas/5gs/decoder.c:766:            decoded--;
+lib/nas/5gs/decoder.c:768:            size = ogs_nas_5gs_decode_nssai_inclusion_mode(&registration_accept->nssai_inclusion_mode, pkbuf);
+lib/nas/5gs/decoder.c:770:               ogs_error("ogs_nas_5gs_decode_nssai_inclusion_mode() failed");
+lib/nas/5gs/decoder.c:775:            decoded += size;
+lib/nas/5gs/decoder.c:778:            size = ogs_nas_5gs_decode_operator_defined_access_category_definitions(&registration_accept->operator_defined_access_category_definitions, pkbuf);
+lib/nas/5gs/decoder.c:780:               ogs_error("ogs_nas_5gs_decode_operator_defined_access_category_definitions() failed");
+lib/nas/5gs/decoder.c:785:            decoded += size;
+lib/nas/5gs/decoder.c:788:            size = ogs_nas_5gs_decode_5gs_drx_parameters(&registration_accept->negotiated_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:790:               ogs_error("ogs_nas_5gs_decode_5gs_drx_parameters() failed");
+lib/nas/5gs/decoder.c:795:            decoded += size;
+lib/nas/5gs/decoder.c:798:            decoded--;
+lib/nas/5gs/decoder.c:800:            size = ogs_nas_5gs_decode_non_3gpp_nw_provided_policies(&registration_accept->non_3gpp_nw_policies, pkbuf);
+lib/nas/5gs/decoder.c:802:               ogs_error("ogs_nas_5gs_decode_non_3gpp_nw_provided_policies() failed");
+lib/nas/5gs/decoder.c:807:            decoded += size;
+lib/nas/5gs/decoder.c:810:            size = ogs_nas_5gs_decode_eps_bearer_context_status(&registration_accept->eps_bearer_context_status, pkbuf);
+lib/nas/5gs/decoder.c:812:               ogs_error("ogs_nas_5gs_decode_eps_bearer_context_status() failed");
+lib/nas/5gs/decoder.c:817:            decoded += size;
+lib/nas/5gs/decoder.c:820:            size = ogs_nas_5gs_decode_extended_drx_parameters(&registration_accept->negotiated_extended_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:822:               ogs_error("ogs_nas_5gs_decode_extended_drx_parameters() failed");
+lib/nas/5gs/decoder.c:827:            decoded += size;
+lib/nas/5gs/decoder.c:830:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_accept->t3447_value, pkbuf);
+lib/nas/5gs/decoder.c:832:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:837:            decoded += size;
+lib/nas/5gs/decoder.c:840:            size = ogs_nas_5gs_decode_gprs_timer_2(&registration_accept->t3448_value, pkbuf);
+lib/nas/5gs/decoder.c:842:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:847:            decoded += size;
+lib/nas/5gs/decoder.c:850:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_accept->t3324_value, pkbuf);
+lib/nas/5gs/decoder.c:852:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:857:            decoded += size;
+lib/nas/5gs/decoder.c:860:            size = ogs_nas_5gs_decode_ue_radio_capability_id(&registration_accept->ue_radio_capability_id, pkbuf);
+lib/nas/5gs/decoder.c:862:               ogs_error("ogs_nas_5gs_decode_ue_radio_capability_id() failed");
+lib/nas/5gs/decoder.c:867:            decoded += size;
+lib/nas/5gs/decoder.c:870:            decoded--;
+lib/nas/5gs/decoder.c:872:            size = ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication(&registration_accept->ue_radio_capability_id_deletion_indication, pkbuf);
+lib/nas/5gs/decoder.c:874:               ogs_error("ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication() failed");
+lib/nas/5gs/decoder.c:879:            decoded += size;
+lib/nas/5gs/decoder.c:882:            size = ogs_nas_5gs_decode_nssai(&registration_accept->pending_nssai, pkbuf);
+lib/nas/5gs/decoder.c:884:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:889:            decoded += size;
+lib/nas/5gs/decoder.c:892:            size = ogs_nas_5gs_decode_ciphering_key_data(&registration_accept->ciphering_key_data, pkbuf);
+lib/nas/5gs/decoder.c:894:               ogs_error("ogs_nas_5gs_decode_ciphering_key_data() failed");
+lib/nas/5gs/decoder.c:899:            decoded += size;
+lib/nas/5gs/decoder.c:902:            size = ogs_nas_5gs_decode_cag_information_list(&registration_accept->cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:904:               ogs_error("ogs_nas_5gs_decode_cag_information_list() failed");
+lib/nas/5gs/decoder.c:909:            decoded += size;
+lib/nas/5gs/decoder.c:912:            size = ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration(&registration_accept->truncated_s_tmsi_configuration, pkbuf);
+lib/nas/5gs/decoder.c:914:               ogs_error("ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration() failed");
+lib/nas/5gs/decoder.c:919:            decoded += size;
+lib/nas/5gs/decoder.c:922:            size = ogs_nas_5gs_decode_wus_assistance_information(&registration_accept->negotiated_wus_assistance_information, pkbuf);
+lib/nas/5gs/decoder.c:924:               ogs_error("ogs_nas_5gs_decode_wus_assistance_information() failed");
+lib/nas/5gs/decoder.c:929:            decoded += size;
+lib/nas/5gs/decoder.c:932:            size = ogs_nas_5gs_decode_nb_n1_mode_drx_parameters(&registration_accept->negotiated_nb_n1_mode_drx_parameters, pkbuf);
+lib/nas/5gs/decoder.c:934:               ogs_error("ogs_nas_5gs_decode_nb_n1_mode_drx_parameters() failed");
+lib/nas/5gs/decoder.c:939:            decoded += size;
+lib/nas/5gs/decoder.c:942:            size = ogs_nas_5gs_decode_extended_rejected_nssai(&registration_accept->extended_rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:944:               ogs_error("ogs_nas_5gs_decode_extended_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:949:            decoded += size;
+lib/nas/5gs/decoder.c:952:            size = ogs_nas_5gs_decode_service_level_aa_container(&registration_accept->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:954:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:959:            decoded += size;
+lib/nas/5gs/decoder.c:962:            size = ogs_nas_5gs_decode_peips_assistance_information(&registration_accept->negotiated_peips_assistance_information, pkbuf);
+lib/nas/5gs/decoder.c:964:               ogs_error("ogs_nas_5gs_decode_peips_assistance_information() failed");
+lib/nas/5gs/decoder.c:969:            decoded += size;
+lib/nas/5gs/decoder.c:973:            size = ogs_nas_5gs_decode_5gs_additional_request_result(&registration_accept->additional_request_result, pkbuf);
+lib/nas/5gs/decoder.c:975:               ogs_error("ogs_nas_5gs_decode_5gs_additional_request_result() failed");
+lib/nas/5gs/decoder.c:980:            decoded += size;
+lib/nas/5gs/decoder.c:984:            size = ogs_nas_5gs_decode_nssrg_information(&registration_accept->nssrg_information, pkbuf);
+lib/nas/5gs/decoder.c:986:               ogs_error("ogs_nas_5gs_decode_nssrg_information() failed");
+lib/nas/5gs/decoder.c:991:            decoded += size;
+lib/nas/5gs/decoder.c:994:            size = ogs_nas_5gs_decode_registration_wait_range(&registration_accept->disaster_roaming_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:996:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:1001:            decoded += size;
+lib/nas/5gs/decoder.c:1004:            size = ogs_nas_5gs_decode_registration_wait_range(&registration_accept->disaster_return_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:1006:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:1011:            decoded += size;
+lib/nas/5gs/decoder.c:1014:            size = ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition(&registration_accept->list_of_plmns_to_be_used_in_disaster_condition, pkbuf);
+lib/nas/5gs/decoder.c:1016:               ogs_error("ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition() failed");
+lib/nas/5gs/decoder.c:1021:            decoded += size;
+lib/nas/5gs/decoder.c:1024:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&registration_accept->forbidden_tai_for_the_list_of_forbidden_tracking_areas_for_roaming, pkbuf);
+lib/nas/5gs/decoder.c:1026:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1031:            decoded += size;
+lib/nas/5gs/decoder.c:1034:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&registration_accept->forbidden_tai_for_the_list_of_forbidden_tracking_areas_forregional_provision_of_service, pkbuf);
+lib/nas/5gs/decoder.c:1036:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1041:            decoded += size;
+lib/nas/5gs/decoder.c:1044:            size = ogs_nas_5gs_decode_extended_cag_information_list(&registration_accept->extended_cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1046:               ogs_error("ogs_nas_5gs_decode_extended_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1051:            decoded += size;
+lib/nas/5gs/decoder.c:1054:            size = ogs_nas_5gs_decode_nsag_information(&registration_accept->nsag_information, pkbuf);
+lib/nas/5gs/decoder.c:1056:               ogs_error("ogs_nas_5gs_decode_nsag_information() failed");
+lib/nas/5gs/decoder.c:1061:            decoded += size;
+lib/nas/5gs/decoder.c:1069:    return decoded;
+lib/nas/5gs/decoder.c:1072:int ogs_nas_5gs_decode_registration_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1075:    int decoded = 0;
+lib/nas/5gs/decoder.c:1089:        decoded += size;
+lib/nas/5gs/decoder.c:1093:            size = ogs_nas_5gs_decode_sor_transparent_container(&registration_complete->sor_transparent_container, pkbuf);
+lib/nas/5gs/decoder.c:1095:               ogs_error("ogs_nas_5gs_decode_sor_transparent_container() failed");
+lib/nas/5gs/decoder.c:1100:            decoded += size;
+lib/nas/5gs/decoder.c:1108:    return decoded;
+lib/nas/5gs/decoder.c:1111:int ogs_nas_5gs_decode_registration_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1114:    int decoded = 0;
+lib/nas/5gs/decoder.c:1119:    size = ogs_nas_5gs_decode_5gmm_cause(&registration_reject->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:1121:        ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:1125:    decoded += size;
+lib/nas/5gs/decoder.c:1136:        decoded += size;
+lib/nas/5gs/decoder.c:1140:            size = ogs_nas_5gs_decode_gprs_timer_2(&registration_reject->t3346_value, pkbuf);
+lib/nas/5gs/decoder.c:1142:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1147:            decoded += size;
+lib/nas/5gs/decoder.c:1150:            size = ogs_nas_5gs_decode_gprs_timer_2(&registration_reject->t3502_value, pkbuf);
+lib/nas/5gs/decoder.c:1152:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1157:            decoded += size;
+lib/nas/5gs/decoder.c:1160:            size = ogs_nas_5gs_decode_eap_message(&registration_reject->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:1162:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:1167:            decoded += size;
+lib/nas/5gs/decoder.c:1170:            size = ogs_nas_5gs_decode_rejected_nssai(&registration_reject->rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1172:               ogs_error("ogs_nas_5gs_decode_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:1177:            decoded += size;
+lib/nas/5gs/decoder.c:1180:            size = ogs_nas_5gs_decode_cag_information_list(&registration_reject->cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1182:               ogs_error("ogs_nas_5gs_decode_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1187:            decoded += size;
+lib/nas/5gs/decoder.c:1190:            size = ogs_nas_5gs_decode_extended_rejected_nssai(&registration_reject->extended_rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1192:               ogs_error("ogs_nas_5gs_decode_extended_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:1197:            decoded += size;
+lib/nas/5gs/decoder.c:1200:            size = ogs_nas_5gs_decode_registration_wait_range(&registration_reject->disaster_return_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:1202:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:1207:            decoded += size;
+lib/nas/5gs/decoder.c:1210:            size = ogs_nas_5gs_decode_extended_cag_information_list(&registration_reject->extended_cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1212:               ogs_error("ogs_nas_5gs_decode_extended_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1217:            decoded += size;
+lib/nas/5gs/decoder.c:1220:            size = ogs_nas_5gs_decode_gprs_timer_3(&registration_reject->lower_bound_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:1222:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:1227:            decoded += size;
+lib/nas/5gs/decoder.c:1230:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&registration_reject->forbidden_tai_for_the_list_of_forbidden_tracking_areas_for_roaming, pkbuf);
+lib/nas/5gs/decoder.c:1232:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1237:            decoded += size;
+lib/nas/5gs/decoder.c:1240:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&registration_reject->forbidden_tai_for_the_list_of_forbidden_tracking_areas_forregional_provision_of_service, pkbuf);
+lib/nas/5gs/decoder.c:1242:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1247:            decoded += size;
+lib/nas/5gs/decoder.c:1255:    return decoded;
+lib/nas/5gs/decoder.c:1258:int ogs_nas_5gs_decode_deregistration_request_from_ue(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1261:    int decoded = 0;
+lib/nas/5gs/decoder.c:1266:    size = ogs_nas_5gs_decode_de_registration_type(&deregistration_request_from_ue->de_registration_type, pkbuf);
+lib/nas/5gs/decoder.c:1268:        ogs_error("ogs_nas_5gs_decode_de_registration_type() failed");
+lib/nas/5gs/decoder.c:1272:    decoded += size;
+lib/nas/5gs/decoder.c:1274:    size = ogs_nas_5gs_decode_5gs_mobile_identity(&deregistration_request_from_ue->mobile_identity, pkbuf);
+lib/nas/5gs/decoder.c:1276:        ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:1280:    decoded += size;
+lib/nas/5gs/decoder.c:1282:    return decoded;
+lib/nas/5gs/decoder.c:1285:int ogs_nas_5gs_decode_deregistration_request_to_ue(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1288:    int decoded = 0;
+lib/nas/5gs/decoder.c:1293:    size = ogs_nas_5gs_decode_de_registration_type(&deregistration_request_to_ue->de_registration_type, pkbuf);
+lib/nas/5gs/decoder.c:1295:        ogs_error("ogs_nas_5gs_decode_de_registration_type() failed");
+lib/nas/5gs/decoder.c:1299:    decoded += size;
+lib/nas/5gs/decoder.c:1310:        decoded += size;
+lib/nas/5gs/decoder.c:1314:            size = ogs_nas_5gs_decode_5gmm_cause(&deregistration_request_to_ue->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:1316:               ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:1321:            decoded += size;
+lib/nas/5gs/decoder.c:1324:            size = ogs_nas_5gs_decode_gprs_timer_2(&deregistration_request_to_ue->t3346_value, pkbuf);
+lib/nas/5gs/decoder.c:1326:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1331:            decoded += size;
+lib/nas/5gs/decoder.c:1334:            size = ogs_nas_5gs_decode_rejected_nssai(&deregistration_request_to_ue->rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1336:               ogs_error("ogs_nas_5gs_decode_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:1341:            decoded += size;
+lib/nas/5gs/decoder.c:1344:            size = ogs_nas_5gs_decode_cag_information_list(&deregistration_request_to_ue->cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1346:               ogs_error("ogs_nas_5gs_decode_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1351:            decoded += size;
+lib/nas/5gs/decoder.c:1354:            size = ogs_nas_5gs_decode_extended_rejected_nssai(&deregistration_request_to_ue->extended_rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1356:               ogs_error("ogs_nas_5gs_decode_extended_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:1361:            decoded += size;
+lib/nas/5gs/decoder.c:1364:            size = ogs_nas_5gs_decode_registration_wait_range(&deregistration_request_to_ue->disaster_return_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:1366:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:1371:            decoded += size;
+lib/nas/5gs/decoder.c:1374:            size = ogs_nas_5gs_decode_extended_cag_information_list(&deregistration_request_to_ue->extended_cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1376:               ogs_error("ogs_nas_5gs_decode_extended_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1381:            decoded += size;
+lib/nas/5gs/decoder.c:1384:            size = ogs_nas_5gs_decode_gprs_timer_3(&deregistration_request_to_ue->lower_bound_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:1386:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:1391:            decoded += size;
+lib/nas/5gs/decoder.c:1394:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&deregistration_request_to_ue->forbidden_tai_for_the_list_of_forbidden_tracking_areas_for_roaming, pkbuf);
+lib/nas/5gs/decoder.c:1396:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1401:            decoded += size;
+lib/nas/5gs/decoder.c:1404:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&deregistration_request_to_ue->forbidden_tai_for_the_list_of_forbidden_tracking_areas_forregional_provision_of_service, pkbuf);
+lib/nas/5gs/decoder.c:1406:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1411:            decoded += size;
+lib/nas/5gs/decoder.c:1419:    return decoded;
+lib/nas/5gs/decoder.c:1422:int ogs_nas_5gs_decode_service_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1425:    int decoded = 0;
+lib/nas/5gs/decoder.c:1430:    size = ogs_nas_5gs_decode_key_set_identifier(&service_request->ngksi, pkbuf);
+lib/nas/5gs/decoder.c:1432:        ogs_error("ogs_nas_5gs_decode_key_set_identifier() failed");
+lib/nas/5gs/decoder.c:1436:    decoded += size;
+lib/nas/5gs/decoder.c:1438:    size = ogs_nas_5gs_decode_5gs_mobile_identity(&service_request->s_tmsi, pkbuf);
+lib/nas/5gs/decoder.c:1440:        ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:1444:    decoded += size;
+lib/nas/5gs/decoder.c:1455:        decoded += size;
+lib/nas/5gs/decoder.c:1459:            size = ogs_nas_5gs_decode_uplink_data_status(&service_request->uplink_data_status, pkbuf);
+lib/nas/5gs/decoder.c:1461:               ogs_error("ogs_nas_5gs_decode_uplink_data_status() failed");
+lib/nas/5gs/decoder.c:1466:            decoded += size;
+lib/nas/5gs/decoder.c:1469:            size = ogs_nas_5gs_decode_pdu_session_status(&service_request->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:1471:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:1476:            decoded += size;
+lib/nas/5gs/decoder.c:1479:            size = ogs_nas_5gs_decode_allowed_pdu_session_status(&service_request->allowed_pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:1481:               ogs_error("ogs_nas_5gs_decode_allowed_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:1486:            decoded += size;
+lib/nas/5gs/decoder.c:1489:            size = ogs_nas_5gs_decode_message_container(&service_request->nas_message_container, pkbuf);
+lib/nas/5gs/decoder.c:1491:               ogs_error("ogs_nas_5gs_decode_message_container() failed");
+lib/nas/5gs/decoder.c:1496:            decoded += size;
+lib/nas/5gs/decoder.c:1499:            size = ogs_nas_5gs_decode_ue_request_type(&service_request->ue_request_type, pkbuf);
+lib/nas/5gs/decoder.c:1501:               ogs_error("ogs_nas_5gs_decode_ue_request_type() failed");
+lib/nas/5gs/decoder.c:1506:            decoded += size;
+lib/nas/5gs/decoder.c:1509:            size = ogs_nas_5gs_decode_paging_restriction(&service_request->paging_restriction, pkbuf);
+lib/nas/5gs/decoder.c:1511:               ogs_error("ogs_nas_5gs_decode_paging_restriction() failed");
+lib/nas/5gs/decoder.c:1516:            decoded += size;
+lib/nas/5gs/decoder.c:1524:    return decoded;
+lib/nas/5gs/decoder.c:1527:int ogs_nas_5gs_decode_service_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1530:    int decoded = 0;
+lib/nas/5gs/decoder.c:1535:    size = ogs_nas_5gs_decode_5gmm_cause(&service_reject->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:1537:        ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:1541:    decoded += size;
+lib/nas/5gs/decoder.c:1552:        decoded += size;
+lib/nas/5gs/decoder.c:1556:            size = ogs_nas_5gs_decode_pdu_session_status(&service_reject->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:1558:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:1563:            decoded += size;
+lib/nas/5gs/decoder.c:1566:            size = ogs_nas_5gs_decode_gprs_timer_2(&service_reject->t3346_value, pkbuf);
+lib/nas/5gs/decoder.c:1568:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1573:            decoded += size;
+lib/nas/5gs/decoder.c:1576:            size = ogs_nas_5gs_decode_eap_message(&service_reject->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:1578:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:1583:            decoded += size;
+lib/nas/5gs/decoder.c:1586:            size = ogs_nas_5gs_decode_gprs_timer_2(&service_reject->t3448_value, pkbuf);
+lib/nas/5gs/decoder.c:1588:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1593:            decoded += size;
+lib/nas/5gs/decoder.c:1596:            size = ogs_nas_5gs_decode_cag_information_list(&service_reject->cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1598:               ogs_error("ogs_nas_5gs_decode_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1603:            decoded += size;
+lib/nas/5gs/decoder.c:1606:            size = ogs_nas_5gs_decode_registration_wait_range(&service_reject->disaster_return_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:1608:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:1613:            decoded += size;
+lib/nas/5gs/decoder.c:1616:            size = ogs_nas_5gs_decode_extended_cag_information_list(&service_reject->extended_cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1618:               ogs_error("ogs_nas_5gs_decode_extended_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1623:            decoded += size;
+lib/nas/5gs/decoder.c:1626:            size = ogs_nas_5gs_decode_gprs_timer_3(&service_reject->lower_bound_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:1628:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:1633:            decoded += size;
+lib/nas/5gs/decoder.c:1636:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&service_reject->forbidden_tai_for_the_list_of_forbidden_tracking_areas_for_roaming, pkbuf);
+lib/nas/5gs/decoder.c:1638:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1643:            decoded += size;
+lib/nas/5gs/decoder.c:1646:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&service_reject->forbidden_tai_for_the_list_of_forbidden_tracking_areas_forregional_provision_of_service, pkbuf);
+lib/nas/5gs/decoder.c:1648:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1653:            decoded += size;
+lib/nas/5gs/decoder.c:1661:    return decoded;
+lib/nas/5gs/decoder.c:1664:int ogs_nas_5gs_decode_service_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1667:    int decoded = 0;
+lib/nas/5gs/decoder.c:1681:        decoded += size;
+lib/nas/5gs/decoder.c:1685:            size = ogs_nas_5gs_decode_pdu_session_status(&service_accept->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:1687:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:1692:            decoded += size;
+lib/nas/5gs/decoder.c:1695:            size = ogs_nas_5gs_decode_pdu_session_reactivation_result(&service_accept->pdu_session_reactivation_result, pkbuf);
+lib/nas/5gs/decoder.c:1697:               ogs_error("ogs_nas_5gs_decode_pdu_session_reactivation_result() failed");
+lib/nas/5gs/decoder.c:1702:            decoded += size;
+lib/nas/5gs/decoder.c:1705:            size = ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause(&service_accept->pdu_session_reactivation_result_error_cause, pkbuf);
+lib/nas/5gs/decoder.c:1707:               ogs_error("ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause() failed");
+lib/nas/5gs/decoder.c:1712:            decoded += size;
+lib/nas/5gs/decoder.c:1715:            size = ogs_nas_5gs_decode_eap_message(&service_accept->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:1717:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:1722:            decoded += size;
+lib/nas/5gs/decoder.c:1725:            size = ogs_nas_5gs_decode_gprs_timer_2(&service_accept->t3448_value, pkbuf);
+lib/nas/5gs/decoder.c:1727:               ogs_error("ogs_nas_5gs_decode_gprs_timer_2() failed");
+lib/nas/5gs/decoder.c:1732:            decoded += size;
+lib/nas/5gs/decoder.c:1735:            size = ogs_nas_5gs_decode_5gs_additional_request_result(&service_accept->additional_request_result, pkbuf);
+lib/nas/5gs/decoder.c:1737:               ogs_error("ogs_nas_5gs_decode_5gs_additional_request_result() failed");
+lib/nas/5gs/decoder.c:1742:            decoded += size;
+lib/nas/5gs/decoder.c:1745:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&service_accept->forbidden_tai_for_the_list_of_forbidden_tracking_areas_for_roaming, pkbuf);
+lib/nas/5gs/decoder.c:1747:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1752:            decoded += size;
+lib/nas/5gs/decoder.c:1755:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&service_accept->forbidden_tai_for_the_list_of_forbidden_tracking_areas_forregional_provision_of_service, pkbuf);
+lib/nas/5gs/decoder.c:1757:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1762:            decoded += size;
+lib/nas/5gs/decoder.c:1770:    return decoded;
+lib/nas/5gs/decoder.c:1773:int ogs_nas_5gs_decode_configuration_update_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:1776:    int decoded = 0;
+lib/nas/5gs/decoder.c:1790:        decoded += size;
+lib/nas/5gs/decoder.c:1794:            decoded--;
+lib/nas/5gs/decoder.c:1796:            size = ogs_nas_5gs_decode_configuration_update_indication(&configuration_update_command->configuration_update_indication, pkbuf);
+lib/nas/5gs/decoder.c:1798:               ogs_error("ogs_nas_5gs_decode_configuration_update_indication() failed");
+lib/nas/5gs/decoder.c:1803:            decoded += size;
+lib/nas/5gs/decoder.c:1806:            size = ogs_nas_5gs_decode_5gs_mobile_identity(&configuration_update_command->guti, pkbuf);
+lib/nas/5gs/decoder.c:1808:               ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:1813:            decoded += size;
+lib/nas/5gs/decoder.c:1816:            size = ogs_nas_5gs_decode_5gs_tracking_area_identity_list(&configuration_update_command->tai_list, pkbuf);
+lib/nas/5gs/decoder.c:1818:               ogs_error("ogs_nas_5gs_decode_5gs_tracking_area_identity_list() failed");
+lib/nas/5gs/decoder.c:1823:            decoded += size;
+lib/nas/5gs/decoder.c:1826:            size = ogs_nas_5gs_decode_nssai(&configuration_update_command->allowed_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1828:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:1833:            decoded += size;
+lib/nas/5gs/decoder.c:1836:            size = ogs_nas_5gs_decode_service_area_list(&configuration_update_command->service_area_list, pkbuf);
+lib/nas/5gs/decoder.c:1838:               ogs_error("ogs_nas_5gs_decode_service_area_list() failed");
+lib/nas/5gs/decoder.c:1843:            decoded += size;
+lib/nas/5gs/decoder.c:1846:            size = ogs_nas_5gs_decode_network_name(&configuration_update_command->full_name_for_network, pkbuf);
+lib/nas/5gs/decoder.c:1848:               ogs_error("ogs_nas_5gs_decode_network_name() failed");
+lib/nas/5gs/decoder.c:1853:            decoded += size;
+lib/nas/5gs/decoder.c:1856:            size = ogs_nas_5gs_decode_network_name(&configuration_update_command->short_name_for_network, pkbuf);
+lib/nas/5gs/decoder.c:1858:               ogs_error("ogs_nas_5gs_decode_network_name() failed");
+lib/nas/5gs/decoder.c:1863:            decoded += size;
+lib/nas/5gs/decoder.c:1866:            size = ogs_nas_5gs_decode_time_zone(&configuration_update_command->local_time_zone, pkbuf);
+lib/nas/5gs/decoder.c:1868:               ogs_error("ogs_nas_5gs_decode_time_zone() failed");
+lib/nas/5gs/decoder.c:1873:            decoded += size;
+lib/nas/5gs/decoder.c:1876:            size = ogs_nas_5gs_decode_time_zone_and_time(&configuration_update_command->universal_time_and_local_time_zone, pkbuf);
+lib/nas/5gs/decoder.c:1878:               ogs_error("ogs_nas_5gs_decode_time_zone_and_time() failed");
+lib/nas/5gs/decoder.c:1883:            decoded += size;
+lib/nas/5gs/decoder.c:1886:            size = ogs_nas_5gs_decode_daylight_saving_time(&configuration_update_command->network_daylight_saving_time, pkbuf);
+lib/nas/5gs/decoder.c:1888:               ogs_error("ogs_nas_5gs_decode_daylight_saving_time() failed");
+lib/nas/5gs/decoder.c:1893:            decoded += size;
+lib/nas/5gs/decoder.c:1896:            size = ogs_nas_5gs_decode_ladn_information(&configuration_update_command->ladn_information, pkbuf);
+lib/nas/5gs/decoder.c:1898:               ogs_error("ogs_nas_5gs_decode_ladn_information() failed");
+lib/nas/5gs/decoder.c:1903:            decoded += size;
+lib/nas/5gs/decoder.c:1906:            decoded--;
+lib/nas/5gs/decoder.c:1908:            size = ogs_nas_5gs_decode_mico_indication(&configuration_update_command->mico_indication, pkbuf);
+lib/nas/5gs/decoder.c:1910:               ogs_error("ogs_nas_5gs_decode_mico_indication() failed");
+lib/nas/5gs/decoder.c:1915:            decoded += size;
+lib/nas/5gs/decoder.c:1918:            decoded--;
+lib/nas/5gs/decoder.c:1920:            size = ogs_nas_5gs_decode_network_slicing_indication(&configuration_update_command->network_slicing_indication, pkbuf);
+lib/nas/5gs/decoder.c:1922:               ogs_error("ogs_nas_5gs_decode_network_slicing_indication() failed");
+lib/nas/5gs/decoder.c:1927:            decoded += size;
+lib/nas/5gs/decoder.c:1930:            size = ogs_nas_5gs_decode_nssai(&configuration_update_command->configured_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1932:               ogs_error("ogs_nas_5gs_decode_nssai() failed");
+lib/nas/5gs/decoder.c:1937:            decoded += size;
+lib/nas/5gs/decoder.c:1940:            size = ogs_nas_5gs_decode_rejected_nssai(&configuration_update_command->rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:1942:               ogs_error("ogs_nas_5gs_decode_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:1947:            decoded += size;
+lib/nas/5gs/decoder.c:1950:            size = ogs_nas_5gs_decode_operator_defined_access_category_definitions(&configuration_update_command->operator_defined_access_category_definitions, pkbuf);
+lib/nas/5gs/decoder.c:1952:               ogs_error("ogs_nas_5gs_decode_operator_defined_access_category_definitions() failed");
+lib/nas/5gs/decoder.c:1957:            decoded += size;
+lib/nas/5gs/decoder.c:1960:            decoded--;
+lib/nas/5gs/decoder.c:1962:            size = ogs_nas_5gs_decode_sms_indication(&configuration_update_command->sms_indication, pkbuf);
+lib/nas/5gs/decoder.c:1964:               ogs_error("ogs_nas_5gs_decode_sms_indication() failed");
+lib/nas/5gs/decoder.c:1969:            decoded += size;
+lib/nas/5gs/decoder.c:1972:            size = ogs_nas_5gs_decode_gprs_timer_3(&configuration_update_command->t3447_value, pkbuf);
+lib/nas/5gs/decoder.c:1974:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:1979:            decoded += size;
+lib/nas/5gs/decoder.c:1982:            size = ogs_nas_5gs_decode_cag_information_list(&configuration_update_command->cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:1984:               ogs_error("ogs_nas_5gs_decode_cag_information_list() failed");
+lib/nas/5gs/decoder.c:1989:            decoded += size;
+lib/nas/5gs/decoder.c:1992:            size = ogs_nas_5gs_decode_ue_radio_capability_id(&configuration_update_command->ue_radio_capability_id, pkbuf);
+lib/nas/5gs/decoder.c:1994:               ogs_error("ogs_nas_5gs_decode_ue_radio_capability_id() failed");
+lib/nas/5gs/decoder.c:1999:            decoded += size;
+lib/nas/5gs/decoder.c:2002:            decoded--;
+lib/nas/5gs/decoder.c:2004:            size = ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication(&configuration_update_command->ue_radio_capability_id_deletion_indication, pkbuf);
+lib/nas/5gs/decoder.c:2006:               ogs_error("ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication() failed");
+lib/nas/5gs/decoder.c:2011:            decoded += size;
+lib/nas/5gs/decoder.c:2014:            size = ogs_nas_5gs_decode_5gs_registration_result(&configuration_update_command->registration_result, pkbuf);
+lib/nas/5gs/decoder.c:2016:               ogs_error("ogs_nas_5gs_decode_5gs_registration_result() failed");
+lib/nas/5gs/decoder.c:2021:            decoded += size;
+lib/nas/5gs/decoder.c:2024:            size = ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration(&configuration_update_command->truncated_s_tmsi_configuration, pkbuf);
+lib/nas/5gs/decoder.c:2026:               ogs_error("ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration() failed");
+lib/nas/5gs/decoder.c:2031:            decoded += size;
+lib/nas/5gs/decoder.c:2034:            decoded--;
+lib/nas/5gs/decoder.c:2036:            size = ogs_nas_5gs_decode_additional_configuration_indication(&configuration_update_command->additional_configuration_indication, pkbuf);
+lib/nas/5gs/decoder.c:2038:               ogs_error("ogs_nas_5gs_decode_additional_configuration_indication() failed");
+lib/nas/5gs/decoder.c:2043:            decoded += size;
+lib/nas/5gs/decoder.c:2046:            size = ogs_nas_5gs_decode_extended_rejected_nssai(&configuration_update_command->extended_rejected_nssai, pkbuf);
+lib/nas/5gs/decoder.c:2048:               ogs_error("ogs_nas_5gs_decode_extended_rejected_nssai() failed");
+lib/nas/5gs/decoder.c:2053:            decoded += size;
+lib/nas/5gs/decoder.c:2056:            size = ogs_nas_5gs_decode_service_level_aa_container(&configuration_update_command->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:2058:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:2063:            decoded += size;
+lib/nas/5gs/decoder.c:2066:            size = ogs_nas_5gs_decode_nssrg_information(&configuration_update_command->nssrg_information, pkbuf);
+lib/nas/5gs/decoder.c:2068:               ogs_error("ogs_nas_5gs_decode_nssrg_information() failed");
+lib/nas/5gs/decoder.c:2073:            decoded += size;
+lib/nas/5gs/decoder.c:2076:            size = ogs_nas_5gs_decode_registration_wait_range(&configuration_update_command->disaster_roaming_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:2078:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:2083:            decoded += size;
+lib/nas/5gs/decoder.c:2086:            size = ogs_nas_5gs_decode_registration_wait_range(&configuration_update_command->disaster_return_wait_range, pkbuf);
+lib/nas/5gs/decoder.c:2088:               ogs_error("ogs_nas_5gs_decode_registration_wait_range() failed");
+lib/nas/5gs/decoder.c:2093:            decoded += size;
+lib/nas/5gs/decoder.c:2096:            size = ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition(&configuration_update_command->list_of_plmns_to_be_used_in_disaster_condition, pkbuf);
+lib/nas/5gs/decoder.c:2098:               ogs_error("ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition() failed");
+lib/nas/5gs/decoder.c:2103:            decoded += size;
+lib/nas/5gs/decoder.c:2106:            size = ogs_nas_5gs_decode_extended_cag_information_list(&configuration_update_command->extended_cag_information_list, pkbuf);
+lib/nas/5gs/decoder.c:2108:               ogs_error("ogs_nas_5gs_decode_extended_cag_information_list() failed");
+lib/nas/5gs/decoder.c:2113:            decoded += size;
+lib/nas/5gs/decoder.c:2116:            size = ogs_nas_5gs_decode_peips_assistance_information(&configuration_update_command->updated_peips_assistance_information, pkbuf);
+lib/nas/5gs/decoder.c:2118:               ogs_error("ogs_nas_5gs_decode_peips_assistance_information() failed");
+lib/nas/5gs/decoder.c:2123:            decoded += size;
+lib/nas/5gs/decoder.c:2126:            size = ogs_nas_5gs_decode_nsag_information(&configuration_update_command->nsag_information, pkbuf);
+lib/nas/5gs/decoder.c:2128:               ogs_error("ogs_nas_5gs_decode_nsag_information() failed");
+lib/nas/5gs/decoder.c:2133:            decoded += size;
+lib/nas/5gs/decoder.c:2136:            decoded--;
+lib/nas/5gs/decoder.c:2138:            size = ogs_nas_5gs_decode_priority_indicator(&configuration_update_command->priority_indicator, pkbuf);
+lib/nas/5gs/decoder.c:2140:               ogs_error("ogs_nas_5gs_decode_priority_indicator() failed");
+lib/nas/5gs/decoder.c:2145:            decoded += size;
+lib/nas/5gs/decoder.c:2153:    return decoded;
+lib/nas/5gs/decoder.c:2156:int ogs_nas_5gs_decode_authentication_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2159:    int decoded = 0;
+lib/nas/5gs/decoder.c:2164:    size = ogs_nas_5gs_decode_key_set_identifier(&authentication_request->ngksi, pkbuf);
+lib/nas/5gs/decoder.c:2166:        ogs_error("ogs_nas_5gs_decode_key_set_identifier() failed");
+lib/nas/5gs/decoder.c:2170:    decoded += size;
+lib/nas/5gs/decoder.c:2172:    size = ogs_nas_5gs_decode_abba(&authentication_request->abba, pkbuf);
+lib/nas/5gs/decoder.c:2174:        ogs_error("ogs_nas_5gs_decode_abba() failed");
+lib/nas/5gs/decoder.c:2178:    decoded += size;
+lib/nas/5gs/decoder.c:2189:        decoded += size;
+lib/nas/5gs/decoder.c:2193:            size = ogs_nas_5gs_decode_authentication_parameter_rand(&authentication_request->authentication_parameter_rand, pkbuf);
+lib/nas/5gs/decoder.c:2195:               ogs_error("ogs_nas_5gs_decode_authentication_parameter_rand() failed");
+lib/nas/5gs/decoder.c:2200:            decoded += size;
+lib/nas/5gs/decoder.c:2203:            size = ogs_nas_5gs_decode_authentication_parameter_autn(&authentication_request->authentication_parameter_autn, pkbuf);
+lib/nas/5gs/decoder.c:2205:               ogs_error("ogs_nas_5gs_decode_authentication_parameter_autn() failed");
+lib/nas/5gs/decoder.c:2210:            decoded += size;
+lib/nas/5gs/decoder.c:2213:            size = ogs_nas_5gs_decode_eap_message(&authentication_request->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:2215:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:2220:            decoded += size;
+lib/nas/5gs/decoder.c:2228:    return decoded;
+lib/nas/5gs/decoder.c:2231:int ogs_nas_5gs_decode_authentication_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2234:    int decoded = 0;
+lib/nas/5gs/decoder.c:2248:        decoded += size;
+lib/nas/5gs/decoder.c:2252:            size = ogs_nas_5gs_decode_authentication_response_parameter(&authentication_response->authentication_response_parameter, pkbuf);
+lib/nas/5gs/decoder.c:2254:               ogs_error("ogs_nas_5gs_decode_authentication_response_parameter() failed");
+lib/nas/5gs/decoder.c:2259:            decoded += size;
+lib/nas/5gs/decoder.c:2262:            size = ogs_nas_5gs_decode_eap_message(&authentication_response->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:2264:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:2269:            decoded += size;
+lib/nas/5gs/decoder.c:2277:    return decoded;
+lib/nas/5gs/decoder.c:2280:int ogs_nas_5gs_decode_authentication_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2283:    int decoded = 0;
+lib/nas/5gs/decoder.c:2297:        decoded += size;
+lib/nas/5gs/decoder.c:2301:            size = ogs_nas_5gs_decode_eap_message(&authentication_reject->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:2303:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:2308:            decoded += size;
+lib/nas/5gs/decoder.c:2316:    return decoded;
+lib/nas/5gs/decoder.c:2319:int ogs_nas_5gs_decode_authentication_failure(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2322:    int decoded = 0;
+lib/nas/5gs/decoder.c:2327:    size = ogs_nas_5gs_decode_5gmm_cause(&authentication_failure->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:2329:        ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:2333:    decoded += size;
+lib/nas/5gs/decoder.c:2344:        decoded += size;
+lib/nas/5gs/decoder.c:2348:            size = ogs_nas_5gs_decode_authentication_failure_parameter(&authentication_failure->authentication_failure_parameter, pkbuf);
+lib/nas/5gs/decoder.c:2350:               ogs_error("ogs_nas_5gs_decode_authentication_failure_parameter() failed");
+lib/nas/5gs/decoder.c:2355:            decoded += size;
+lib/nas/5gs/decoder.c:2363:    return decoded;
+lib/nas/5gs/decoder.c:2366:int ogs_nas_5gs_decode_authentication_result(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2369:    int decoded = 0;
+lib/nas/5gs/decoder.c:2374:    size = ogs_nas_5gs_decode_key_set_identifier(&authentication_result->ngksi, pkbuf);
+lib/nas/5gs/decoder.c:2376:        ogs_error("ogs_nas_5gs_decode_key_set_identifier() failed");
+lib/nas/5gs/decoder.c:2380:    decoded += size;
+lib/nas/5gs/decoder.c:2382:    size = ogs_nas_5gs_decode_eap_message(&authentication_result->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:2384:        ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:2388:    decoded += size;
+lib/nas/5gs/decoder.c:2399:        decoded += size;
+lib/nas/5gs/decoder.c:2403:            size = ogs_nas_5gs_decode_abba(&authentication_result->abba, pkbuf);
+lib/nas/5gs/decoder.c:2405:               ogs_error("ogs_nas_5gs_decode_abba() failed");
+lib/nas/5gs/decoder.c:2410:            decoded += size;
+lib/nas/5gs/decoder.c:2418:    return decoded;
+lib/nas/5gs/decoder.c:2421:int ogs_nas_5gs_decode_identity_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2424:    int decoded = 0;
+lib/nas/5gs/decoder.c:2429:    size = ogs_nas_5gs_decode_5gs_identity_type(&identity_request->identity_type, pkbuf);
+lib/nas/5gs/decoder.c:2431:        ogs_error("ogs_nas_5gs_decode_5gs_identity_type() failed");
+lib/nas/5gs/decoder.c:2435:    decoded += size;
+lib/nas/5gs/decoder.c:2437:    return decoded;
+lib/nas/5gs/decoder.c:2440:int ogs_nas_5gs_decode_identity_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2443:    int decoded = 0;
+lib/nas/5gs/decoder.c:2448:    size = ogs_nas_5gs_decode_5gs_mobile_identity(&identity_response->mobile_identity, pkbuf);
+lib/nas/5gs/decoder.c:2450:        ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:2454:    decoded += size;
+lib/nas/5gs/decoder.c:2456:    return decoded;
+lib/nas/5gs/decoder.c:2459:int ogs_nas_5gs_decode_security_mode_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2462:    int decoded = 0;
+lib/nas/5gs/decoder.c:2467:    size = ogs_nas_5gs_decode_security_algorithms(&security_mode_command->selected_nas_security_algorithms, pkbuf);
+lib/nas/5gs/decoder.c:2469:        ogs_error("ogs_nas_5gs_decode_security_algorithms() failed");
+lib/nas/5gs/decoder.c:2473:    decoded += size;
+lib/nas/5gs/decoder.c:2475:    size = ogs_nas_5gs_decode_key_set_identifier(&security_mode_command->ngksi, pkbuf);
+lib/nas/5gs/decoder.c:2477:        ogs_error("ogs_nas_5gs_decode_key_set_identifier() failed");
+lib/nas/5gs/decoder.c:2481:    decoded += size;
+lib/nas/5gs/decoder.c:2483:    size = ogs_nas_5gs_decode_ue_security_capability(&security_mode_command->replayed_ue_security_capabilities, pkbuf);
+lib/nas/5gs/decoder.c:2485:        ogs_error("ogs_nas_5gs_decode_ue_security_capability() failed");
+lib/nas/5gs/decoder.c:2489:    decoded += size;
+lib/nas/5gs/decoder.c:2500:        decoded += size;
+lib/nas/5gs/decoder.c:2504:            decoded--;
+lib/nas/5gs/decoder.c:2506:            size = ogs_nas_5gs_decode_imeisv_request(&security_mode_command->imeisv_request, pkbuf);
+lib/nas/5gs/decoder.c:2508:               ogs_error("ogs_nas_5gs_decode_imeisv_request() failed");
+lib/nas/5gs/decoder.c:2513:            decoded += size;
+lib/nas/5gs/decoder.c:2516:            size = ogs_nas_5gs_decode_eps_nas_security_algorithms(&security_mode_command->selected_eps_nas_security_algorithms, pkbuf);
+lib/nas/5gs/decoder.c:2518:               ogs_error("ogs_nas_5gs_decode_eps_nas_security_algorithms() failed");
+lib/nas/5gs/decoder.c:2523:            decoded += size;
+lib/nas/5gs/decoder.c:2526:            size = ogs_nas_5gs_decode_additional_5g_security_information(&security_mode_command->additional_security_information, pkbuf);
+lib/nas/5gs/decoder.c:2528:               ogs_error("ogs_nas_5gs_decode_additional_5g_security_information() failed");
+lib/nas/5gs/decoder.c:2533:            decoded += size;
+lib/nas/5gs/decoder.c:2536:            size = ogs_nas_5gs_decode_eap_message(&security_mode_command->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:2538:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:2543:            decoded += size;
+lib/nas/5gs/decoder.c:2546:            size = ogs_nas_5gs_decode_abba(&security_mode_command->abba, pkbuf);
+lib/nas/5gs/decoder.c:2548:               ogs_error("ogs_nas_5gs_decode_abba() failed");
+lib/nas/5gs/decoder.c:2553:            decoded += size;
+lib/nas/5gs/decoder.c:2556:            size = ogs_nas_5gs_decode_s1_ue_security_capability(&security_mode_command->replayed_s1_ue_security_capabilities, pkbuf);
+lib/nas/5gs/decoder.c:2558:               ogs_error("ogs_nas_5gs_decode_s1_ue_security_capability() failed");
+lib/nas/5gs/decoder.c:2563:            decoded += size;
+lib/nas/5gs/decoder.c:2571:    return decoded;
+lib/nas/5gs/decoder.c:2574:int ogs_nas_5gs_decode_security_mode_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2577:    int decoded = 0;
+lib/nas/5gs/decoder.c:2591:        decoded += size;
+lib/nas/5gs/decoder.c:2595:            size = ogs_nas_5gs_decode_5gs_mobile_identity(&security_mode_complete->imeisv, pkbuf);
+lib/nas/5gs/decoder.c:2597:               ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:2602:            decoded += size;
+lib/nas/5gs/decoder.c:2605:            size = ogs_nas_5gs_decode_message_container(&security_mode_complete->nas_message_container, pkbuf);
+lib/nas/5gs/decoder.c:2607:               ogs_error("ogs_nas_5gs_decode_message_container() failed");
+lib/nas/5gs/decoder.c:2612:            decoded += size;
+lib/nas/5gs/decoder.c:2615:            size = ogs_nas_5gs_decode_5gs_mobile_identity(&security_mode_complete->non_imeisv_pei, pkbuf);
+lib/nas/5gs/decoder.c:2617:               ogs_error("ogs_nas_5gs_decode_5gs_mobile_identity() failed");
+lib/nas/5gs/decoder.c:2622:            decoded += size;
+lib/nas/5gs/decoder.c:2630:    return decoded;
+lib/nas/5gs/decoder.c:2633:int ogs_nas_5gs_decode_security_mode_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2636:    int decoded = 0;
+lib/nas/5gs/decoder.c:2641:    size = ogs_nas_5gs_decode_5gmm_cause(&security_mode_reject->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:2643:        ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:2647:    decoded += size;
+lib/nas/5gs/decoder.c:2649:    return decoded;
+lib/nas/5gs/decoder.c:2652:int ogs_nas_5gs_decode_5gmm_status(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2655:    int decoded = 0;
+lib/nas/5gs/decoder.c:2660:    size = ogs_nas_5gs_decode_5gmm_cause(&gmm_status->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:2662:        ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:2666:    decoded += size;
+lib/nas/5gs/decoder.c:2668:    return decoded;
+lib/nas/5gs/decoder.c:2671:int ogs_nas_5gs_decode_notification(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2674:    int decoded = 0;
+lib/nas/5gs/decoder.c:2679:    size = ogs_nas_5gs_decode_access_type(&notification->access_type, pkbuf);
+lib/nas/5gs/decoder.c:2681:        ogs_error("ogs_nas_5gs_decode_access_type() failed");
+lib/nas/5gs/decoder.c:2685:    decoded += size;
+lib/nas/5gs/decoder.c:2687:    return decoded;
+lib/nas/5gs/decoder.c:2690:int ogs_nas_5gs_decode_notification_response(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2693:    int decoded = 0;
+lib/nas/5gs/decoder.c:2707:        decoded += size;
+lib/nas/5gs/decoder.c:2711:            size = ogs_nas_5gs_decode_pdu_session_status(&notification_response->pdu_session_status, pkbuf);
+lib/nas/5gs/decoder.c:2713:               ogs_error("ogs_nas_5gs_decode_pdu_session_status() failed");
+lib/nas/5gs/decoder.c:2718:            decoded += size;
+lib/nas/5gs/decoder.c:2726:    return decoded;
+lib/nas/5gs/decoder.c:2729:int ogs_nas_5gs_decode_ul_nas_transport(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2732:    int decoded = 0;
+lib/nas/5gs/decoder.c:2737:    size = ogs_nas_5gs_decode_payload_container_type(&ul_nas_transport->payload_container_type, pkbuf);
+lib/nas/5gs/decoder.c:2739:        ogs_error("ogs_nas_5gs_decode_payload_container_type() failed");
+lib/nas/5gs/decoder.c:2743:    decoded += size;
+lib/nas/5gs/decoder.c:2745:    size = ogs_nas_5gs_decode_payload_container(&ul_nas_transport->payload_container, pkbuf);
+lib/nas/5gs/decoder.c:2747:        ogs_error("ogs_nas_5gs_decode_payload_container() failed");
+lib/nas/5gs/decoder.c:2751:    decoded += size;
+lib/nas/5gs/decoder.c:2762:        decoded += size;
+lib/nas/5gs/decoder.c:2766:            size = ogs_nas_5gs_decode_pdu_session_identity_2(&ul_nas_transport->pdu_session_id, pkbuf);
+lib/nas/5gs/decoder.c:2768:               ogs_error("ogs_nas_5gs_decode_pdu_session_identity_2() failed");
+lib/nas/5gs/decoder.c:2773:            decoded += size;
+lib/nas/5gs/decoder.c:2776:            size = ogs_nas_5gs_decode_pdu_session_identity_2(&ul_nas_transport->old_pdu_session_id, pkbuf);
+lib/nas/5gs/decoder.c:2778:               ogs_error("ogs_nas_5gs_decode_pdu_session_identity_2() failed");
+lib/nas/5gs/decoder.c:2783:            decoded += size;
+lib/nas/5gs/decoder.c:2786:            decoded--;
+lib/nas/5gs/decoder.c:2788:            size = ogs_nas_5gs_decode_request_type(&ul_nas_transport->request_type, pkbuf);
+lib/nas/5gs/decoder.c:2790:               ogs_error("ogs_nas_5gs_decode_request_type() failed");
+lib/nas/5gs/decoder.c:2795:            decoded += size;
+lib/nas/5gs/decoder.c:2798:            size = ogs_nas_5gs_decode_s_nssai(&ul_nas_transport->s_nssai, pkbuf);
+lib/nas/5gs/decoder.c:2800:               ogs_error("ogs_nas_5gs_decode_s_nssai() failed");
+lib/nas/5gs/decoder.c:2805:            decoded += size;
+lib/nas/5gs/decoder.c:2808:            size = ogs_nas_5gs_decode_dnn(&ul_nas_transport->dnn, pkbuf);
+lib/nas/5gs/decoder.c:2810:               ogs_error("ogs_nas_5gs_decode_dnn() failed");
+lib/nas/5gs/decoder.c:2815:            decoded += size;
+lib/nas/5gs/decoder.c:2818:            size = ogs_nas_5gs_decode_additional_information(&ul_nas_transport->additional_information, pkbuf);
+lib/nas/5gs/decoder.c:2820:               ogs_error("ogs_nas_5gs_decode_additional_information() failed");
+lib/nas/5gs/decoder.c:2825:            decoded += size;
+lib/nas/5gs/decoder.c:2828:            decoded--;
+lib/nas/5gs/decoder.c:2830:            size = ogs_nas_5gs_decode_ma_pdu_session_information(&ul_nas_transport->ma_pdu_session_information, pkbuf);
+lib/nas/5gs/decoder.c:2832:               ogs_error("ogs_nas_5gs_decode_ma_pdu_session_information() failed");
+lib/nas/5gs/decoder.c:2837:            decoded += size;
+lib/nas/5gs/decoder.c:2840:            decoded--;
+lib/nas/5gs/decoder.c:2842:            size = ogs_nas_5gs_decode_release_assistance_indication(&ul_nas_transport->release_assistance_indication, pkbuf);
+lib/nas/5gs/decoder.c:2844:               ogs_error("ogs_nas_5gs_decode_release_assistance_indication() failed");
+lib/nas/5gs/decoder.c:2849:            decoded += size;
+lib/nas/5gs/decoder.c:2857:    return decoded;
+lib/nas/5gs/decoder.c:2860:int ogs_nas_5gs_decode_dl_nas_transport(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2863:    int decoded = 0;
+lib/nas/5gs/decoder.c:2868:    size = ogs_nas_5gs_decode_payload_container_type(&dl_nas_transport->payload_container_type, pkbuf);
+lib/nas/5gs/decoder.c:2870:        ogs_error("ogs_nas_5gs_decode_payload_container_type() failed");
+lib/nas/5gs/decoder.c:2874:    decoded += size;
+lib/nas/5gs/decoder.c:2876:    size = ogs_nas_5gs_decode_payload_container(&dl_nas_transport->payload_container, pkbuf);
+lib/nas/5gs/decoder.c:2878:        ogs_error("ogs_nas_5gs_decode_payload_container() failed");
+lib/nas/5gs/decoder.c:2882:    decoded += size;
+lib/nas/5gs/decoder.c:2893:        decoded += size;
+lib/nas/5gs/decoder.c:2897:            size = ogs_nas_5gs_decode_pdu_session_identity_2(&dl_nas_transport->pdu_session_id, pkbuf);
+lib/nas/5gs/decoder.c:2899:               ogs_error("ogs_nas_5gs_decode_pdu_session_identity_2() failed");
+lib/nas/5gs/decoder.c:2904:            decoded += size;
+lib/nas/5gs/decoder.c:2907:            size = ogs_nas_5gs_decode_additional_information(&dl_nas_transport->additional_information, pkbuf);
+lib/nas/5gs/decoder.c:2909:               ogs_error("ogs_nas_5gs_decode_additional_information() failed");
+lib/nas/5gs/decoder.c:2914:            decoded += size;
+lib/nas/5gs/decoder.c:2917:            size = ogs_nas_5gs_decode_5gmm_cause(&dl_nas_transport->gmm_cause, pkbuf);
+lib/nas/5gs/decoder.c:2919:               ogs_error("ogs_nas_5gs_decode_5gmm_cause() failed");
+lib/nas/5gs/decoder.c:2924:            decoded += size;
+lib/nas/5gs/decoder.c:2927:            size = ogs_nas_5gs_decode_gprs_timer_3(&dl_nas_transport->back_off_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:2929:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:2934:            decoded += size;
+lib/nas/5gs/decoder.c:2937:            size = ogs_nas_5gs_decode_gprs_timer_3(&dl_nas_transport->lower_bound_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:2939:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:2944:            decoded += size;
+lib/nas/5gs/decoder.c:2952:    return decoded;
+lib/nas/5gs/decoder.c:2955:int ogs_nas_5gs_decode_pdu_session_establishment_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:2958:    int decoded = 0;
+lib/nas/5gs/decoder.c:2963:    size = ogs_nas_5gs_decode_integrity_protection_maximum_data_rate(&pdu_session_establishment_request->integrity_protection_maximum_data_rate, pkbuf);
+lib/nas/5gs/decoder.c:2965:        ogs_error("ogs_nas_5gs_decode_integrity_protection_maximum_data_rate() failed");
+lib/nas/5gs/decoder.c:2969:    decoded += size;
+lib/nas/5gs/decoder.c:2980:        decoded += size;
+lib/nas/5gs/decoder.c:2984:            decoded--;
+lib/nas/5gs/decoder.c:2986:            size = ogs_nas_5gs_decode_pdu_session_type(&pdu_session_establishment_request->pdu_session_type, pkbuf);
+lib/nas/5gs/decoder.c:2988:               ogs_error("ogs_nas_5gs_decode_pdu_session_type() failed");
+lib/nas/5gs/decoder.c:2993:            decoded += size;
+lib/nas/5gs/decoder.c:2996:            decoded--;
+lib/nas/5gs/decoder.c:2998:            size = ogs_nas_5gs_decode_ssc_mode(&pdu_session_establishment_request->ssc_mode, pkbuf);
+lib/nas/5gs/decoder.c:3000:               ogs_error("ogs_nas_5gs_decode_ssc_mode() failed");
+lib/nas/5gs/decoder.c:3005:            decoded += size;
+lib/nas/5gs/decoder.c:3008:            size = ogs_nas_5gs_decode_5gsm_capability(&pdu_session_establishment_request->gsm_capability, pkbuf);
+lib/nas/5gs/decoder.c:3010:               ogs_error("ogs_nas_5gs_decode_5gsm_capability() failed");
+lib/nas/5gs/decoder.c:3015:            decoded += size;
+lib/nas/5gs/decoder.c:3018:            size = ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters(&pdu_session_establishment_request->maximum_number_of_supported_packet_filters, pkbuf);
+lib/nas/5gs/decoder.c:3020:               ogs_error("ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters() failed");
+lib/nas/5gs/decoder.c:3025:            decoded += size;
+lib/nas/5gs/decoder.c:3028:            decoded--;
+lib/nas/5gs/decoder.c:3030:            size = ogs_nas_5gs_decode_always_on_pdu_session_requested(&pdu_session_establishment_request->always_on_pdu_session_requested, pkbuf);
+lib/nas/5gs/decoder.c:3032:               ogs_error("ogs_nas_5gs_decode_always_on_pdu_session_requested() failed");
+lib/nas/5gs/decoder.c:3037:            decoded += size;
+lib/nas/5gs/decoder.c:3040:            size = ogs_nas_5gs_decode_sm_pdu_dn_request_container(&pdu_session_establishment_request->sm_pdu_dn_request_container, pkbuf);
+lib/nas/5gs/decoder.c:3042:               ogs_error("ogs_nas_5gs_decode_sm_pdu_dn_request_container() failed");
+lib/nas/5gs/decoder.c:3047:            decoded += size;
+lib/nas/5gs/decoder.c:3050:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_establishment_request->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3052:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3057:            decoded += size;
+lib/nas/5gs/decoder.c:3060:            size = ogs_nas_5gs_decode_ip_header_compression_configuration(&pdu_session_establishment_request->ip_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3062:               ogs_error("ogs_nas_5gs_decode_ip_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3067:            decoded += size;
+lib/nas/5gs/decoder.c:3070:            size = ogs_nas_5gs_decode_ds_tt_ethernet_port_mac_address(&pdu_session_establishment_request->ds_tt_ethernet_port_mac_address, pkbuf);
+lib/nas/5gs/decoder.c:3072:               ogs_error("ogs_nas_5gs_decode_ds_tt_ethernet_port_mac_address() failed");
+lib/nas/5gs/decoder.c:3077:            decoded += size;
+lib/nas/5gs/decoder.c:3080:            size = ogs_nas_5gs_decode_ue_ds_tt_residence_time(&pdu_session_establishment_request->ue_ds_tt_residence_time, pkbuf);
+lib/nas/5gs/decoder.c:3082:               ogs_error("ogs_nas_5gs_decode_ue_ds_tt_residence_time() failed");
+lib/nas/5gs/decoder.c:3087:            decoded += size;
+lib/nas/5gs/decoder.c:3090:            size = ogs_nas_5gs_decode_port_management_information_container(&pdu_session_establishment_request->port_management_information_container, pkbuf);
+lib/nas/5gs/decoder.c:3092:               ogs_error("ogs_nas_5gs_decode_port_management_information_container() failed");
+lib/nas/5gs/decoder.c:3097:            decoded += size;
+lib/nas/5gs/decoder.c:3100:            size = ogs_nas_5gs_decode_ethernet_header_compression_configuration(&pdu_session_establishment_request->ethernet_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3102:               ogs_error("ogs_nas_5gs_decode_ethernet_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3107:            decoded += size;
+lib/nas/5gs/decoder.c:3110:            size = ogs_nas_5gs_decode_pdu_address(&pdu_session_establishment_request->suggested_interface_identifier, pkbuf);
+lib/nas/5gs/decoder.c:3112:               ogs_error("ogs_nas_5gs_decode_pdu_address() failed");
+lib/nas/5gs/decoder.c:3117:            decoded += size;
+lib/nas/5gs/decoder.c:3120:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_establishment_request->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:3122:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:3127:            decoded += size;
+lib/nas/5gs/decoder.c:3130:            size = ogs_nas_5gs_decode_requested_mbs_container(&pdu_session_establishment_request->requested_mbs_container, pkbuf);
+lib/nas/5gs/decoder.c:3132:               ogs_error("ogs_nas_5gs_decode_requested_mbs_container() failed");
+lib/nas/5gs/decoder.c:3137:            decoded += size;
+lib/nas/5gs/decoder.c:3140:            size = ogs_nas_5gs_decode_pdu_session_pair_id(&pdu_session_establishment_request->pdu_session_pair_id, pkbuf);
+lib/nas/5gs/decoder.c:3142:               ogs_error("ogs_nas_5gs_decode_pdu_session_pair_id() failed");
+lib/nas/5gs/decoder.c:3147:            decoded += size;
+lib/nas/5gs/decoder.c:3150:            size = ogs_nas_5gs_decode_rsn(&pdu_session_establishment_request->rsn, pkbuf);
+lib/nas/5gs/decoder.c:3152:               ogs_error("ogs_nas_5gs_decode_rsn() failed");
+lib/nas/5gs/decoder.c:3157:            decoded += size;
+lib/nas/5gs/decoder.c:3165:    return decoded;
+lib/nas/5gs/decoder.c:3168:int ogs_nas_5gs_decode_pdu_session_establishment_accept(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3171:    int decoded = 0;
+lib/nas/5gs/decoder.c:3176:    size = ogs_nas_5gs_decode_pdu_session_type(&pdu_session_establishment_accept->selected_pdu_session_type, pkbuf);
+lib/nas/5gs/decoder.c:3178:        ogs_error("ogs_nas_5gs_decode_pdu_session_type() failed");
+lib/nas/5gs/decoder.c:3182:    decoded += size;
+lib/nas/5gs/decoder.c:3184:    size = ogs_nas_5gs_decode_qos_rules(&pdu_session_establishment_accept->authorized_qos_rules, pkbuf);
+lib/nas/5gs/decoder.c:3186:        ogs_error("ogs_nas_5gs_decode_qos_rules() failed");
+lib/nas/5gs/decoder.c:3190:    decoded += size;
+lib/nas/5gs/decoder.c:3192:    size = ogs_nas_5gs_decode_session_ambr(&pdu_session_establishment_accept->session_ambr, pkbuf);
+lib/nas/5gs/decoder.c:3194:        ogs_error("ogs_nas_5gs_decode_session_ambr() failed");
+lib/nas/5gs/decoder.c:3198:    decoded += size;
+lib/nas/5gs/decoder.c:3209:        decoded += size;
+lib/nas/5gs/decoder.c:3213:            size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_establishment_accept->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:3215:               ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:3220:            decoded += size;
+lib/nas/5gs/decoder.c:3223:            size = ogs_nas_5gs_decode_pdu_address(&pdu_session_establishment_accept->pdu_address, pkbuf);
+lib/nas/5gs/decoder.c:3225:               ogs_error("ogs_nas_5gs_decode_pdu_address() failed");
+lib/nas/5gs/decoder.c:3230:            decoded += size;
+lib/nas/5gs/decoder.c:3233:            size = ogs_nas_5gs_decode_gprs_timer(&pdu_session_establishment_accept->rq_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:3235:               ogs_error("ogs_nas_5gs_decode_gprs_timer() failed");
+lib/nas/5gs/decoder.c:3240:            decoded += size;
+lib/nas/5gs/decoder.c:3243:            size = ogs_nas_5gs_decode_s_nssai(&pdu_session_establishment_accept->s_nssai, pkbuf);
+lib/nas/5gs/decoder.c:3245:               ogs_error("ogs_nas_5gs_decode_s_nssai() failed");
+lib/nas/5gs/decoder.c:3250:            decoded += size;
+lib/nas/5gs/decoder.c:3253:            decoded--;
+lib/nas/5gs/decoder.c:3255:            size = ogs_nas_5gs_decode_always_on_pdu_session_indication(&pdu_session_establishment_accept->always_on_pdu_session_indication, pkbuf);
+lib/nas/5gs/decoder.c:3257:               ogs_error("ogs_nas_5gs_decode_always_on_pdu_session_indication() failed");
+lib/nas/5gs/decoder.c:3262:            decoded += size;
+lib/nas/5gs/decoder.c:3265:            size = ogs_nas_5gs_decode_mapped_eps_bearer_contexts(&pdu_session_establishment_accept->mapped_eps_bearer_contexts, pkbuf);
+lib/nas/5gs/decoder.c:3267:               ogs_error("ogs_nas_5gs_decode_mapped_eps_bearer_contexts() failed");
+lib/nas/5gs/decoder.c:3272:            decoded += size;
+lib/nas/5gs/decoder.c:3275:            size = ogs_nas_5gs_decode_eap_message(&pdu_session_establishment_accept->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:3277:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:3282:            decoded += size;
+lib/nas/5gs/decoder.c:3285:            size = ogs_nas_5gs_decode_qos_flow_descriptions(&pdu_session_establishment_accept->authorized_qos_flow_descriptions, pkbuf);
+lib/nas/5gs/decoder.c:3287:               ogs_error("ogs_nas_5gs_decode_qos_flow_descriptions() failed");
+lib/nas/5gs/decoder.c:3292:            decoded += size;
+lib/nas/5gs/decoder.c:3295:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_establishment_accept->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3297:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3302:            decoded += size;
+lib/nas/5gs/decoder.c:3305:            size = ogs_nas_5gs_decode_dnn(&pdu_session_establishment_accept->dnn, pkbuf);
+lib/nas/5gs/decoder.c:3307:               ogs_error("ogs_nas_5gs_decode_dnn() failed");
+lib/nas/5gs/decoder.c:3312:            decoded += size;
+lib/nas/5gs/decoder.c:3315:            size = ogs_nas_5gs_decode_5gsm_network_feature_support(&pdu_session_establishment_accept->gsm_network_feature_support, pkbuf);
+lib/nas/5gs/decoder.c:3317:               ogs_error("ogs_nas_5gs_decode_5gsm_network_feature_support() failed");
+lib/nas/5gs/decoder.c:3322:            decoded += size;
+lib/nas/5gs/decoder.c:3325:            size = ogs_nas_5gs_decode_serving_plmn_rate_control(&pdu_session_establishment_accept->serving_plmn_rate_control, pkbuf);
+lib/nas/5gs/decoder.c:3327:               ogs_error("ogs_nas_5gs_decode_serving_plmn_rate_control() failed");
+lib/nas/5gs/decoder.c:3332:            decoded += size;
+lib/nas/5gs/decoder.c:3335:            size = ogs_nas_5gs_decode_atsss_container(&pdu_session_establishment_accept->atsss_container, pkbuf);
+lib/nas/5gs/decoder.c:3337:               ogs_error("ogs_nas_5gs_decode_atsss_container() failed");
+lib/nas/5gs/decoder.c:3342:            decoded += size;
+lib/nas/5gs/decoder.c:3345:            decoded--;
+lib/nas/5gs/decoder.c:3347:            size = ogs_nas_5gs_decode_control_plane_only_indication(&pdu_session_establishment_accept->control_plane_only_indication, pkbuf);
+lib/nas/5gs/decoder.c:3349:               ogs_error("ogs_nas_5gs_decode_control_plane_only_indication() failed");
+lib/nas/5gs/decoder.c:3354:            decoded += size;
+lib/nas/5gs/decoder.c:3357:            size = ogs_nas_5gs_decode_ip_header_compression_configuration(&pdu_session_establishment_accept->ip_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3359:               ogs_error("ogs_nas_5gs_decode_ip_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3364:            decoded += size;
+lib/nas/5gs/decoder.c:3367:            size = ogs_nas_5gs_decode_ethernet_header_compression_configuration(&pdu_session_establishment_accept->ethernet_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3369:               ogs_error("ogs_nas_5gs_decode_ethernet_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3374:            decoded += size;
+lib/nas/5gs/decoder.c:3377:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_establishment_accept->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:3379:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:3384:            decoded += size;
+lib/nas/5gs/decoder.c:3387:            size = ogs_nas_5gs_decode_received_mbs_container(&pdu_session_establishment_accept->received_mbs_container, pkbuf);
+lib/nas/5gs/decoder.c:3389:               ogs_error("ogs_nas_5gs_decode_received_mbs_container() failed");
+lib/nas/5gs/decoder.c:3394:            decoded += size;
+lib/nas/5gs/decoder.c:3402:    return decoded;
+lib/nas/5gs/decoder.c:3405:int ogs_nas_5gs_decode_pdu_session_establishment_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3408:    int decoded = 0;
+lib/nas/5gs/decoder.c:3413:    size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_establishment_reject->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:3415:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:3419:    decoded += size;
+lib/nas/5gs/decoder.c:3430:        decoded += size;
+lib/nas/5gs/decoder.c:3434:            size = ogs_nas_5gs_decode_gprs_timer_3(&pdu_session_establishment_reject->back_off_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:3436:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:3441:            decoded += size;
+lib/nas/5gs/decoder.c:3444:            decoded--;
+lib/nas/5gs/decoder.c:3446:            size = ogs_nas_5gs_decode_allowed_ssc_mode(&pdu_session_establishment_reject->allowed_ssc_mode, pkbuf);
+lib/nas/5gs/decoder.c:3448:               ogs_error("ogs_nas_5gs_decode_allowed_ssc_mode() failed");
+lib/nas/5gs/decoder.c:3453:            decoded += size;
+lib/nas/5gs/decoder.c:3456:            size = ogs_nas_5gs_decode_eap_message(&pdu_session_establishment_reject->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:3458:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:3463:            decoded += size;
+lib/nas/5gs/decoder.c:3466:            size = ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator(&pdu_session_establishment_reject->gsm_congestion_re_attempt_indicator, pkbuf);
+lib/nas/5gs/decoder.c:3468:               ogs_error("ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator() failed");
+lib/nas/5gs/decoder.c:3473:            decoded += size;
+lib/nas/5gs/decoder.c:3476:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_establishment_reject->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3478:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3483:            decoded += size;
+lib/nas/5gs/decoder.c:3486:            size = ogs_nas_5gs_decode_re_attempt_indicator(&pdu_session_establishment_reject->re_attempt_indicator, pkbuf);
+lib/nas/5gs/decoder.c:3488:               ogs_error("ogs_nas_5gs_decode_re_attempt_indicator() failed");
+lib/nas/5gs/decoder.c:3493:            decoded += size;
+lib/nas/5gs/decoder.c:3496:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_establishment_reject->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:3498:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:3503:            decoded += size;
+lib/nas/5gs/decoder.c:3511:    return decoded;
+lib/nas/5gs/decoder.c:3514:int ogs_nas_5gs_decode_pdu_session_authentication_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3517:    int decoded = 0;
+lib/nas/5gs/decoder.c:3522:    size = ogs_nas_5gs_decode_eap_message(&pdu_session_authentication_command->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:3524:        ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:3528:    decoded += size;
+lib/nas/5gs/decoder.c:3539:        decoded += size;
+lib/nas/5gs/decoder.c:3543:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_authentication_command->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3545:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3550:            decoded += size;
+lib/nas/5gs/decoder.c:3558:    return decoded;
+lib/nas/5gs/decoder.c:3561:int ogs_nas_5gs_decode_pdu_session_authentication_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3564:    int decoded = 0;
+lib/nas/5gs/decoder.c:3569:    size = ogs_nas_5gs_decode_eap_message(&pdu_session_authentication_complete->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:3571:        ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:3575:    decoded += size;
+lib/nas/5gs/decoder.c:3586:        decoded += size;
+lib/nas/5gs/decoder.c:3590:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_authentication_complete->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3592:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3597:            decoded += size;
+lib/nas/5gs/decoder.c:3605:    return decoded;
+lib/nas/5gs/decoder.c:3608:int ogs_nas_5gs_decode_pdu_session_authentication_result(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3611:    int decoded = 0;
+lib/nas/5gs/decoder.c:3625:        decoded += size;
+lib/nas/5gs/decoder.c:3629:            size = ogs_nas_5gs_decode_eap_message(&pdu_session_authentication_result->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:3631:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:3636:            decoded += size;
+lib/nas/5gs/decoder.c:3639:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_authentication_result->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3641:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3646:            decoded += size;
+lib/nas/5gs/decoder.c:3654:    return decoded;
+lib/nas/5gs/decoder.c:3657:int ogs_nas_5gs_decode_pdu_session_modification_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3660:    int decoded = 0;
+lib/nas/5gs/decoder.c:3674:        decoded += size;
+lib/nas/5gs/decoder.c:3678:            size = ogs_nas_5gs_decode_5gsm_capability(&pdu_session_modification_request->gsm_capability, pkbuf);
+lib/nas/5gs/decoder.c:3680:               ogs_error("ogs_nas_5gs_decode_5gsm_capability() failed");
+lib/nas/5gs/decoder.c:3685:            decoded += size;
+lib/nas/5gs/decoder.c:3688:            size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_modification_request->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:3690:               ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:3695:            decoded += size;
+lib/nas/5gs/decoder.c:3698:            size = ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters(&pdu_session_modification_request->maximum_number_of_supported_packet_filters, pkbuf);
+lib/nas/5gs/decoder.c:3700:               ogs_error("ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters() failed");
+lib/nas/5gs/decoder.c:3705:            decoded += size;
+lib/nas/5gs/decoder.c:3708:            decoded--;
+lib/nas/5gs/decoder.c:3710:            size = ogs_nas_5gs_decode_always_on_pdu_session_requested(&pdu_session_modification_request->always_on_pdu_session_requested, pkbuf);
+lib/nas/5gs/decoder.c:3712:               ogs_error("ogs_nas_5gs_decode_always_on_pdu_session_requested() failed");
+lib/nas/5gs/decoder.c:3717:            decoded += size;
+lib/nas/5gs/decoder.c:3720:            size = ogs_nas_5gs_decode_integrity_protection_maximum_data_rate(&pdu_session_modification_request->integrity_protection_maximum_data_rate, pkbuf);
+lib/nas/5gs/decoder.c:3722:               ogs_error("ogs_nas_5gs_decode_integrity_protection_maximum_data_rate() failed");
+lib/nas/5gs/decoder.c:3727:            decoded += size;
+lib/nas/5gs/decoder.c:3730:            size = ogs_nas_5gs_decode_qos_rules(&pdu_session_modification_request->requested_qos_rules, pkbuf);
+lib/nas/5gs/decoder.c:3732:               ogs_error("ogs_nas_5gs_decode_qos_rules() failed");
+lib/nas/5gs/decoder.c:3737:            decoded += size;
+lib/nas/5gs/decoder.c:3740:            size = ogs_nas_5gs_decode_qos_flow_descriptions(&pdu_session_modification_request->requested_qos_flow_descriptions, pkbuf);
+lib/nas/5gs/decoder.c:3742:               ogs_error("ogs_nas_5gs_decode_qos_flow_descriptions() failed");
+lib/nas/5gs/decoder.c:3747:            decoded += size;
+lib/nas/5gs/decoder.c:3750:            size = ogs_nas_5gs_decode_mapped_eps_bearer_contexts(&pdu_session_modification_request->mapped_eps_bearer_contexts, pkbuf);
+lib/nas/5gs/decoder.c:3752:               ogs_error("ogs_nas_5gs_decode_mapped_eps_bearer_contexts() failed");
+lib/nas/5gs/decoder.c:3757:            decoded += size;
+lib/nas/5gs/decoder.c:3760:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_modification_request->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3762:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3767:            decoded += size;
+lib/nas/5gs/decoder.c:3770:            size = ogs_nas_5gs_decode_port_management_information_container(&pdu_session_modification_request->port_management_information_container, pkbuf);
+lib/nas/5gs/decoder.c:3772:               ogs_error("ogs_nas_5gs_decode_port_management_information_container() failed");
+lib/nas/5gs/decoder.c:3777:            decoded += size;
+lib/nas/5gs/decoder.c:3780:            size = ogs_nas_5gs_decode_header_compression_configuration(&pdu_session_modification_request->ip_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3782:               ogs_error("ogs_nas_5gs_decode_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3787:            decoded += size;
+lib/nas/5gs/decoder.c:3790:            size = ogs_nas_5gs_decode_ethernet_header_compression_configuration(&pdu_session_modification_request->ethernet_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:3792:               ogs_error("ogs_nas_5gs_decode_ethernet_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:3797:            decoded += size;
+lib/nas/5gs/decoder.c:3800:            size = ogs_nas_5gs_decode_requested_mbs_container(&pdu_session_modification_request->requested_mbs_container, pkbuf);
+lib/nas/5gs/decoder.c:3802:               ogs_error("ogs_nas_5gs_decode_requested_mbs_container() failed");
+lib/nas/5gs/decoder.c:3807:            decoded += size;
+lib/nas/5gs/decoder.c:3810:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_modification_request->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:3812:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:3817:            decoded += size;
+lib/nas/5gs/decoder.c:3825:    return decoded;
+lib/nas/5gs/decoder.c:3828:int ogs_nas_5gs_decode_pdu_session_modification_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3831:    int decoded = 0;
+lib/nas/5gs/decoder.c:3836:    size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_modification_reject->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:3838:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:3842:    decoded += size;
+lib/nas/5gs/decoder.c:3853:        decoded += size;
+lib/nas/5gs/decoder.c:3857:            size = ogs_nas_5gs_decode_gprs_timer_3(&pdu_session_modification_reject->back_off_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:3859:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:3864:            decoded += size;
+lib/nas/5gs/decoder.c:3867:            size = ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator(&pdu_session_modification_reject->gsm_congestion_re_attempt_indicator, pkbuf);
+lib/nas/5gs/decoder.c:3869:               ogs_error("ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator() failed");
+lib/nas/5gs/decoder.c:3874:            decoded += size;
+lib/nas/5gs/decoder.c:3877:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_modification_reject->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:3879:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:3884:            decoded += size;
+lib/nas/5gs/decoder.c:3887:            size = ogs_nas_5gs_decode_re_attempt_indicator(&pdu_session_modification_reject->re_attempt_indicator, pkbuf);
+lib/nas/5gs/decoder.c:3889:               ogs_error("ogs_nas_5gs_decode_re_attempt_indicator() failed");
+lib/nas/5gs/decoder.c:3894:            decoded += size;
+lib/nas/5gs/decoder.c:3902:    return decoded;
+lib/nas/5gs/decoder.c:3905:int ogs_nas_5gs_decode_pdu_session_modification_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:3908:    int decoded = 0;
+lib/nas/5gs/decoder.c:3922:        decoded += size;
+lib/nas/5gs/decoder.c:3926:            size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_modification_command->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:3928:               ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:3933:            decoded += size;
+lib/nas/5gs/decoder.c:3936:            size = ogs_nas_5gs_decode_session_ambr(&pdu_session_modification_command->session_ambr, pkbuf);
+lib/nas/5gs/decoder.c:3938:               ogs_error("ogs_nas_5gs_decode_session_ambr() failed");
+lib/nas/5gs/decoder.c:3943:            decoded += size;
+lib/nas/5gs/decoder.c:3946:            size = ogs_nas_5gs_decode_gprs_timer(&pdu_session_modification_command->rq_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:3948:               ogs_error("ogs_nas_5gs_decode_gprs_timer() failed");
+lib/nas/5gs/decoder.c:3953:            decoded += size;
+lib/nas/5gs/decoder.c:3956:            decoded--;
+lib/nas/5gs/decoder.c:3958:            size = ogs_nas_5gs_decode_always_on_pdu_session_indication(&pdu_session_modification_command->always_on_pdu_session_indication, pkbuf);
+lib/nas/5gs/decoder.c:3960:               ogs_error("ogs_nas_5gs_decode_always_on_pdu_session_indication() failed");
+lib/nas/5gs/decoder.c:3965:            decoded += size;
+lib/nas/5gs/decoder.c:3968:            size = ogs_nas_5gs_decode_qos_rules(&pdu_session_modification_command->authorized_qos_rules, pkbuf);
+lib/nas/5gs/decoder.c:3970:               ogs_error("ogs_nas_5gs_decode_qos_rules() failed");
+lib/nas/5gs/decoder.c:3975:            decoded += size;
+lib/nas/5gs/decoder.c:3978:            size = ogs_nas_5gs_decode_mapped_eps_bearer_contexts(&pdu_session_modification_command->mapped_eps_bearer_contexts, pkbuf);
+lib/nas/5gs/decoder.c:3980:               ogs_error("ogs_nas_5gs_decode_mapped_eps_bearer_contexts() failed");
+lib/nas/5gs/decoder.c:3985:            decoded += size;
+lib/nas/5gs/decoder.c:3988:            size = ogs_nas_5gs_decode_qos_flow_descriptions(&pdu_session_modification_command->authorized_qos_flow_descriptions, pkbuf);
+lib/nas/5gs/decoder.c:3990:               ogs_error("ogs_nas_5gs_decode_qos_flow_descriptions() failed");
+lib/nas/5gs/decoder.c:3995:            decoded += size;
+lib/nas/5gs/decoder.c:3998:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_modification_command->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4000:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4005:            decoded += size;
+lib/nas/5gs/decoder.c:4008:            size = ogs_nas_5gs_decode_atsss_container(&pdu_session_modification_command->atsss_container, pkbuf);
+lib/nas/5gs/decoder.c:4010:               ogs_error("ogs_nas_5gs_decode_atsss_container() failed");
+lib/nas/5gs/decoder.c:4015:            decoded += size;
+lib/nas/5gs/decoder.c:4018:            size = ogs_nas_5gs_decode_ip_header_compression_configuration(&pdu_session_modification_command->ip_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:4020:               ogs_error("ogs_nas_5gs_decode_ip_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:4025:            decoded += size;
+lib/nas/5gs/decoder.c:4028:            size = ogs_nas_5gs_decode_port_management_information_container(&pdu_session_modification_command->port_management_information_container, pkbuf);
+lib/nas/5gs/decoder.c:4030:               ogs_error("ogs_nas_5gs_decode_port_management_information_container() failed");
+lib/nas/5gs/decoder.c:4035:            decoded += size;
+lib/nas/5gs/decoder.c:4038:            size = ogs_nas_5gs_decode_serving_plmn_rate_control(&pdu_session_modification_command->serving_plmn_rate_control, pkbuf);
+lib/nas/5gs/decoder.c:4040:               ogs_error("ogs_nas_5gs_decode_serving_plmn_rate_control() failed");
+lib/nas/5gs/decoder.c:4045:            decoded += size;
+lib/nas/5gs/decoder.c:4048:            size = ogs_nas_5gs_decode_ethernet_header_compression_configuration(&pdu_session_modification_command->ethernet_header_compression_configuration, pkbuf);
+lib/nas/5gs/decoder.c:4050:               ogs_error("ogs_nas_5gs_decode_ethernet_header_compression_configuration() failed");
+lib/nas/5gs/decoder.c:4055:            decoded += size;
+lib/nas/5gs/decoder.c:4058:            size = ogs_nas_5gs_decode_received_mbs_container(&pdu_session_modification_command->received_mbs_container, pkbuf);
+lib/nas/5gs/decoder.c:4060:               ogs_error("ogs_nas_5gs_decode_received_mbs_container() failed");
+lib/nas/5gs/decoder.c:4065:            decoded += size;
+lib/nas/5gs/decoder.c:4068:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_modification_command->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:4070:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:4075:            decoded += size;
+lib/nas/5gs/decoder.c:4083:    return decoded;
+lib/nas/5gs/decoder.c:4086:int ogs_nas_5gs_decode_pdu_session_modification_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4089:    int decoded = 0;
+lib/nas/5gs/decoder.c:4103:        decoded += size;
+lib/nas/5gs/decoder.c:4107:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_modification_complete->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4109:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4114:            decoded += size;
+lib/nas/5gs/decoder.c:4117:            size = ogs_nas_5gs_decode_port_management_information_container(&pdu_session_modification_complete->port_management_information_container, pkbuf);
+lib/nas/5gs/decoder.c:4119:               ogs_error("ogs_nas_5gs_decode_port_management_information_container() failed");
+lib/nas/5gs/decoder.c:4124:            decoded += size;
+lib/nas/5gs/decoder.c:4132:    return decoded;
+lib/nas/5gs/decoder.c:4135:int ogs_nas_5gs_decode_pdu_session_modification_command_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4138:    int decoded = 0;
+lib/nas/5gs/decoder.c:4143:    size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_modification_command_reject->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4145:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4149:    decoded += size;
+lib/nas/5gs/decoder.c:4160:        decoded += size;
+lib/nas/5gs/decoder.c:4164:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_modification_command_reject->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4166:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4171:            decoded += size;
+lib/nas/5gs/decoder.c:4179:    return decoded;
+lib/nas/5gs/decoder.c:4182:int ogs_nas_5gs_decode_pdu_session_release_request(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4185:    int decoded = 0;
+lib/nas/5gs/decoder.c:4199:        decoded += size;
+lib/nas/5gs/decoder.c:4203:            size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_release_request->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4205:               ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4210:            decoded += size;
+lib/nas/5gs/decoder.c:4213:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_release_request->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4215:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4220:            decoded += size;
+lib/nas/5gs/decoder.c:4228:    return decoded;
+lib/nas/5gs/decoder.c:4231:int ogs_nas_5gs_decode_pdu_session_release_reject(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4234:    int decoded = 0;
+lib/nas/5gs/decoder.c:4239:    size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_release_reject->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4241:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4245:    decoded += size;
+lib/nas/5gs/decoder.c:4256:        decoded += size;
+lib/nas/5gs/decoder.c:4260:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_release_reject->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4262:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4267:            decoded += size;
+lib/nas/5gs/decoder.c:4275:    return decoded;
+lib/nas/5gs/decoder.c:4278:int ogs_nas_5gs_decode_pdu_session_release_command(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4281:    int decoded = 0;
+lib/nas/5gs/decoder.c:4286:    size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_release_command->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4288:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4292:    decoded += size;
+lib/nas/5gs/decoder.c:4303:        decoded += size;
+lib/nas/5gs/decoder.c:4307:            size = ogs_nas_5gs_decode_gprs_timer_3(&pdu_session_release_command->back_off_timer_value, pkbuf);
+lib/nas/5gs/decoder.c:4309:               ogs_error("ogs_nas_5gs_decode_gprs_timer_3() failed");
+lib/nas/5gs/decoder.c:4314:            decoded += size;
+lib/nas/5gs/decoder.c:4317:            size = ogs_nas_5gs_decode_eap_message(&pdu_session_release_command->eap_message, pkbuf);
+lib/nas/5gs/decoder.c:4319:               ogs_error("ogs_nas_5gs_decode_eap_message() failed");
+lib/nas/5gs/decoder.c:4324:            decoded += size;
+lib/nas/5gs/decoder.c:4327:            size = ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator(&pdu_session_release_command->gsm_congestion_re_attempt_indicator, pkbuf);
+lib/nas/5gs/decoder.c:4329:               ogs_error("ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator() failed");
+lib/nas/5gs/decoder.c:4334:            decoded += size;
+lib/nas/5gs/decoder.c:4337:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_release_command->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4339:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4344:            decoded += size;
+lib/nas/5gs/decoder.c:4347:            decoded--;
+lib/nas/5gs/decoder.c:4349:            size = ogs_nas_5gs_decode_access_type(&pdu_session_release_command->access_type, pkbuf);
+lib/nas/5gs/decoder.c:4351:               ogs_error("ogs_nas_5gs_decode_access_type() failed");
+lib/nas/5gs/decoder.c:4356:            decoded += size;
+lib/nas/5gs/decoder.c:4359:            size = ogs_nas_5gs_decode_service_level_aa_container(&pdu_session_release_command->service_level_aa_container, pkbuf);
+lib/nas/5gs/decoder.c:4361:               ogs_error("ogs_nas_5gs_decode_service_level_aa_container() failed");
+lib/nas/5gs/decoder.c:4366:            decoded += size;
+lib/nas/5gs/decoder.c:4374:    return decoded;
+lib/nas/5gs/decoder.c:4377:int ogs_nas_5gs_decode_pdu_session_release_complete(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4380:    int decoded = 0;
+lib/nas/5gs/decoder.c:4394:        decoded += size;
+lib/nas/5gs/decoder.c:4398:            size = ogs_nas_5gs_decode_5gsm_cause(&pdu_session_release_complete->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4400:               ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4405:            decoded += size;
+lib/nas/5gs/decoder.c:4408:            size = ogs_nas_5gs_decode_extended_protocol_configuration_options(&pdu_session_release_complete->extended_protocol_configuration_options, pkbuf);
+lib/nas/5gs/decoder.c:4410:               ogs_error("ogs_nas_5gs_decode_extended_protocol_configuration_options() failed");
+lib/nas/5gs/decoder.c:4415:            decoded += size;
+lib/nas/5gs/decoder.c:4423:    return decoded;
+lib/nas/5gs/decoder.c:4426:int ogs_nas_5gs_decode_5gsm_status(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4429:    int decoded = 0;
+lib/nas/5gs/decoder.c:4434:    size = ogs_nas_5gs_decode_5gsm_cause(&gsm_status->gsm_cause, pkbuf);
+lib/nas/5gs/decoder.c:4436:        ogs_error("ogs_nas_5gs_decode_5gsm_cause() failed");
+lib/nas/5gs/decoder.c:4440:    decoded += size;
+lib/nas/5gs/decoder.c:4442:    return decoded;
+lib/nas/5gs/decoder.c:4445:int ogs_nas_5gmm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4448:    int decoded = 0;
+lib/nas/5gs/decoder.c:4461:    decoded += size;
+lib/nas/5gs/decoder.c:4465:        size = ogs_nas_5gs_decode_registration_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4467:           ogs_error("ogs_nas_5gs_decode_registration_request() failed");
+lib/nas/5gs/decoder.c:4471:        decoded += size;
+lib/nas/5gs/decoder.c:4474:        size = ogs_nas_5gs_decode_registration_accept(message, pkbuf);
+lib/nas/5gs/decoder.c:4476:           ogs_error("ogs_nas_5gs_decode_registration_accept() failed");
+lib/nas/5gs/decoder.c:4480:        decoded += size;
+lib/nas/5gs/decoder.c:4483:        size = ogs_nas_5gs_decode_registration_complete(message, pkbuf);
+lib/nas/5gs/decoder.c:4485:           ogs_error("ogs_nas_5gs_decode_registration_complete() failed");
+lib/nas/5gs/decoder.c:4489:        decoded += size;
+lib/nas/5gs/decoder.c:4492:        size = ogs_nas_5gs_decode_registration_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4494:           ogs_error("ogs_nas_5gs_decode_registration_reject() failed");
+lib/nas/5gs/decoder.c:4498:        decoded += size;
+lib/nas/5gs/decoder.c:4501:        size = ogs_nas_5gs_decode_deregistration_request_from_ue(message, pkbuf);
+lib/nas/5gs/decoder.c:4503:           ogs_error("ogs_nas_5gs_decode_deregistration_request_from_ue() failed");
+lib/nas/5gs/decoder.c:4507:        decoded += size;
+lib/nas/5gs/decoder.c:4512:        size = ogs_nas_5gs_decode_deregistration_request_to_ue(message, pkbuf);
+lib/nas/5gs/decoder.c:4514:           ogs_error("ogs_nas_5gs_decode_deregistration_request_to_ue() failed");
+lib/nas/5gs/decoder.c:4518:        decoded += size;
+lib/nas/5gs/decoder.c:4523:        size = ogs_nas_5gs_decode_service_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4525:           ogs_error("ogs_nas_5gs_decode_service_request() failed");
+lib/nas/5gs/decoder.c:4529:        decoded += size;
+lib/nas/5gs/decoder.c:4532:        size = ogs_nas_5gs_decode_service_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4534:           ogs_error("ogs_nas_5gs_decode_service_reject() failed");
+lib/nas/5gs/decoder.c:4538:        decoded += size;
+lib/nas/5gs/decoder.c:4541:        size = ogs_nas_5gs_decode_service_accept(message, pkbuf);
+lib/nas/5gs/decoder.c:4543:           ogs_error("ogs_nas_5gs_decode_service_accept() failed");
+lib/nas/5gs/decoder.c:4547:        decoded += size;
+lib/nas/5gs/decoder.c:4550:        size = ogs_nas_5gs_decode_configuration_update_command(message, pkbuf);
+lib/nas/5gs/decoder.c:4552:           ogs_error("ogs_nas_5gs_decode_configuration_update_command() failed");
+lib/nas/5gs/decoder.c:4556:        decoded += size;
+lib/nas/5gs/decoder.c:4561:        size = ogs_nas_5gs_decode_authentication_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4563:           ogs_error("ogs_nas_5gs_decode_authentication_request() failed");
+lib/nas/5gs/decoder.c:4567:        decoded += size;
+lib/nas/5gs/decoder.c:4570:        size = ogs_nas_5gs_decode_authentication_response(message, pkbuf);
+lib/nas/5gs/decoder.c:4572:           ogs_error("ogs_nas_5gs_decode_authentication_response() failed");
+lib/nas/5gs/decoder.c:4576:        decoded += size;
+lib/nas/5gs/decoder.c:4579:        size = ogs_nas_5gs_decode_authentication_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4581:           ogs_error("ogs_nas_5gs_decode_authentication_reject() failed");
+lib/nas/5gs/decoder.c:4585:        decoded += size;
+lib/nas/5gs/decoder.c:4588:        size = ogs_nas_5gs_decode_authentication_failure(message, pkbuf);
+lib/nas/5gs/decoder.c:4590:           ogs_error("ogs_nas_5gs_decode_authentication_failure() failed");
+lib/nas/5gs/decoder.c:4594:        decoded += size;
+lib/nas/5gs/decoder.c:4597:        size = ogs_nas_5gs_decode_authentication_result(message, pkbuf);
+lib/nas/5gs/decoder.c:4599:           ogs_error("ogs_nas_5gs_decode_authentication_result() failed");
+lib/nas/5gs/decoder.c:4603:        decoded += size;
+lib/nas/5gs/decoder.c:4606:        size = ogs_nas_5gs_decode_identity_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4608:           ogs_error("ogs_nas_5gs_decode_identity_request() failed");
+lib/nas/5gs/decoder.c:4612:        decoded += size;
+lib/nas/5gs/decoder.c:4615:        size = ogs_nas_5gs_decode_identity_response(message, pkbuf);
+lib/nas/5gs/decoder.c:4617:           ogs_error("ogs_nas_5gs_decode_identity_response() failed");
+lib/nas/5gs/decoder.c:4621:        decoded += size;
+lib/nas/5gs/decoder.c:4624:        size = ogs_nas_5gs_decode_security_mode_command(message, pkbuf);
+lib/nas/5gs/decoder.c:4626:           ogs_error("ogs_nas_5gs_decode_security_mode_command() failed");
+lib/nas/5gs/decoder.c:4630:        decoded += size;
+lib/nas/5gs/decoder.c:4633:        size = ogs_nas_5gs_decode_security_mode_complete(message, pkbuf);
+lib/nas/5gs/decoder.c:4635:           ogs_error("ogs_nas_5gs_decode_security_mode_complete() failed");
+lib/nas/5gs/decoder.c:4639:        decoded += size;
+lib/nas/5gs/decoder.c:4642:        size = ogs_nas_5gs_decode_security_mode_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4644:           ogs_error("ogs_nas_5gs_decode_security_mode_reject() failed");
+lib/nas/5gs/decoder.c:4648:        decoded += size;
+lib/nas/5gs/decoder.c:4651:        size = ogs_nas_5gs_decode_5gmm_status(message, pkbuf);
+lib/nas/5gs/decoder.c:4653:           ogs_error("ogs_nas_5gs_decode_5gmm_status() failed");
+lib/nas/5gs/decoder.c:4657:        decoded += size;
+lib/nas/5gs/decoder.c:4660:        size = ogs_nas_5gs_decode_notification(message, pkbuf);
+lib/nas/5gs/decoder.c:4662:           ogs_error("ogs_nas_5gs_decode_notification() failed");
+lib/nas/5gs/decoder.c:4666:        decoded += size;
+lib/nas/5gs/decoder.c:4669:        size = ogs_nas_5gs_decode_notification_response(message, pkbuf);
+lib/nas/5gs/decoder.c:4671:           ogs_error("ogs_nas_5gs_decode_notification_response() failed");
+lib/nas/5gs/decoder.c:4675:        decoded += size;
+lib/nas/5gs/decoder.c:4678:        size = ogs_nas_5gs_decode_ul_nas_transport(message, pkbuf);
+lib/nas/5gs/decoder.c:4680:           ogs_error("ogs_nas_5gs_decode_ul_nas_transport() failed");
+lib/nas/5gs/decoder.c:4684:        decoded += size;
+lib/nas/5gs/decoder.c:4687:        size = ogs_nas_5gs_decode_dl_nas_transport(message, pkbuf);
+lib/nas/5gs/decoder.c:4689:           ogs_error("ogs_nas_5gs_decode_dl_nas_transport() failed");
+lib/nas/5gs/decoder.c:4693:        decoded += size;
+lib/nas/5gs/decoder.c:4701:    ogs_assert(ogs_pkbuf_push(pkbuf, decoded));
+lib/nas/5gs/decoder.c:4705:int ogs_nas_5gsm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/decoder.c:4708:    int decoded = 0;
+lib/nas/5gs/decoder.c:4721:    decoded += size;
+lib/nas/5gs/decoder.c:4725:        size = ogs_nas_5gs_decode_pdu_session_establishment_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4727:           ogs_error("ogs_nas_5gs_decode_pdu_session_establishment_request() failed");
+lib/nas/5gs/decoder.c:4731:        decoded += size;
+lib/nas/5gs/decoder.c:4734:        size = ogs_nas_5gs_decode_pdu_session_establishment_accept(message, pkbuf);
+lib/nas/5gs/decoder.c:4736:           ogs_error("ogs_nas_5gs_decode_pdu_session_establishment_accept() failed");
+lib/nas/5gs/decoder.c:4740:        decoded += size;
+lib/nas/5gs/decoder.c:4743:        size = ogs_nas_5gs_decode_pdu_session_establishment_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4745:           ogs_error("ogs_nas_5gs_decode_pdu_session_establishment_reject() failed");
+lib/nas/5gs/decoder.c:4749:        decoded += size;
+lib/nas/5gs/decoder.c:4752:        size = ogs_nas_5gs_decode_pdu_session_authentication_command(message, pkbuf);
+lib/nas/5gs/decoder.c:4754:           ogs_error("ogs_nas_5gs_decode_pdu_session_authentication_command() failed");
+lib/nas/5gs/decoder.c:4758:        decoded += size;
+lib/nas/5gs/decoder.c:4761:        size = ogs_nas_5gs_decode_pdu_session_authentication_complete(message, pkbuf);
+lib/nas/5gs/decoder.c:4763:           ogs_error("ogs_nas_5gs_decode_pdu_session_authentication_complete() failed");
+lib/nas/5gs/decoder.c:4767:        decoded += size;
+lib/nas/5gs/decoder.c:4770:        size = ogs_nas_5gs_decode_pdu_session_authentication_result(message, pkbuf);
+lib/nas/5gs/decoder.c:4772:           ogs_error("ogs_nas_5gs_decode_pdu_session_authentication_result() failed");
+lib/nas/5gs/decoder.c:4776:        decoded += size;
+lib/nas/5gs/decoder.c:4779:        size = ogs_nas_5gs_decode_pdu_session_modification_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4781:           ogs_error("ogs_nas_5gs_decode_pdu_session_modification_request() failed");
+lib/nas/5gs/decoder.c:4785:        decoded += size;
+lib/nas/5gs/decoder.c:4788:        size = ogs_nas_5gs_decode_pdu_session_modification_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4790:           ogs_error("ogs_nas_5gs_decode_pdu_session_modification_reject() failed");
+lib/nas/5gs/decoder.c:4794:        decoded += size;
+lib/nas/5gs/decoder.c:4797:        size = ogs_nas_5gs_decode_pdu_session_modification_command(message, pkbuf);
+lib/nas/5gs/decoder.c:4799:           ogs_error("ogs_nas_5gs_decode_pdu_session_modification_command() failed");
+lib/nas/5gs/decoder.c:4803:        decoded += size;
+lib/nas/5gs/decoder.c:4806:        size = ogs_nas_5gs_decode_pdu_session_modification_complete(message, pkbuf);
+lib/nas/5gs/decoder.c:4808:           ogs_error("ogs_nas_5gs_decode_pdu_session_modification_complete() failed");
+lib/nas/5gs/decoder.c:4812:        decoded += size;
+lib/nas/5gs/decoder.c:4815:        size = ogs_nas_5gs_decode_pdu_session_modification_command_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4817:           ogs_error("ogs_nas_5gs_decode_pdu_session_modification_command_reject() failed");
+lib/nas/5gs/decoder.c:4821:        decoded += size;
+lib/nas/5gs/decoder.c:4824:        size = ogs_nas_5gs_decode_pdu_session_release_request(message, pkbuf);
+lib/nas/5gs/decoder.c:4826:           ogs_error("ogs_nas_5gs_decode_pdu_session_release_request() failed");
+lib/nas/5gs/decoder.c:4830:        decoded += size;
+lib/nas/5gs/decoder.c:4833:        size = ogs_nas_5gs_decode_pdu_session_release_reject(message, pkbuf);
+lib/nas/5gs/decoder.c:4835:           ogs_error("ogs_nas_5gs_decode_pdu_session_release_reject() failed");
+lib/nas/5gs/decoder.c:4839:        decoded += size;
+lib/nas/5gs/decoder.c:4842:        size = ogs_nas_5gs_decode_pdu_session_release_command(message, pkbuf);
+lib/nas/5gs/decoder.c:4844:           ogs_error("ogs_nas_5gs_decode_pdu_session_release_command() failed");
+lib/nas/5gs/decoder.c:4848:        decoded += size;
+lib/nas/5gs/decoder.c:4851:        size = ogs_nas_5gs_decode_pdu_session_release_complete(message, pkbuf);
+lib/nas/5gs/decoder.c:4853:           ogs_error("ogs_nas_5gs_decode_pdu_session_release_complete() failed");
+lib/nas/5gs/decoder.c:4857:        decoded += size;
+lib/nas/5gs/decoder.c:4860:        size = ogs_nas_5gs_decode_5gsm_status(message, pkbuf);
+lib/nas/5gs/decoder.c:4862:           ogs_error("ogs_nas_5gs_decode_5gsm_status() failed");
+lib/nas/5gs/decoder.c:4866:        decoded += size;
+lib/nas/5gs/decoder.c:4874:    ogs_assert(ogs_pkbuf_push(pkbuf, decoded));
+lib/nas/5gs/ies.c:48:int ogs_nas_5gs_decode_additional_information(ogs_nas_additional_information_t *additional_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:94:int ogs_nas_5gs_decode_service_level_aa_container(ogs_nas_service_level_aa_container_t *service_level_aa_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:147:int ogs_nas_5gs_decode_access_type(ogs_nas_access_type_t *access_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:181:int ogs_nas_5gs_decode_dnn(ogs_nas_dnn_t *dnn, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:240:int ogs_nas_5gs_decode_eap_message(ogs_nas_eap_message_t *eap_message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:293:int ogs_nas_5gs_decode_gprs_timer(ogs_nas_gprs_timer_t *gprs_timer, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:327:int ogs_nas_5gs_decode_gprs_timer_2(ogs_nas_gprs_timer_2_t *gprs_timer_2, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:373:int ogs_nas_5gs_decode_gprs_timer_3(ogs_nas_gprs_timer_3_t *gprs_timer_3, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:419:int ogs_nas_5gs_decode_s_nssai(ogs_nas_s_nssai_t *s_nssai, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:465:int ogs_nas_5gs_decode_5gmm_capability(ogs_nas_5gmm_capability_t *gmm_capability, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:511:int ogs_nas_5gs_decode_abba(ogs_nas_abba_t *abba, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:557:int ogs_nas_5gs_decode_additional_5g_security_information(ogs_nas_additional_5g_security_information_t *additional_security_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:603:int ogs_nas_5gs_decode_additional_information_requested(ogs_nas_additional_information_requested_t *additional_information_requested, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:649:int ogs_nas_5gs_decode_allowed_pdu_session_status(ogs_nas_allowed_pdu_session_status_t *allowed_pdu_session_status, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:699:int ogs_nas_5gs_decode_authentication_failure_parameter(ogs_nas_authentication_failure_parameter_t *authentication_failure_parameter, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:745:int ogs_nas_5gs_decode_authentication_parameter_autn(ogs_nas_authentication_parameter_autn_t *authentication_parameter_autn, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:791:int ogs_nas_5gs_decode_authentication_parameter_rand(ogs_nas_authentication_parameter_rand_t *authentication_parameter_rand, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:825:int ogs_nas_5gs_decode_authentication_response_parameter(ogs_nas_authentication_response_parameter_t *authentication_response_parameter, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:871:int ogs_nas_5gs_decode_configuration_update_indication(ogs_nas_configuration_update_indication_t *configuration_update_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:903:int ogs_nas_5gs_decode_cag_information_list(ogs_nas_cag_information_list_t *cag_information_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:956:int ogs_nas_5gs_decode_ciphering_key_data(ogs_nas_ciphering_key_data_t *ciphering_key_data, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1009:int ogs_nas_5gs_decode_daylight_saving_time(ogs_nas_daylight_saving_time_t *daylight_saving_time, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1055:int ogs_nas_5gs_decode_5gmm_cause(ogs_nas_5gmm_cause_t *gmm_cause, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1089:int ogs_nas_5gs_decode_de_registration_type(ogs_nas_de_registration_type_t *de_registration_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1123:int ogs_nas_5gs_decode_emergency_number_list(ogs_nas_emergency_number_list_t *emergency_number_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1169:int ogs_nas_5gs_decode_eps_bearer_context_status(ogs_nas_eps_bearer_context_status_t *eps_bearer_context_status, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1215:int ogs_nas_5gs_decode_eps_nas_message_container(ogs_nas_eps_nas_message_container_t *eps_nas_message_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1268:int ogs_nas_5gs_decode_eps_nas_security_algorithms(ogs_nas_eps_nas_security_algorithms_t *eps_nas_security_algorithms, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1302:int ogs_nas_5gs_decode_extended_emergency_number_list(ogs_nas_extended_emergency_number_list_t *extended_emergency_number_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1355:int ogs_nas_5gs_decode_extended_drx_parameters(ogs_nas_extended_drx_parameters_t *extended_drx_parameters, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1401:int ogs_nas_5gs_decode_imeisv_request(ogs_nas_imeisv_request_t *imeisv_request, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1433:int ogs_nas_5gs_decode_ladn_indication(ogs_nas_ladn_indication_t *ladn_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1486:int ogs_nas_5gs_decode_5gs_drx_parameters(ogs_nas_5gs_drx_parameters_t *drx_parameters, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1532:int ogs_nas_5gs_decode_5gs_identity_type(ogs_nas_5gs_identity_type_t *identity_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1566:int ogs_nas_5gs_decode_ladn_information(ogs_nas_ladn_information_t *ladn_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1619:int ogs_nas_5gs_decode_mico_indication(ogs_nas_mico_indication_t *mico_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1651:int ogs_nas_5gs_decode_ma_pdu_session_information(ogs_nas_ma_pdu_session_information_t *ma_pdu_session_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1683:int ogs_nas_5gs_decode_mapped_nssai(ogs_nas_mapped_nssai_t *mapped_nssai, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1729:int ogs_nas_5gs_decode_mobile_station_classmark_2(ogs_nas_mobile_station_classmark_2_t *mobile_station_classmark_2, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1775:int ogs_nas_5gs_decode_key_set_identifier(ogs_nas_key_set_identifier_t *key_set_identifier, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1807:int ogs_nas_5gs_decode_message_container(ogs_nas_message_container_t *message_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1860:int ogs_nas_5gs_decode_security_algorithms(ogs_nas_security_algorithms_t *security_algorithms, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1894:int ogs_nas_5gs_decode_network_name(ogs_nas_network_name_t *network_name, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1940:int ogs_nas_5gs_decode_network_slicing_indication(ogs_nas_network_slicing_indication_t *network_slicing_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:1972:int ogs_nas_5gs_decode_non_3gpp_nw_provided_policies(ogs_nas_non_3gpp_nw_provided_policies_t *non_3gpp_nw_provided_policies, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2004:int ogs_nas_5gs_decode_nssai(ogs_nas_nssai_t *nssai, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2050:int ogs_nas_5gs_decode_nssai_inclusion_mode(ogs_nas_nssai_inclusion_mode_t *nssai_inclusion_mode, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2082:int ogs_nas_5gs_decode_operator_defined_access_category_definitions(ogs_nas_operator_defined_access_category_definitions_t *operator_defined_access_category_definitions, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2135:int ogs_nas_5gs_decode_payload_container(ogs_nas_payload_container_t *payload_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2188:int ogs_nas_5gs_decode_5gs_mobile_identity(ogs_nas_5gs_mobile_identity_t *mobile_identity, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2241:int ogs_nas_5gs_decode_payload_container_type(ogs_nas_payload_container_type_t *payload_container_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2273:int ogs_nas_5gs_decode_pdu_session_identity_2(ogs_nas_pdu_session_identity_2_t *pdu_session_identity_2, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2307:int ogs_nas_5gs_decode_pdu_session_reactivation_result(ogs_nas_pdu_session_reactivation_result_t *pdu_session_reactivation_result, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2357:int ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause(ogs_nas_pdu_session_reactivation_result_error_cause_t *pdu_session_reactivation_result_error_cause, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2410:int ogs_nas_5gs_decode_pdu_session_status(ogs_nas_pdu_session_status_t *pdu_session_status, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2460:int ogs_nas_5gs_decode_plmn_list(ogs_nas_plmn_list_t *plmn_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2506:int ogs_nas_5gs_decode_rejected_nssai(ogs_nas_rejected_nssai_t *rejected_nssai, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2552:int ogs_nas_5gs_decode_release_assistance_indication(ogs_nas_release_assistance_indication_t *release_assistance_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2584:int ogs_nas_5gs_decode_request_type(ogs_nas_request_type_t *request_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2616:int ogs_nas_5gs_decode_s1_ue_network_capability(ogs_nas_s1_ue_network_capability_t *s1_ue_network_capability, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2662:int ogs_nas_5gs_decode_s1_ue_security_capability(ogs_nas_s1_ue_security_capability_t *s1_ue_security_capability, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2708:int ogs_nas_5gs_decode_service_area_list(ogs_nas_service_area_list_t *service_area_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2754:int ogs_nas_5gs_decode_5gs_network_feature_support(ogs_nas_5gs_network_feature_support_t *network_feature_support, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2800:int ogs_nas_5gs_decode_sms_indication(ogs_nas_sms_indication_t *sms_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2832:int ogs_nas_5gs_decode_sor_transparent_container(ogs_nas_sor_transparent_container_t *sor_transparent_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2885:int ogs_nas_5gs_decode_supported_codec_list(ogs_nas_supported_codec_list_t *supported_codec_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2931:int ogs_nas_5gs_decode_time_zone(ogs_nas_time_zone_t *time_zone, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2965:int ogs_nas_5gs_decode_time_zone_and_time(ogs_nas_time_zone_and_time_t *time_zone_and_time, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:2999:int ogs_nas_5gs_decode_ue_security_capability(ogs_nas_ue_security_capability_t *ue_security_capability, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3045:int ogs_nas_5gs_decode_ue_usage_setting(ogs_nas_ue_usage_setting_t *ue_usage_setting, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3091:int ogs_nas_5gs_decode_ue_status(ogs_nas_ue_status_t *ue_status, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3137:int ogs_nas_5gs_decode_uplink_data_status(ogs_nas_uplink_data_status_t *uplink_data_status, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3187:int ogs_nas_5gs_decode_5gs_registration_result(ogs_nas_5gs_registration_result_t *registration_result, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3233:int ogs_nas_5gs_decode_ue_radio_capability_id(ogs_nas_ue_radio_capability_id_t *ue_radio_capability_id, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3279:int ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication(ogs_nas_ue_radio_capability_id_deletion_indication_t *ue_radio_capability_id_deletion_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3311:int ogs_nas_5gs_decode_5gs_registration_type(ogs_nas_5gs_registration_type_t *registration_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3345:int ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration(ogs_nas_truncated_5g_s_tmsi_configuration_t *truncated_s_tmsi_configuration, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3391:int ogs_nas_5gs_decode_wus_assistance_information(ogs_nas_wus_assistance_information_t *wus_assistance_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3437:int ogs_nas_5gs_decode_n5gc_indication(ogs_nas_n5gc_indication_t *n5gc_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3469:int ogs_nas_5gs_decode_nb_n1_mode_drx_parameters(ogs_nas_nb_n1_mode_drx_parameters_t *nb_n1_mode_drx_parameters, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3515:int ogs_nas_5gs_decode_additional_configuration_indication(ogs_nas_additional_configuration_indication_t *additional_configuration_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3547:int ogs_nas_5gs_decode_extended_rejected_nssai(ogs_nas_extended_rejected_nssai_t *extended_rejected_nssai, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3593:int ogs_nas_5gs_decode_ue_request_type(ogs_nas_ue_request_type_t *ue_request_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3639:int ogs_nas_5gs_decode_paging_restriction(ogs_nas_paging_restriction_t *paging_restriction, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3685:int ogs_nas_5gs_decode_nid(ogs_nas_nid_t *nid, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3731:int ogs_nas_5gs_decode_5gs_tracking_area_identity(ogs_nas_5gs_tracking_area_identity_t *tracking_area_identity, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3769:int ogs_nas_5gs_decode_peips_assistance_information(ogs_nas_peips_assistance_information_t *peips_assistance_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3815:int ogs_nas_5gs_decode_5gs_additional_request_result(ogs_nas_5gs_additional_request_result_t *additional_request_result, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3861:int ogs_nas_5gs_decode_nssrg_information(ogs_nas_nssrg_information_t *nssrg_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3914:int ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition(ogs_nas_list_of_plmns_to_be_used_in_disaster_condition_t *list_of_plmns_to_be_used_in_disaster_condition, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:3960:int ogs_nas_5gs_decode_registration_wait_range(ogs_nas_registration_wait_range_t *registration_wait_range, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4006:int ogs_nas_5gs_decode_plmn_identity(ogs_nas_plmn_identity_t *plmn_identity, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4052:int ogs_nas_5gs_decode_extended_cag_information_list(ogs_nas_extended_cag_information_list_t *extended_cag_information_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4105:int ogs_nas_5gs_decode_nsag_information(ogs_nas_nsag_information_t *nsag_information, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4158:int ogs_nas_5gs_decode_5gs_tracking_area_identity_list(ogs_nas_5gs_tracking_area_identity_list_t *tracking_area_identity_list, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4204:int ogs_nas_5gs_decode_priority_indicator(ogs_nas_priority_indicator_t *priority_indicator, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4236:int ogs_nas_5gs_decode_5gs_update_type(ogs_nas_5gs_update_type_t *update_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4282:int ogs_nas_5gs_decode_5gsm_capability(ogs_nas_5gsm_capability_t *gsm_capability, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4328:int ogs_nas_5gs_decode_pdu_address(ogs_nas_pdu_address_t *pdu_address, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4374:int ogs_nas_5gs_decode_pdu_session_type(ogs_nas_pdu_session_type_t *pdu_session_type, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4406:int ogs_nas_5gs_decode_qos_flow_descriptions(ogs_nas_qos_flow_descriptions_t *qos_flow_descriptions, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4459:int ogs_nas_5gs_decode_qos_rules(ogs_nas_qos_rules_t *qos_rules, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4512:int ogs_nas_5gs_decode_session_ambr(ogs_nas_session_ambr_t *session_ambr, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4564:int ogs_nas_5gs_decode_sm_pdu_dn_request_container(ogs_nas_sm_pdu_dn_request_container_t *sm_pdu_dn_request_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4610:int ogs_nas_5gs_decode_ssc_mode(ogs_nas_ssc_mode_t *ssc_mode, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4642:int ogs_nas_5gs_decode_re_attempt_indicator(ogs_nas_re_attempt_indicator_t *re_attempt_indicator, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4688:int ogs_nas_5gs_decode_5gsm_network_feature_support(ogs_nas_5gsm_network_feature_support_t *gsm_network_feature_support, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4734:int ogs_nas_5gs_decode_5gsm_cause(ogs_nas_5gsm_cause_t *gsm_cause, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4768:int ogs_nas_5gs_decode_serving_plmn_rate_control(ogs_nas_serving_plmn_rate_control_t *serving_plmn_rate_control, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4814:int ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator(ogs_nas_5gsm_congestion_re_attempt_indicator_t *gsm_congestion_re_attempt_indicator, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4860:int ogs_nas_5gs_decode_atsss_container(ogs_nas_atsss_container_t *atsss_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4913:int ogs_nas_5gs_decode_control_plane_only_indication(ogs_nas_control_plane_only_indication_t *control_plane_only_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4945:int ogs_nas_5gs_decode_ip_header_compression_configuration(ogs_nas_ip_header_compression_configuration_t *ip_header_compression_configuration, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:4991:int ogs_nas_5gs_decode_header_compression_configuration(ogs_nas_header_compression_configuration_t *header_compression_configuration, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5041:int ogs_nas_5gs_decode_ds_tt_ethernet_port_mac_address(ogs_nas_ds_tt_ethernet_port_mac_address_t *ds_tt_ethernet_port_mac_address, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5087:int ogs_nas_5gs_decode_ue_ds_tt_residence_time(ogs_nas_ue_ds_tt_residence_time_t *ue_ds_tt_residence_time, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5133:int ogs_nas_5gs_decode_port_management_information_container(ogs_nas_port_management_information_container_t *port_management_information_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5186:int ogs_nas_5gs_decode_ethernet_header_compression_configuration(ogs_nas_ethernet_header_compression_configuration_t *ethernet_header_compression_configuration, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5232:int ogs_nas_5gs_decode_always_on_pdu_session_indication(ogs_nas_always_on_pdu_session_indication_t *always_on_pdu_session_indication, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5264:int ogs_nas_5gs_decode_requested_mbs_container(ogs_nas_requested_mbs_container_t *requested_mbs_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5317:int ogs_nas_5gs_decode_received_mbs_container(ogs_nas_received_mbs_container_t *received_mbs_container, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5370:int ogs_nas_5gs_decode_pdu_session_pair_id(ogs_nas_pdu_session_pair_id_t *pdu_session_pair_id, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5416:int ogs_nas_5gs_decode_rsn(ogs_nas_rsn_t *rsn, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5462:int ogs_nas_5gs_decode_always_on_pdu_session_requested(ogs_nas_always_on_pdu_session_requested_t *always_on_pdu_session_requested, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5494:int ogs_nas_5gs_decode_allowed_ssc_mode(ogs_nas_allowed_ssc_mode_t *allowed_ssc_mode, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5526:int ogs_nas_5gs_decode_extended_protocol_configuration_options(ogs_nas_extended_protocol_configuration_options_t *extended_protocol_configuration_options, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5579:int ogs_nas_5gs_decode_integrity_protection_maximum_data_rate(ogs_nas_integrity_protection_maximum_data_rate_t *integrity_protection_maximum_data_rate, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5613:int ogs_nas_5gs_decode_mapped_eps_bearer_contexts(ogs_nas_mapped_eps_bearer_contexts_t *mapped_eps_bearer_contexts, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.c:5666:int ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters(ogs_nas_maximum_number_of_supported_packet_filters_t *maximum_number_of_supported_packet_filters, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/ies.h:48:int ogs_nas_5gs_decode_additional_information(ogs_nas_additional_information_t *additional_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:49:int ogs_nas_5gs_decode_service_level_aa_container(ogs_nas_service_level_aa_container_t *service_level_aa_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:50:int ogs_nas_5gs_decode_access_type(ogs_nas_access_type_t *access_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:51:int ogs_nas_5gs_decode_dnn(ogs_nas_dnn_t *dnn, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:52:int ogs_nas_5gs_decode_eap_message(ogs_nas_eap_message_t *eap_message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:53:int ogs_nas_5gs_decode_gprs_timer(ogs_nas_gprs_timer_t *gprs_timer, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:54:int ogs_nas_5gs_decode_gprs_timer_2(ogs_nas_gprs_timer_2_t *gprs_timer_2, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:55:int ogs_nas_5gs_decode_gprs_timer_3(ogs_nas_gprs_timer_3_t *gprs_timer_3, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:56:int ogs_nas_5gs_decode_s_nssai(ogs_nas_s_nssai_t *s_nssai, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:57:int ogs_nas_5gs_decode_5gmm_capability(ogs_nas_5gmm_capability_t *gmm_capability, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:58:int ogs_nas_5gs_decode_abba(ogs_nas_abba_t *abba, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:59:int ogs_nas_5gs_decode_additional_5g_security_information(ogs_nas_additional_5g_security_information_t *additional_security_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:60:int ogs_nas_5gs_decode_additional_information_requested(ogs_nas_additional_information_requested_t *additional_information_requested, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:61:int ogs_nas_5gs_decode_allowed_pdu_session_status(ogs_nas_allowed_pdu_session_status_t *allowed_pdu_session_status, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:62:int ogs_nas_5gs_decode_authentication_failure_parameter(ogs_nas_authentication_failure_parameter_t *authentication_failure_parameter, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:63:int ogs_nas_5gs_decode_authentication_parameter_autn(ogs_nas_authentication_parameter_autn_t *authentication_parameter_autn, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:64:int ogs_nas_5gs_decode_authentication_parameter_rand(ogs_nas_authentication_parameter_rand_t *authentication_parameter_rand, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:65:int ogs_nas_5gs_decode_authentication_response_parameter(ogs_nas_authentication_response_parameter_t *authentication_response_parameter, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:66:int ogs_nas_5gs_decode_configuration_update_indication(ogs_nas_configuration_update_indication_t *configuration_update_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:67:int ogs_nas_5gs_decode_cag_information_list(ogs_nas_cag_information_list_t *cag_information_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:68:int ogs_nas_5gs_decode_ciphering_key_data(ogs_nas_ciphering_key_data_t *ciphering_key_data, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:69:int ogs_nas_5gs_decode_daylight_saving_time(ogs_nas_daylight_saving_time_t *daylight_saving_time, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:70:int ogs_nas_5gs_decode_5gmm_cause(ogs_nas_5gmm_cause_t *gmm_cause, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:71:int ogs_nas_5gs_decode_de_registration_type(ogs_nas_de_registration_type_t *de_registration_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:72:int ogs_nas_5gs_decode_emergency_number_list(ogs_nas_emergency_number_list_t *emergency_number_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:73:int ogs_nas_5gs_decode_eps_bearer_context_status(ogs_nas_eps_bearer_context_status_t *eps_bearer_context_status, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:74:int ogs_nas_5gs_decode_eps_nas_message_container(ogs_nas_eps_nas_message_container_t *eps_nas_message_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:75:int ogs_nas_5gs_decode_eps_nas_security_algorithms(ogs_nas_eps_nas_security_algorithms_t *eps_nas_security_algorithms, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:76:int ogs_nas_5gs_decode_extended_emergency_number_list(ogs_nas_extended_emergency_number_list_t *extended_emergency_number_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:77:int ogs_nas_5gs_decode_extended_drx_parameters(ogs_nas_extended_drx_parameters_t *extended_drx_parameters, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:78:int ogs_nas_5gs_decode_imeisv_request(ogs_nas_imeisv_request_t *imeisv_request, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:79:int ogs_nas_5gs_decode_ladn_indication(ogs_nas_ladn_indication_t *ladn_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:80:int ogs_nas_5gs_decode_5gs_drx_parameters(ogs_nas_5gs_drx_parameters_t *drx_parameters, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:81:int ogs_nas_5gs_decode_5gs_identity_type(ogs_nas_5gs_identity_type_t *identity_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:82:int ogs_nas_5gs_decode_ladn_information(ogs_nas_ladn_information_t *ladn_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:83:int ogs_nas_5gs_decode_mico_indication(ogs_nas_mico_indication_t *mico_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:84:int ogs_nas_5gs_decode_ma_pdu_session_information(ogs_nas_ma_pdu_session_information_t *ma_pdu_session_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:85:int ogs_nas_5gs_decode_mapped_nssai(ogs_nas_mapped_nssai_t *mapped_nssai, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:86:int ogs_nas_5gs_decode_mobile_station_classmark_2(ogs_nas_mobile_station_classmark_2_t *mobile_station_classmark_2, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:87:int ogs_nas_5gs_decode_key_set_identifier(ogs_nas_key_set_identifier_t *key_set_identifier, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:88:int ogs_nas_5gs_decode_message_container(ogs_nas_message_container_t *message_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:89:int ogs_nas_5gs_decode_security_algorithms(ogs_nas_security_algorithms_t *security_algorithms, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:90:int ogs_nas_5gs_decode_network_name(ogs_nas_network_name_t *network_name, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:91:int ogs_nas_5gs_decode_network_slicing_indication(ogs_nas_network_slicing_indication_t *network_slicing_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:92:int ogs_nas_5gs_decode_non_3gpp_nw_provided_policies(ogs_nas_non_3gpp_nw_provided_policies_t *non_3gpp_nw_provided_policies, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:93:int ogs_nas_5gs_decode_nssai(ogs_nas_nssai_t *nssai, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:94:int ogs_nas_5gs_decode_nssai_inclusion_mode(ogs_nas_nssai_inclusion_mode_t *nssai_inclusion_mode, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:95:int ogs_nas_5gs_decode_operator_defined_access_category_definitions(ogs_nas_operator_defined_access_category_definitions_t *operator_defined_access_category_definitions, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:96:int ogs_nas_5gs_decode_payload_container(ogs_nas_payload_container_t *payload_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:97:int ogs_nas_5gs_decode_5gs_mobile_identity(ogs_nas_5gs_mobile_identity_t *mobile_identity, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:98:int ogs_nas_5gs_decode_payload_container_type(ogs_nas_payload_container_type_t *payload_container_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:99:int ogs_nas_5gs_decode_pdu_session_identity_2(ogs_nas_pdu_session_identity_2_t *pdu_session_identity_2, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:100:int ogs_nas_5gs_decode_pdu_session_reactivation_result(ogs_nas_pdu_session_reactivation_result_t *pdu_session_reactivation_result, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:101:int ogs_nas_5gs_decode_pdu_session_reactivation_result_error_cause(ogs_nas_pdu_session_reactivation_result_error_cause_t *pdu_session_reactivation_result_error_cause, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:102:int ogs_nas_5gs_decode_pdu_session_status(ogs_nas_pdu_session_status_t *pdu_session_status, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:103:int ogs_nas_5gs_decode_plmn_list(ogs_nas_plmn_list_t *plmn_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:104:int ogs_nas_5gs_decode_rejected_nssai(ogs_nas_rejected_nssai_t *rejected_nssai, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:105:int ogs_nas_5gs_decode_release_assistance_indication(ogs_nas_release_assistance_indication_t *release_assistance_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:106:int ogs_nas_5gs_decode_request_type(ogs_nas_request_type_t *request_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:107:int ogs_nas_5gs_decode_s1_ue_network_capability(ogs_nas_s1_ue_network_capability_t *s1_ue_network_capability, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:108:int ogs_nas_5gs_decode_s1_ue_security_capability(ogs_nas_s1_ue_security_capability_t *s1_ue_security_capability, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:109:int ogs_nas_5gs_decode_service_area_list(ogs_nas_service_area_list_t *service_area_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:110:int ogs_nas_5gs_decode_5gs_network_feature_support(ogs_nas_5gs_network_feature_support_t *network_feature_support, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:111:int ogs_nas_5gs_decode_sms_indication(ogs_nas_sms_indication_t *sms_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:112:int ogs_nas_5gs_decode_sor_transparent_container(ogs_nas_sor_transparent_container_t *sor_transparent_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:113:int ogs_nas_5gs_decode_supported_codec_list(ogs_nas_supported_codec_list_t *supported_codec_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:114:int ogs_nas_5gs_decode_time_zone(ogs_nas_time_zone_t *time_zone, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:115:int ogs_nas_5gs_decode_time_zone_and_time(ogs_nas_time_zone_and_time_t *time_zone_and_time, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:116:int ogs_nas_5gs_decode_ue_security_capability(ogs_nas_ue_security_capability_t *ue_security_capability, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:117:int ogs_nas_5gs_decode_ue_usage_setting(ogs_nas_ue_usage_setting_t *ue_usage_setting, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:118:int ogs_nas_5gs_decode_ue_status(ogs_nas_ue_status_t *ue_status, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:119:int ogs_nas_5gs_decode_uplink_data_status(ogs_nas_uplink_data_status_t *uplink_data_status, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:120:int ogs_nas_5gs_decode_5gs_registration_result(ogs_nas_5gs_registration_result_t *registration_result, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:121:int ogs_nas_5gs_decode_ue_radio_capability_id(ogs_nas_ue_radio_capability_id_t *ue_radio_capability_id, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:122:int ogs_nas_5gs_decode_ue_radio_capability_id_deletion_indication(ogs_nas_ue_radio_capability_id_deletion_indication_t *ue_radio_capability_id_deletion_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:123:int ogs_nas_5gs_decode_5gs_registration_type(ogs_nas_5gs_registration_type_t *registration_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:124:int ogs_nas_5gs_decode_truncated_5g_s_tmsi_configuration(ogs_nas_truncated_5g_s_tmsi_configuration_t *truncated_s_tmsi_configuration, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:125:int ogs_nas_5gs_decode_wus_assistance_information(ogs_nas_wus_assistance_information_t *wus_assistance_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:126:int ogs_nas_5gs_decode_n5gc_indication(ogs_nas_n5gc_indication_t *n5gc_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:127:int ogs_nas_5gs_decode_nb_n1_mode_drx_parameters(ogs_nas_nb_n1_mode_drx_parameters_t *nb_n1_mode_drx_parameters, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:128:int ogs_nas_5gs_decode_additional_configuration_indication(ogs_nas_additional_configuration_indication_t *additional_configuration_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:129:int ogs_nas_5gs_decode_extended_rejected_nssai(ogs_nas_extended_rejected_nssai_t *extended_rejected_nssai, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:130:int ogs_nas_5gs_decode_ue_request_type(ogs_nas_ue_request_type_t *ue_request_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:131:int ogs_nas_5gs_decode_paging_restriction(ogs_nas_paging_restriction_t *paging_restriction, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:132:int ogs_nas_5gs_decode_nid(ogs_nas_nid_t *nid, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:133:int ogs_nas_5gs_decode_5gs_tracking_area_identity(ogs_nas_5gs_tracking_area_identity_t *tracking_area_identity, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:134:int ogs_nas_5gs_decode_peips_assistance_information(ogs_nas_peips_assistance_information_t *peips_assistance_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:135:int ogs_nas_5gs_decode_5gs_additional_request_result(ogs_nas_5gs_additional_request_result_t *additional_request_result, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:136:int ogs_nas_5gs_decode_nssrg_information(ogs_nas_nssrg_information_t *nssrg_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:137:int ogs_nas_5gs_decode_list_of_plmns_to_be_used_in_disaster_condition(ogs_nas_list_of_plmns_to_be_used_in_disaster_condition_t *list_of_plmns_to_be_used_in_disaster_condition, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:138:int ogs_nas_5gs_decode_registration_wait_range(ogs_nas_registration_wait_range_t *registration_wait_range, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:139:int ogs_nas_5gs_decode_plmn_identity(ogs_nas_plmn_identity_t *plmn_identity, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:140:int ogs_nas_5gs_decode_extended_cag_information_list(ogs_nas_extended_cag_information_list_t *extended_cag_information_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:141:int ogs_nas_5gs_decode_nsag_information(ogs_nas_nsag_information_t *nsag_information, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:142:int ogs_nas_5gs_decode_5gs_tracking_area_identity_list(ogs_nas_5gs_tracking_area_identity_list_t *tracking_area_identity_list, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:143:int ogs_nas_5gs_decode_priority_indicator(ogs_nas_priority_indicator_t *priority_indicator, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:144:int ogs_nas_5gs_decode_5gs_update_type(ogs_nas_5gs_update_type_t *update_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:145:int ogs_nas_5gs_decode_5gsm_capability(ogs_nas_5gsm_capability_t *gsm_capability, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:146:int ogs_nas_5gs_decode_pdu_address(ogs_nas_pdu_address_t *pdu_address, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:147:int ogs_nas_5gs_decode_pdu_session_type(ogs_nas_pdu_session_type_t *pdu_session_type, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:148:int ogs_nas_5gs_decode_qos_flow_descriptions(ogs_nas_qos_flow_descriptions_t *qos_flow_descriptions, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:149:int ogs_nas_5gs_decode_qos_rules(ogs_nas_qos_rules_t *qos_rules, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:150:int ogs_nas_5gs_decode_session_ambr(ogs_nas_session_ambr_t *session_ambr, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:151:int ogs_nas_5gs_decode_sm_pdu_dn_request_container(ogs_nas_sm_pdu_dn_request_container_t *sm_pdu_dn_request_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:152:int ogs_nas_5gs_decode_ssc_mode(ogs_nas_ssc_mode_t *ssc_mode, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:153:int ogs_nas_5gs_decode_re_attempt_indicator(ogs_nas_re_attempt_indicator_t *re_attempt_indicator, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:154:int ogs_nas_5gs_decode_5gsm_network_feature_support(ogs_nas_5gsm_network_feature_support_t *gsm_network_feature_support, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:155:int ogs_nas_5gs_decode_5gsm_cause(ogs_nas_5gsm_cause_t *gsm_cause, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:156:int ogs_nas_5gs_decode_serving_plmn_rate_control(ogs_nas_serving_plmn_rate_control_t *serving_plmn_rate_control, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:157:int ogs_nas_5gs_decode_5gsm_congestion_re_attempt_indicator(ogs_nas_5gsm_congestion_re_attempt_indicator_t *gsm_congestion_re_attempt_indicator, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:158:int ogs_nas_5gs_decode_atsss_container(ogs_nas_atsss_container_t *atsss_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:159:int ogs_nas_5gs_decode_control_plane_only_indication(ogs_nas_control_plane_only_indication_t *control_plane_only_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:160:int ogs_nas_5gs_decode_ip_header_compression_configuration(ogs_nas_ip_header_compression_configuration_t *ip_header_compression_configuration, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:161:int ogs_nas_5gs_decode_header_compression_configuration(ogs_nas_header_compression_configuration_t *header_compression_configuration, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:162:int ogs_nas_5gs_decode_ds_tt_ethernet_port_mac_address(ogs_nas_ds_tt_ethernet_port_mac_address_t *ds_tt_ethernet_port_mac_address, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:163:int ogs_nas_5gs_decode_ue_ds_tt_residence_time(ogs_nas_ue_ds_tt_residence_time_t *ue_ds_tt_residence_time, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:164:int ogs_nas_5gs_decode_port_management_information_container(ogs_nas_port_management_information_container_t *port_management_information_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:165:int ogs_nas_5gs_decode_ethernet_header_compression_configuration(ogs_nas_ethernet_header_compression_configuration_t *ethernet_header_compression_configuration, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:166:int ogs_nas_5gs_decode_always_on_pdu_session_indication(ogs_nas_always_on_pdu_session_indication_t *always_on_pdu_session_indication, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:167:int ogs_nas_5gs_decode_requested_mbs_container(ogs_nas_requested_mbs_container_t *requested_mbs_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:168:int ogs_nas_5gs_decode_received_mbs_container(ogs_nas_received_mbs_container_t *received_mbs_container, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:169:int ogs_nas_5gs_decode_pdu_session_pair_id(ogs_nas_pdu_session_pair_id_t *pdu_session_pair_id, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:170:int ogs_nas_5gs_decode_rsn(ogs_nas_rsn_t *rsn, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:171:int ogs_nas_5gs_decode_always_on_pdu_session_requested(ogs_nas_always_on_pdu_session_requested_t *always_on_pdu_session_requested, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:172:int ogs_nas_5gs_decode_allowed_ssc_mode(ogs_nas_allowed_ssc_mode_t *allowed_ssc_mode, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:173:int ogs_nas_5gs_decode_extended_protocol_configuration_options(ogs_nas_extended_protocol_configuration_options_t *extended_protocol_configuration_options, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:174:int ogs_nas_5gs_decode_integrity_protection_maximum_data_rate(ogs_nas_integrity_protection_maximum_data_rate_t *integrity_protection_maximum_data_rate, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:175:int ogs_nas_5gs_decode_mapped_eps_bearer_contexts(ogs_nas_mapped_eps_bearer_contexts_t *mapped_eps_bearer_contexts, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/ies.h:176:int ogs_nas_5gs_decode_maximum_number_of_supported_packet_filters(ogs_nas_maximum_number_of_supported_packet_filters_t *maximum_number_of_supported_packet_filters, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/meson.build:22:    decoder.c
+lib/nas/5gs/message.h:1556:int ogs_nas_5gmm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/message.h:1557:int ogs_nas_5gsm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/support/nas-message.py:99:    print("Python generating NAS Message encoder/decoder v%s" % (version))
+lib/nas/5gs/support/nas-message.py:119:    value = cells[1].text.encode('ascii', 'ignore').decode('utf-8')
+lib/nas/5gs/support/nas-message.py:354:    f.write("int ogs_nas_5gs_decode_%s(ogs_nas_%s_t *%s, ogs_pkbuf_t *pkbuf);\n" % (v_lower(k), v_lower(k), get_value(k)))
+lib/nas/5gs/support/nas-message.py:391:        f.write("int ogs_nas_5gs_decode_%s(ogs_nas_%s_t *%s, ogs_pkbuf_t *pkbuf)\n" % (v_lower(k), v_lower(k), get_value(k)))
+lib/nas/5gs/support/nas-message.py:413:        f.write("int ogs_nas_5gs_decode_%s(ogs_nas_%s_t *%s, ogs_pkbuf_t *pkbuf)\n" % (v_lower(k), v_lower(k), get_value(k)))
+lib/nas/5gs/support/nas-message.py:424:        if "decode" in type_list[k]:
+lib/nas/5gs/support/nas-message.py:425:            f.write("%s" % type_list[k]["decode"])
+lib/nas/5gs/support/nas-message.py:447:        f.write("int ogs_nas_5gs_decode_%s(ogs_nas_%s_t *%s, ogs_pkbuf_t *pkbuf)\n" % (v_lower(k), v_lower(k), get_value(k)))
+lib/nas/5gs/support/nas-message.py:485:        f.write("int ogs_nas_5gs_decode_%s(ogs_nas_%s_t *%s, ogs_pkbuf_t *pkbuf)\n" % (v_lower(k), v_lower(k), get_value(k)))
+lib/nas/5gs/support/nas-message.py:502:        if "decode" in type_list[k]:
+lib/nas/5gs/support/nas-message.py:503:            f.write("%s" % type_list[k]["decode"])
+lib/nas/5gs/support/nas-message.py:643:int ogs_nas_5gmm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/support/nas-message.py:644:int ogs_nas_5gsm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);
+lib/nas/5gs/support/nas-message.py:658:f = open(outdir + 'decoder.c', 'w')
+lib/nas/5gs/support/nas-message.py:669:    f.write("int ogs_nas_5gs_decode_%s(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf);\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:677:    f.write("int ogs_nas_5gs_decode_%s(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)\n{\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:682:    f.write("    int decoded = 0;\n")
+lib/nas/5gs/support/nas-message.py:687:        f.write("    size = ogs_nas_5gs_decode_%s(&%s->%s, pkbuf);\n" % (v_lower(ie["type"]), get_value(k), get_value(ie["value"])))
+lib/nas/5gs/support/nas-message.py:689:        f.write("        ogs_error(\"ogs_nas_5gs_decode_%s() failed\");\n" % v_lower(ie["type"]))
+lib/nas/5gs/support/nas-message.py:692:        f.write("    decoded += size;\n\n")
+lib/nas/5gs/support/nas-message.py:706:        decoded += size;
+lib/nas/5gs/support/nas-message.py:714:            f.write("            decoded--;\n")
+lib/nas/5gs/support/nas-message.py:716:        f.write("            size = ogs_nas_5gs_decode_%s(&%s->%s, pkbuf);\n" % (v_lower(ie["type"]), get_value(k), get_value(ie["value"])))
+lib/nas/5gs/support/nas-message.py:718:        f.write("               ogs_error(\"ogs_nas_5gs_decode_%s() failed\");\n" % v_lower(ie["type"]))
+lib/nas/5gs/support/nas-message.py:722:        f.write("            decoded += size;\n")
+lib/nas/5gs/support/nas-message.py:733:    f.write("""    return decoded;
+lib/nas/5gs/support/nas-message.py:738:f.write("""int ogs_nas_5gmm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/support/nas-message.py:741:    int decoded = 0;
+lib/nas/5gs/support/nas-message.py:754:    decoded += size;
+lib/nas/5gs/support/nas-message.py:764:            f.write("        size = ogs_nas_5gs_decode_%s(message, pkbuf);\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:766:            f.write("           ogs_error(\"ogs_nas_5gs_decode_%s() failed\");\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:769:            f.write("        decoded += size;\n")
+lib/nas/5gs/support/nas-message.py:778:    ogs_assert(ogs_pkbuf_push(pkbuf, decoded));
+lib/nas/5gs/support/nas-message.py:784:f.write("""int ogs_nas_5gsm_decode(ogs_nas_5gs_message_t *message, ogs_pkbuf_t *pkbuf)
+lib/nas/5gs/support/nas-message.py:787:    int decoded = 0;
+lib/nas/5gs/support/nas-message.py:800:    decoded += size;
+lib/nas/5gs/support/nas-message.py:810:            f.write("        size = ogs_nas_5gs_decode_%s(message, pkbuf);\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:812:            f.write("           ogs_error(\"ogs_nas_5gs_decode_%s() failed\");\n" % v_lower(k))
+lib/nas/5gs/support/nas-message.py:815:            f.write("        decoded += size;\n")
+lib/nas/5gs/support/nas-message.py:824:    ogs_assert(ogs_pkbuf_push(pkbuf, decoded));
+lib/nas/5gs/support/README.md:16:* Check lib/nas/5gs/decoder.c
+lib/nas/5gs/support/README.md:17:$ diff --git a/lib/nas/5gs/decoder.c b/lib/nas/5gs/decoder.c
+lib/nas/5gs/support/README.md:19:--- a/lib/nas/5gs/decoder.c
+lib/nas/5gs/support/README.md:20:+++ b/lib/nas/5gs/decoder.c
+lib/nas/5gs/support/README.md:21:@@ -968,7 +968,6 @@ int ogs_nas_5gs_decode_registration_accept(ogs_nas_5gs_message_t *message, ogs_p
+lib/nas/5gs/support/README.md:23:             decoded += size;
+lib/nas/5gs/support/README.md:27:             size = ogs_nas_5gs_decode_5gs_additional_request_result(&registration_accept->additional_request_result, pkbuf);
+lib/nas/5gs/support/README.md:29:@@ -979,7 +978,6 @@ int ogs_nas_5gs_decode_registration_accept(ogs_nas_5gs_message_t *message, ogs_p
+lib/nas/5gs/support/README.md:31:             decoded += size;
+lib/nas/5gs/support/README.md:35:             size = ogs_nas_5gs_decode_nssrg_information(&registration_accept->nssrg_information, pkbuf);
+lib/nas/5gs/support/type-list.py:19:type_list["5GS tracking area identity"]["decode"] = \
+lib/nas/5gs/support/type-list.py:24:type_list["Header compression configuration"]["decode"] = \
+lib/nas/5gs/support/type-list.py:29:type_list["DNN"]["decode"] = \
+lib/nas/5gs/support/type-list.py:44:type_list["Session-AMBR"]["decode"] = \
+lib/nas/5gs/support/type-list.py:52:type_list["Uplink data status"]["decode"] = \
+lib/nas/5gs/support/type-list.py:56:type_list["Allowed PDU session status"]["decode"] = \
+lib/nas/5gs/support/type-list.py:60:type_list["PDU session status"]["decode"] = \
+lib/nas/5gs/support/type-list.py:64:type_list["PDU session reactivation result"]["decode"] = \
