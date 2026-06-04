@@ -8,8 +8,9 @@ from .ollama_client import OllamaClient, extract_json_array
 
 
 SYSTEM_PROMPT = """You help with defensive software testing.
-Generate fuzzing seed inputs for a small educational parser.
+Generate fuzzing seed inputs for AFL++.
 Return only a JSON array of hex strings. Do not include prose.
+The seeds are for defensive fuzz testing only.
 """
 
 
@@ -26,6 +27,33 @@ Input format:
 Generate {count} diverse binary seed inputs as hex strings.
 Include valid, near-valid, boundary, empty-ish, nested-looking, and malformed-length examples.
 Return only JSON, for example: ["0100", "0103010100"].
+""".strip()
+
+    if target in {"open5gs_registration", "open5gs_nas_registration"}:
+        return f"""
+The target is an AFL++ harness for Open5GS NAS 5GS Registration Request decoding.
+The harness calls:
+  ogs_nas_5gs_decode_registration_request(message, pkbuf)
+
+Important input interpretation:
+- The AFL++ input is treated as the body of a NAS 5GS Registration Request.
+- The NAS message type/security header has already been consumed by the harness design.
+- The decoder first expects a 5GS registration type field.
+- It then expects a 5GS mobile identity field.
+- Remaining bytes are interpreted as optional Information Elements.
+
+Generate {count} diverse seed inputs as hex strings.
+Seeds should be useful for parser exploration, not exploitation.
+Include:
+- very short malformed examples
+- near-valid registration request bodies
+- examples with small mobile identity lengths
+- examples with optional IE-like trailing bytes
+- boundary examples with inconsistent or oversized length fields
+- varied first byte values to exercise registration type decoding
+
+Return only JSON, for example:
+["010001", "79020102", "01050102030405", "010201027900"]
 """.strip()
 
     return f"Generate {count} diverse hex-encoded fuzzing seeds for target {target}."
