@@ -1,0 +1,13 @@
+Derived Metric,Result
+Runtime difference,LLM-assisted run was 1 second shorter
+Execution difference,"LLM-assisted run executed 24,453 more test cases"
+Execution increase,Approximately 11.62% higher
+Execution speed difference,LLM-assisted run was 13.65 exec/sec faster
+Corpus count difference,LLM-assisted run produced 23 more corpus entries
+Corpus found difference,LLM-assisted run found 6 more corpus items
+Max depth difference,LLM-assisted run reached depth 9 vs baseline depth 8
+Coverage difference,Almost no difference: 3.00% vs 2.99%
+Edge difference,LLM-assisted run found 1 fewer edge
+Timeout difference,LLM-assisted run had 179 fewer timeouts
+Crash difference,No difference; both found 0 crashes
+Hang difference,No difference; both found 0 hangs
