@@ -1,0 +1,19 @@
+Metric,Baseline 2h,LLM-Assisted 2h
+Target software,Open5GS,Open5GS
+Target function,ogs_nas_5gs_decode_registration_request(),ogs_nas_5gs_decode_registration_request()
+Harness,harness_registration_request,harness_registration_request
+Seed type,Manual/basic seeds,LLM-assisted seeds
+AFL++ version,++4.41a,++4.41a
+Runtime seconds,7198,7197
+Executions,892769,855466
+Executions per second,124.02,118.85
+Corpus count,448,454
+Corpus found,445,434
+Corpus favored,109,103
+Max depth,10,11
+Bitmap coverage,3.01%,3.01%
+Edges found,322/10706,322/10706
+Saved crashes,0,0
+Saved hangs,0,0
+Total timeouts,181,279
+Stability,100.00%,100.00%
