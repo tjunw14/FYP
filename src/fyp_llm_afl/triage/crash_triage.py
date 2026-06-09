@@ -16,6 +16,62 @@ def read_text_file(path: str | None, max_chars: int = 12000) -> str:
     return data
 
 
+def load_prompt_template(template_path: str | None) -> str:
+    if not template_path:
+        return ""
+
+    file_path = Path(template_path)
+    if not file_path.exists():
+        return ""
+
+    return file_path.read_text(errors="replace")
+
+
+def build_llm_prompt(
+    template: str,
+    target_name: str,
+    crash_type: str,
+    fuzzer_stats: str,
+    harness_code: str,
+    source_context: str,
+    sanitizer_output: str,
+    notes: str,
+) -> str:
+    if not template:
+        template = """# LLM-Assisted Crash Triage Prompt
+
+Analyse the supplied AFL++ fuzzing evidence conservatively. Do not overclaim vulnerability impact.
+
+Target: {target_name}
+Observed crash type: {crash_type}
+
+AFL++ Evidence:
+{fuzzer_stats}
+
+Harness Code:
+{harness_code}
+
+Source-Code Context:
+{source_context}
+
+Sanitizer / Runtime Output:
+{sanitizer_output}
+
+Additional Notes:
+{notes}
+"""
+
+    return template.format(
+        target_name=target_name,
+        crash_type=crash_type,
+        fuzzer_stats=fuzzer_stats,
+        harness_code=harness_code,
+        source_context=source_context,
+        sanitizer_output=sanitizer_output,
+        notes=notes,
+    )
+
+
 def build_guarded_triage_report(
     target_name: str,
     crash_type: str,
@@ -122,8 +178,18 @@ At this stage, the finding should be described as a fuzzing-triggered crash, val
 """
 
 
+def write_output(path: str | None, content: str) -> None:
+    if not path:
+        return
+
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(content)
+    print(f"Generated: {output_path}")
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate guarded AFL++ crash triage report.")
+    parser = argparse.ArgumentParser(description="Generate guarded AFL++ crash triage report and LLM prompt.")
     parser.add_argument("--target-name", required=True)
     parser.add_argument("--crash-type", default="Unknown")
     parser.add_argument("--fuzzer-stats")
@@ -132,24 +198,42 @@ def main() -> None:
     parser.add_argument("--sanitizer-output")
     parser.add_argument("--notes", default="")
     parser.add_argument("--output", required=True)
+    parser.add_argument("--prompt-template")
+    parser.add_argument("--prompt-output")
 
     args = parser.parse_args()
+
+    fuzzer_stats = read_text_file(args.fuzzer_stats)
+    harness_code = read_text_file(args.harness_code)
+    source_context = read_text_file(args.source_context)
+    sanitizer_output = read_text_file(args.sanitizer_output)
+    notes = args.notes or "Not provided."
 
     report = build_guarded_triage_report(
         target_name=args.target_name,
         crash_type=args.crash_type,
-        fuzzer_stats=read_text_file(args.fuzzer_stats),
-        harness_code=read_text_file(args.harness_code),
-        source_context=read_text_file(args.source_context),
-        sanitizer_output=read_text_file(args.sanitizer_output),
-        notes=args.notes or "Not provided.",
+        fuzzer_stats=fuzzer_stats,
+        harness_code=harness_code,
+        source_context=source_context,
+        sanitizer_output=sanitizer_output,
+        notes=notes,
     )
 
-    output_path = Path(args.output)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(report)
+    write_output(args.output, report)
 
-    print(f"Generated triage report: {output_path}")
+    if args.prompt_output:
+        template = load_prompt_template(args.prompt_template)
+        prompt = build_llm_prompt(
+            template=template,
+            target_name=args.target_name,
+            crash_type=args.crash_type,
+            fuzzer_stats=fuzzer_stats,
+            harness_code=harness_code,
+            source_context=source_context,
+            sanitizer_output=sanitizer_output,
+            notes=notes,
+        )
+        write_output(args.prompt_output, prompt)
 
 
 if __name__ == "__main__":
