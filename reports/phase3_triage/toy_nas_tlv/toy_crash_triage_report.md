@@ -178,22 +178,22 @@ Based on the supplied evidence, this crash should not automatically be classifie
 
 A crash found by AFL++ may indicate a real memory safety issue, but it may also be caused by an intentional assertion, an intentional abort condition, invalid test harness assumptions, expected parser rejection, or incomplete runtime context.
 
-For this target, the most important evidence is the target source code. If the crash path is caused by an intentional `abort()` or assertion inserted for testing purposes, then the result should be treated as a controlled validation event rather than a real vulnerability.
+For this target, the most important evidence is the target source code. If the crash path is caused by an intentional abort() or assertion inserted for testing purposes, then the result should be treated as a controlled validation event rather than a real vulnerability.
 
 ## 9. Security Impact
 
 No real security impact should be claimed unless the crash is confirmed to occur in production-relevant code and is supported by source-code evidence, sanitizer evidence, and a reproducible execution path.
 
-At this stage, the finding should be described as a fuzzing-triggered crash or validation event, not as remote code execution, buffer overflow, integer overflow, or denial of service unless those claims are directly supported by evidence.
+At this stage, the finding should be described as a fuzzing-triggered crash, validation event, or no-crash fuzzing result. It should not be described as remote code execution, buffer overflow, integer overflow, or denial of service unless those claims are directly supported by evidence.
 
 ## 10. Recommended Next Steps
 
-1. Reproduce the crash with the saved AFL++ input.
+1. Reproduce any saved crash with the AFL++ input if a crash exists.
 2. Capture sanitizer output if available.
-3. Identify the exact crashing function and source line.
-4. Confirm whether the crash path exists in real target code or only in a toy/test target.
+3. Identify the exact crashing function and source line if a crash exists.
+4. Confirm whether the behaviour exists in real target code or only in a toy/test target.
 5. Avoid assigning vulnerability labels until the root cause is verified from source code.
-6. If the crash is intentional, document it as pipeline validation rather than vulnerability discovery.
+6. If no crash exists, document the run as stable fuzzing evidence rather than vulnerability discovery.
 
 ## 11. Final Conclusion
 
