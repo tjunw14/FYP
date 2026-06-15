@@ -1,0 +1,80 @@
+from pathlib import Path
+
+
+OUT_DIR = Path("targets/open5gs/seeds_registration_protocol")
+
+
+def write_seed(name: str, data: bytes) -> None:
+    path = OUT_DIR / name
+    path.write_bytes(data)
+    print(f"Wrote {path} ({len(data)} bytes)")
+
+
+def main() -> None:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    seeds = {
+        "seed_001_minimal_initial.bin": bytes([0x01, 0x01, 0x00]),
+        "seed_002_minimal_mobility.bin": bytes([0x02, 0x01, 0x00]),
+        "seed_003_minimal_periodic.bin": bytes([0x03, 0x01, 0x00]),
+
+        "seed_004_identity_pattern.bin": bytes([0x01, 0x04, 0x01, 0x02, 0x03, 0x04]),
+        "seed_005_identity_ff.bin": bytes([0x01, 0x04, 0xff, 0xff, 0xff, 0xff]),
+        "seed_006_identity_zero.bin": bytes([0x01, 0x04, 0x00, 0x00, 0x00, 0x00]),
+
+        "seed_007_ue_security_capability.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x2e, 0x02, 0x00, 0x00
+        ]),
+        "seed_008_requested_nssai.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x2f, 0x01, 0x00
+        ]),
+        "seed_009_last_visited_tai.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x52, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+        ]),
+        "seed_010_payload_container.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x7b, 0x01, 0x00
+        ]),
+
+        "seed_011_multi_optional_short.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x2e, 0x02, 0x00, 0x00,
+            0x2f, 0x01, 0x00
+        ]),
+        "seed_012_multi_optional_status.bin": bytes([
+            0x01, 0x01, 0x00,
+            0x40, 0x02, 0x00, 0x00,
+            0x50, 0x02, 0x00, 0x00,
+            0x25, 0x02, 0x00, 0x00
+        ]),
+
+        "seed_013_short_truncated_ie.bin": bytes([0x01, 0x01, 0x00, 0x2e]),
+        "seed_014_len_without_payload.bin": bytes([0x01, 0x01, 0x00, 0x2e, 0x04]),
+        "seed_015_large_len_marker.bin": bytes([0x01, 0x01, 0x00, 0x7b, 0xff]),
+        "seed_016_ff_stream.bin": bytes([0xff] * 16),
+        "seed_017_zero_stream.bin": bytes([0x00] * 16),
+
+        "seed_018_nas_text_pattern.bin": bytes([
+            0x01, 0x04, 0x4e, 0x41, 0x53, 0x00
+        ]),
+        "seed_019_1337_pattern.bin": bytes([
+            0x01, 0x04, 0x13, 0x37, 0x00, 0x00
+        ]),
+        "seed_020_long_combined.bin": bytes([
+            0x01, 0x04, 0x01, 0x02, 0x03, 0x04,
+            0x2e, 0x02, 0x00, 0x00,
+            0x2f, 0x01, 0x00,
+            0x52, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x7b, 0x01, 0x00
+        ]),
+    }
+
+    for name, data in seeds.items():
+        write_seed(name, data)
+
+
+if __name__ == "__main__":
+    main()
