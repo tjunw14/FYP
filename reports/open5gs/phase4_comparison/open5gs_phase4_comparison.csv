@@ -1,0 +1,16 @@
+Metric,Phase 2 Baseline 30m,Phase 2 LLM-assisted 30m,Phase 4 Protocol Seeds 30m,Phase 4 Protocol Seeds + Dictionary 30m
+AFL++ version,++4.41a,++4.41a,++5.02a,++5.02a
+Seed/input strategy,Manual/basic seeds,LLM-assisted seeds,Protocol-aware generated seeds,Protocol-aware generated seeds + AFL++ dictionary
+Runtime seconds,1798,1797,1797,1797
+Executions,210442,234895,207409,193281
+Executions per second,117.00,130.65,115.36,107.50
+Corpus count,348,371,377,354
+Corpus found,345,351,357,334
+Corpus favored,118,117,110,111
+Max depth,8,9,6,5
+Bitmap coverage,3.00%,2.99%,3.00%,3.01%
+Edges found,321/10706,320/10706,321/10707,322/10707
+Saved crashes,0,0,0,0
+Saved hangs,0,0,0,0
+Total timeouts,312,133,87,102
+Stability,100.00%,100.00%,100.00%,100.00%
