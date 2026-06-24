@@ -1,0 +1,21 @@
+Derived Metric,Result
+Protocol seeds vs Phase 2 baseline executions,Protocol seeds executed 3033 fewer cases than baseline 30m
+Protocol seeds vs Phase 2 baseline execution change,Protocol seeds executed approximately 1.44% fewer cases than baseline 30m
+Protocol seeds vs Phase 2 baseline corpus count,Protocol seeds produced 29 more corpus entries than baseline 30m
+Protocol seeds vs Phase 2 baseline corpus found,Protocol seeds found 12 more corpus items than baseline 30m
+Protocol seeds vs Phase 2 baseline max depth,Protocol seeds reached lower max depth 6 vs baseline 8
+Protocol seeds vs Phase 2 baseline coverage,Protocol seeds matched baseline bitmap coverage at 3.00%
+Protocol seeds vs Phase 2 baseline edges,Protocol seeds matched baseline edges at 321 discovered edges
+Protocol seeds vs Phase 2 baseline timeouts,Protocol seeds had 225 fewer timeouts than baseline 30m
+Protocol dictionary vs protocol seeds executions,Dictionary run executed 14128 fewer cases than protocol-seed-only run
+Protocol dictionary vs protocol seeds execution change,Dictionary run executed approximately 6.81% fewer cases than protocol-seed-only run
+Protocol dictionary vs protocol seeds corpus count,Dictionary run produced 23 fewer corpus entries
+Protocol dictionary vs protocol seeds corpus found,Dictionary run found 23 fewer corpus items
+Protocol dictionary vs protocol seeds max depth,Dictionary run reached lower max depth 5 vs protocol-seed-only depth 6
+Protocol dictionary vs protocol seeds coverage,Dictionary run increased bitmap coverage from 3.00% to 3.01%
+Protocol dictionary vs protocol seeds edges,Dictionary run discovered 1 additional edge 322 vs 321
+Protocol dictionary vs protocol seeds timeouts,Dictionary run had 15 more timeouts
+Crash comparison,All Phase 4 runs found 0 crashes
+Hang comparison,All Phase 4 runs found 0 hangs
+Stability comparison,All Phase 4 runs maintained 100.00% stability
+Important caveat,Phase 4 used AFL++ ++5.02a while Phase 2 used AFL++ ++4.41a; comparisons with Phase 2 should be interpreted as exploratory rather than perfectly controlled
