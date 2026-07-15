@@ -6,9 +6,9 @@
 
 ## Project Overview
 
-This project investigates how large language models can support fuzzing workflows for open-source network software. The work combines AFL++ fuzzing with LLM-assisted seed generation, protocol-aware input preparation, and guarded vulnerability triage.
+This project investigates how large language models can support fuzzing workflows for open-source network software. The work combines AFL++ fuzzing with LLM-assisted seed generation, protocol-aware input preparation, guarded vulnerability triage, and a WebLLM-based local/browser LLM demonstration.
 
-The project was developed in progressive phases. It started with a controlled toy NAS-like TLV parser to validate the fuzzing pipeline, then moved to a real Open5GS NAS 5GS Registration Request decoder target. Later phases added LLM-assisted triage, no-crash result interpretation, protocol-aware seed generation, and AFL++ dictionary support.
+The project was developed in progressive phases. It started with a controlled toy NAS-like TLV parser to validate the fuzzing pipeline, then moved to a real Open5GS NAS 5GS Registration Request decoder target. Later phases added LLM-assisted triage, no-crash result interpretation, protocol-aware seed generation, AFL++ dictionary support, and WebLLM-generated seed inputs.
 
 The main goal is not to claim that an LLM can autonomously find or verify vulnerabilities. Instead, the project evaluates where LLMs can assist the fuzzing workflow while still requiring source-code evidence, reproducible fuzzing results, and human review.
 
@@ -22,7 +22,7 @@ The main goal is not to claim that an LLM can autonomously find or verify vulner
 | Phase 2 | Completed | Fuzz real Open5GS NAS parser code and compare baseline vs LLM-assisted seeds |
 | Phase 3 | Completed | Add LLM-assisted crash/no-crash triage and guarded vulnerability-analysis workflow |
 | Phase 4 | Completed | Improve Open5GS fuzzing attempt with protocol-aware seeds and AFL++ dictionary support |
-| Phase 5 | In progress | Consolidate final results for report writing |
+| Phase 5 | Completed | Add WebLLM-driven local/browser LLM seed generation and consolidate results for report writing |
 
 ---
 
@@ -240,6 +240,52 @@ No crashes or hangs were found in Phase 4.
 
 ---
 
+# Phase 5: WebLLM-Driven AFL++ Seed Generation Demo
+
+## Purpose
+
+Phase 5 added a WebLLM-driven seed generation demo in response to the edge-device/local small language model direction. WebLLM was used as a browser-based local LLM component to generate hexadecimal AFL++ seed inputs.
+
+The goal was not to outperform earlier Open5GS fuzzing experiments. Instead, the purpose was to demonstrate that the same LLM-assisted fuzzing workflow can be adapted to a browser/local LLM setting, which is relevant to lower-cost or edge-device-oriented security workflows.
+
+## Implemented Components
+
+| Component | Path |
+|---|---|
+| WebLLM browser demo | `webllm_demo/index.html` |
+| WebLLM prompt | `webllm_demo/webllm_seed_prompt.md` |
+| WebLLM raw/generated seed text | `webllm_demo/webllm_generated_seeds.txt` |
+| WebLLM seed importer | `scripts/import_webllm_hex_seeds.py` |
+| WebLLM binary seed corpus | `targets/open5gs/seeds_registration_webllm/` |
+| WebLLM 15-minute run evidence | `reports/open5gs/phase5_webllm_15m/` |
+
+## Phase 5 Results
+
+| Metric | WebLLM Seeds 15m |
+|---|---:|
+| AFL++ version | ++5.02a |
+| Runtime | 898 s |
+| Executions | 113,325 |
+| Executions/sec | 126.13 |
+| Corpus count | 284 |
+| Corpus found | 272 |
+| Corpus favored | 112 |
+| Max depth | 4 |
+| Bitmap coverage | 2.99% |
+| Edges found | 320 / 10,707 |
+| Saved crashes | 0 |
+| Saved hangs | 0 |
+| Total timeouts | 14 |
+| Stability | 100.00% |
+
+## Phase 5 Interpretation
+
+The WebLLM-generated seeds were successfully converted into AFL++ binary seed files and used with the existing Open5GS Registration Request harness. The fuzzing run completed successfully with 100.00% stability and no crashes or hangs.
+
+This phase should not be treated as a direct performance comparison against the longer 30-minute and two-hour experiments because it was a shorter 15-minute workflow demonstration. Its main contribution is showing that browser-based local LLM seed generation can be integrated into the same AFL++ fuzzing workflow.
+
+---
+
 # Overall Results Summary
 
 | Experiment | Best Result / Observation | Vulnerability Found? |
@@ -249,6 +295,7 @@ No crashes or hangs were found in Phase 4.
 | Phase 2 Open5GS 2h | Both runs reached same coverage and edges; LLM run had slightly larger corpus and higher depth | No |
 | Phase 3 triage | LLM correctly classified toy crash and Open5GS no-crash result with guardrails | No vulnerability claim |
 | Phase 4 dictionary | Dictionary run found one additional edge and slightly higher coverage, but lower efficiency | No |
+| Phase 5 WebLLM demo | Browser/local LLM generated seeds that were accepted by AFL++ and fuzzed Open5GS successfully | No |
 
 ---
 
@@ -256,7 +303,7 @@ No crashes or hangs were found in Phase 4.
 
 ## 1. LLM-generated seeds can be valid AFL++ inputs
 
-The toy target and Open5GS experiments showed that LLM-generated or LLM-assisted seeds can be accepted by AFL++ and used in real fuzzing workflows.
+The toy target, Open5GS, and WebLLM experiments showed that LLM-generated or LLM-assisted seeds can be accepted by AFL++ and used in real fuzzing workflows.
 
 ## 2. LLM-assisted seeds did not consistently improve coverage
 
@@ -274,6 +321,10 @@ Phase 3 showed that the LLM could correctly classify an intentional toy crash an
 
 The Phase 4 dictionary run discovered one additional edge and slightly improved bitmap coverage, but had lower throughput and smaller corpus growth.
 
+## 6. WebLLM supports a local/browser LLM seed-generation workflow
+
+The Phase 5 WebLLM demo showed that a browser-based local small language model can generate seed inputs that can be converted into AFL++ binary files and used in the existing Open5GS fuzzing pipeline.
+
 ---
 
 # Limitations
@@ -281,9 +332,10 @@ The Phase 4 dictionary run discovered one additional edge and slightly improved 
 1. Open5GS fuzzing focused on one NAS decoder function rather than the entire Open5GS system.
 2. No real vulnerabilities were discovered in the Open5GS experiments.
 3. The LLM-assisted seed generation was relatively simple and could be improved with deeper protocol modelling.
-4. Phase 4 used a newer AFL++ Docker image than Phase 2, so cross-phase comparisons are exploratory.
-5. The fuzzing runs were limited to 30-minute and two-hour windows.
-6. The LLM triage workflow still requires human review before any security conclusion is made.
+4. Phase 4 and Phase 5 used a newer AFL++ Docker image than Phase 2, so cross-phase comparisons are exploratory.
+5. The fuzzing runs were limited to 15-minute, 30-minute, and two-hour windows.
+6. The WebLLM run was a workflow demonstration and should not be treated as a full performance comparison.
+7. The LLM triage workflow still requires human review before any security conclusion is made.
 
 ---
 
@@ -291,6 +343,6 @@ The Phase 4 dictionary run discovered one additional edge and slightly improved 
 
 This project demonstrates an end-to-end workflow for LLM-assisted fuzzing and vulnerability analysis using AFL++. The workflow was validated first on a controlled toy NAS-like TLV parser and then applied to real Open5GS NAS 5G parser code.
 
-The experiments show that LLMs can assist fuzzing workflows by generating valid seed inputs and helping explain fuzzing outcomes when provided with structured evidence and source-code context. However, the results also show that LLM assistance does not automatically produce better coverage or vulnerability discovery. In the Open5GS experiments, LLM-assisted seeds and dictionary-guided mutation produced some improvements in selected metrics, but no crashes or hangs were found.
+The experiments show that LLMs can assist fuzzing workflows by generating valid seed inputs and helping explain fuzzing outcomes when provided with structured evidence and source-code context. However, the results also show that LLM assistance does not automatically produce better coverage or vulnerability discovery. In the Open5GS experiments, LLM-assisted seeds, dictionary-guided mutation, and WebLLM-generated seeds produced some useful workflow and metric outcomes, but no crashes or hangs were found.
 
-The strongest contribution of the project is the complete workflow: LLM-assisted seed generation, AFL++ fuzzing, Open5GS harness development, experiment comparison, guarded LLM triage, and conservative reporting. The project shows that LLMs are useful as assistants in fuzzing and vulnerability analysis, but their outputs must be constrained by evidence and reviewed by humans before making security claims.
+The strongest contribution of the project is the complete workflow: LLM-assisted seed generation, AFL++ fuzzing, Open5GS harness development, experiment comparison, guarded LLM triage, WebLLM local/browser seed generation, and conservative reporting. The project shows that LLMs are useful as assistants in fuzzing and vulnerability analysis, but their outputs must be constrained by evidence and reviewed by humans before making security claims.
