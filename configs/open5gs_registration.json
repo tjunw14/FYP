@@ -1,0 +1,19 @@
+{
+  "target_id": "open5gs_registration_request",
+  "description": "Open5GS NAS 5GS Registration Request decoder defensive fuzzing target",
+  "decoder_function": "ogs_nas_5gs_decode_registration_request",
+  "harness_source": "targets/open5gs/harness_registration_request.c",
+  "harness_binary": "targets/open5gs/harness_registration_request",
+  "dictionary": "targets/open5gs/nas_registration_request.dict",
+  "seed_sources": {
+    "llm_assisted": "targets/open5gs/seeds_registration_llm",
+    "protocol_aware": "targets/open5gs/seeds_registration_protocol",
+    "webllm": "targets/open5gs/seeds_registration_webllm"
+  },
+  "reports_root": "reports/open5gs",
+  "safety": {
+    "purpose": "defensive_testing",
+    "allow_exploit_generation": false,
+    "require_human_review_for_vulnerability_claims": true
+  }
+}
