@@ -117,7 +117,6 @@ PYTHONPATH="$ROOT/src${PYTHONPATH:+:$PYTHONPATH}" \
   --afl-instance "$AFL_INSTANCE" \
   --report-dir "$REPORT_DIR"
 
-cp "$SEED_DIR"/*.bin "$REPORT_DIR"/ 2>/dev/null || true
 if [[ -f "$SEED_DIR/manifest.csv" ]]; then
   cp "$SEED_DIR/manifest.csv" "$REPORT_DIR/seed_manifest.csv"
 fi
@@ -125,8 +124,14 @@ if [[ -f "$SEED_DIR/summary.json" ]]; then
   cp "$SEED_DIR/summary.json" "$REPORT_DIR/seed_corpus_summary.json"
 fi
 
+printf '%s\n' "$SEED_DIR" > "$REPORT_DIR/seed_source.txt"
 printf '%s\n' "$SEED_COUNT" > "$REPORT_DIR/seed_count.txt"
 printf '%s\n' "$DURATION" > "$REPORT_DIR/requested_duration.txt"
+if [[ -n "$DICTIONARY" ]]; then
+  printf '%s\n' "$DICTIONARY" > "$REPORT_DIR/dictionary_source.txt"
+else
+  printf '%s\n' "disabled" > "$REPORT_DIR/dictionary_source.txt"
+fi
 
 if [[ $RUN_STATUS -eq 124 ]]; then
   echo "Timed experiment completed normally after $DURATION."
