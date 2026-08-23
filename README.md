@@ -74,13 +74,16 @@ Use this mainly for:
 
 ```text
 FYP/
+├── configs/                # Target/workflow metadata
 ├── docker/                 # Docker files for AFL++/fuzzing environment
+├── docs/                   # Architecture and workflow documentation
 ├── reports/                # Generated crash and experiment reports
-├── scripts/                # Setup and helper scripts
+├── scripts/                # Setup, build, run, and helper scripts
 ├── src/fyp_llm_afl/        # Python framework code
-├── targets/                # Fuzzing targets and harnesses
+├── targets/                # Fuzzing targets, harnesses, dictionaries, seeds
 │   ├── toy_nas_tlv/        # First AFL++ smoke-test target
-│   └── open5gs/            # Open5GS harnessing notes and future harnesses
+│   └── open5gs/            # Main Open5GS NAS fuzzing target
+├── webllm_demo/            # Browser-local WebLLM seed generator
 └── README.md
 ```
 
@@ -132,6 +135,84 @@ python -m fyp_llm_afl.crash_report \
   --crashes targets/toy_nas_tlv/out/default/crashes \
   --out reports/toy_nas_tlv_crash_report.md
 ```
+
+## Integrated Open5GS architecture
+
+The existing components are now connected through a reusable pipeline instead of being separate experiment scripts.
+
+```text
+Manual / Ollama / WebLLM / protocol-aware seeds
+                    |
+                    v
+          clean seed corpus + manifest
+                    |
+                    v
+          AFL++ Open5GS harness
+          + optional NAS dictionary
+                    |
+                    v
+       fuzzer_stats + crash/hang counts
+                    |
+                    v
+         guarded LLM-assisted triage
+```
+
+See `docs/architecture.md` for the full design.
+
+### Prepare a clean WebLLM corpus
+
+From the repository root:
+
+```bash
+PYTHONPATH=src python -m fyp_llm_afl.seed_corpus \
+  --input targets/open5gs/seeds_registration_webllm \
+  --out targets/open5gs/seeds_registration_webllm_clean \
+  --clean
+```
+
+Only `.bin` files are accepted. The command also removes duplicate seeds and creates `manifest.csv` and `summary.json`.
+
+### Build the Open5GS harness inside Docker
+
+Build the fuzzing image after cloning/building Open5GS under `external/open5gs`:
+
+```bash
+docker compose build afl
+docker compose run --rm afl bash
+```
+
+Inside the container:
+
+```bash
+bash /work/scripts/build_open5gs_harness.sh
+```
+
+The generated harness binary is a local build artifact and should not be committed.
+
+### Run a reproducible 15-minute WebLLM experiment
+
+Inside the AFL++ container:
+
+```bash
+bash /work/scripts/run_open5gs_fuzz.sh \
+  targets/open5gs/seeds_registration_webllm_clean \
+  targets/open5gs/out_registration_webllm_architecture_15m \
+  15m \
+  reports/open5gs/webllm_architecture_15m \
+  -
+```
+
+To enable the existing NAS dictionary, replace the final `-` with:
+
+```text
+targets/open5gs/nas_registration_request.dict
+```
+
+The experiment runner stores factual evidence including `fuzzer_stats.txt`, `crash_count.txt`, `hang_count.txt`, `summary.json`, and `summary.md`.
+
+### Result interpretation
+
+A saved AFL++ crash is not automatically a confirmed vulnerability. Reproduce the crash and gather sanitizer/source-code evidence before using the guarded triage framework. Likewise, a no-crash experiment does not prove that Open5GS is secure.
 
 ## Final expected deliverables
 
