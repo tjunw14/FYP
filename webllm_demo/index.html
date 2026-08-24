@@ -3,75 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WebLLM AFL++ Seed Generator Demo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.45;
-    }
-    textarea, select, button {
-      width: 100%;
-      box-sizing: border-box;
-      margin-top: 0.4rem;
-      margin-bottom: 1rem;
-      font-family: Consolas, monospace;
-      font-size: 0.95rem;
-    }
-    textarea {
-      min-height: 220px;
-      padding: 0.75rem;
-    }
-    button {
-      padding: 0.75rem;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .status {
-      white-space: pre-wrap;
-      background: #f4f4f4;
-      border: 1px solid #ddd;
-      padding: 0.75rem;
-      min-height: 3rem;
-      font-family: Consolas, monospace;
-    }
-    code {
-      background: #f4f4f4;
-      padding: 0.1rem 0.25rem;
-    }
-    @media (max-width: 800px) {
-      .row { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>WebLLM + AFL++ Open5GS Workbench</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>WebLLM-Driven AFL++ Seed Generator Demo</h1>
+  <div class="shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">FYP · Local LLM-Assisted Defensive Fuzzing</div>
+        <h1>WebLLM + AFL++ Open5GS Workbench</h1>
+        <p>Generate and validate NAS seeds with a browser-local model, launch the controlled Open5GS AFL++ workflow, follow live evidence, run guarded WebLLM triage, and export a report from one interface.</p>
+      </div>
+      <div id="backendStatus" class="status-pill">CHECKING BACKEND...</div>
+    </header>
 
-  <p>
-    This page runs a small language model in the browser using WebLLM and asks it to generate
-    hexadecimal AFL++ seed inputs for the Open5GS NAS 5G Registration Request harness.
-  </p>
+    <div class="workflow">
+      <aside class="sidebar">
+        <div class="step" data-step="1"><div class="step-index">01</div><div><strong>Load WebLLM</strong><span>Browser-local model</span></div></div>
+        <div class="step" data-step="2"><div class="step-index">02</div><div><strong>Choose Target</strong><span>Open5GS decoder</span></div></div>
+        <div class="step" data-step="3"><div class="step-index">03</div><div><strong>Generate Seeds</strong><span>Candidate NAS inputs</span></div></div>
+        <div class="step" data-step="4"><div class="step-index">04</div><div><strong>Validate Seeds</strong><span>Binary-only corpus</span></div></div>
+        <div class="step" data-step="5"><div class="step-index">05</div><div><strong>Start Fuzzing</strong><span>Controlled backend</span></div></div>
+        <div class="step" data-step="6"><div class="step-index">06</div><div><strong>Live Statistics</strong><span>AFL++ evidence</span></div></div>
+        <div class="step" data-step="7"><div class="step-index">07</div><div><strong>Guarded Triage</strong><span>Analyse with WebLLM</span></div></div>
+        <div class="step" data-step="8"><div class="step-index">08</div><div><strong>Export Report</strong><span>Evidence + analysis</span></div></div>
+      </aside>
 
-  <p>
-    The output should be saved as <code>webllm_generated_seeds.txt</code>, then converted into
-    binary AFL++ seed files using <code>scripts/import_webllm_hex_seeds.py</code>.
-  </p>
+      <main class="main">
+        <section class="card">
+          <div class="card-head">
+            <div><h2>1. Load WebLLM</h2><p>The model executes in the browser through WebGPU. It is used for seed generation and guarded post-fuzzing analysis.</p></div>
+            <span class="badge">LOCAL MODEL</span>
+          </div>
+          <div class="grid-2">
+            <div>
+              <label for="modelSelect">WebLLM model</label>
+              <select id="modelSelect"></select>
+            </div>
+            <div class="actions" style="align-items:end;margin-top:18px"><button id="loadModelBtn" class="btn primary">Load WebLLM</button></div>
+          </div>
+          <div id="modelStatus" class="console" style="min-height:70px;margin-top:12px">Waiting for model selection.</div>
+        </section>
 
-  <h2>1. Select WebLLM model</h2>
-  <label for="modelSelect">Model</label>
-  <select id="modelSelect"></select>
-  <button id="loadButton">Load selected model</button>
+        <section class="card">
+          <div class="card-head">
+            <div><h2>2. Choose Open5GS Target</h2><p>The backend only exposes configured defensive fuzzing targets; the browser cannot send arbitrary commands.</p></div>
+            <span class="badge">TARGET CONFIG</span>
+          </div>
+          <label for="targetSelect">Target</label>
+          <select id="targetSelect"><option>Loading targets...</option></select>
+          <pre id="targetDetails" class="console" style="min-height:92px"></pre>
+        </section>
 
-  <h2>2. Prompt</h2>
-  <textarea id="promptBox">You are assisting a defensive fuzzing experiment for an open-source 5G network software parser.
+        <section class="card">
+          <div class="card-head">
+            <div><h2>3. Generate Candidate Seeds</h2><p>WebLLM is prompted to produce compact hexadecimal Registration Request-body seeds for defensive parser exploration.</p></div>
+            <span class="badge">WEBLLM</span>
+          </div>
+          <label for="promptBox">Seed-generation prompt</label>
+          <textarea id="promptBox" class="large">You are assisting a defensive fuzzing experiment for an open-source 5G network software parser.
 
 Target:
 - Open5GS NAS 5G Registration Request decoder
@@ -92,210 +82,89 @@ Seed design goals:
 Output format rules:
 - Output only seed lines.
 - Do not include explanations.
-- Do not output English words as byte values.
 - Use compact hexadecimal strings without commas or spaces.
-- Use this exact format:
+- Each line must contain one seed in this format:
+seed_001: 4101f000
+seed_002: 7e0041012e00</textarea>
+          <div class="actions"><button id="generateBtn" class="btn primary" disabled>Generate Seeds</button></div>
+        </section>
 
-seed_001: 4101f0
-seed_002: 7e0041012e00
-seed_003: 417700010203
-seed_004: 2e010152021740
-seed_005: 4100000000</textarea>
+        <section class="card">
+          <div class="card-head">
+            <div><h2>4. Preview / Validate Seeds</h2><p>Review the generated bytes before the backend writes them. Validation creates a de-duplicated, binary-only AFL++ corpus.</p></div>
+            <span class="badge">HUMAN REVIEW</span>
+          </div>
+          <label for="generatedSeeds">Generated seed lines</label>
+          <textarea id="generatedSeeds" placeholder="WebLLM-generated seed lines appear here. You can review or edit them before validation."></textarea>
+          <div class="actions"><button id="validateBtn" class="btn" disabled>Validate & Prepare AFL++ Corpus</button></div>
+          <p id="validationStatus" class="hint">Generate seeds first.</p>
+          <div style="overflow:auto;margin-top:12px">
+            <table class="seed-table"><thead><tr><th>File</th><th>Size</th><th>Hex</th></tr></thead><tbody id="seedTableBody"></tbody></table>
+          </div>
+        </section>
 
-  <button id="generateButton" disabled>Generate WebLLM seeds</button>
+        <section class="card">
+          <div class="card-head">
+            <div><h2>5. Start Fuzzing</h2><p>The local Python backend launches the existing instrumented Open5GS harness inside Docker and keeps command construction fixed.</p></div>
+            <span class="badge">AFL++</span>
+          </div>
+          <div class="grid-3">
+            <div>
+              <label for="durationSelect">Run duration</label>
+              <select id="durationSelect"><option value="60">1 minute · smoke test</option><option value="300">5 minutes</option><option value="900" selected>15 minutes · demo</option></select>
+            </div>
+            <label class="checkbox"><input id="dictionaryToggle" type="checkbox" /> Enable existing NAS AFL++ dictionary</label>
+            <div class="actions" style="align-items:end;margin-top:18px"><button id="startBtn" class="btn primary" disabled>Start Fuzzing</button><button id="stopBtn" class="btn danger" disabled>Stop</button></div>
+          </div>
+          <div class="notice" style="margin-top:14px">The run is defensive testing of the configured local Open5GS target. A crash is evidence to reproduce and investigate; it is not automatically a confirmed vulnerability.</div>
+        </section>
 
-  <div class="row">
-    <div>
-      <h2>3. WebLLM output</h2>
-      <textarea id="outputBox" placeholder="Generated seed lines will appear here..."></textarea>
-      <button id="downloadRawButton">Download raw WebLLM output</button>
-    </div>
-    <div>
-      <h2>4. Parsed seed lines</h2>
-      <textarea id="parsedBox" placeholder="Parsed seed lines will appear here..."></textarea>
-      <button id="downloadParsedButton">Download parsed seed lines</button>
+        <section class="card">
+          <div class="card-head">
+            <div><h2>6. Live AFL++ Statistics</h2><p>The backend reads AFL++ <code>fuzzer_stats</code> from the mounted output directory and returns factual values to this page.</p></div>
+            <span id="runState" class="badge">IDLE</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric"><span>Runtime</span><strong id="runtimeMetric"></strong></div>
+            <div class="metric"><span>Executions</span><strong id="execsMetric"></strong></div>
+            <div class="metric"><span>Executions/sec</span><strong id="execRateMetric"></strong></div>
+            <div class="metric"><span>Corpus</span><strong id="corpusMetric"></strong></div>
+            <div class="metric"><span>Bitmap coverage</span><strong id="coverageMetric"></strong></div>
+            <div class="metric"><span>Edges</span><strong id="edgesMetric"></strong></div>
+            <div class="metric"><span>Stability</span><strong id="stabilityMetric"></strong></div>
+            <div class="metric"><span>Timeouts</span><strong id="timeoutsMetric"></strong></div>
+            <div class="metric bad"><span>Crashes</span><strong id="crashesMetric"></strong></div>
+            <div class="metric bad"><span>Hangs</span><strong id="hangsMetric"></strong></div>
+            <div class="metric"><span>Max depth</span><strong id="depthMetric"></strong></div>
+            <div class="metric"><span>Favored corpus</span><strong id="favoredMetric"></strong></div>
+          </div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <label>Backend / AFL++ log tail</label>
+          <pre id="consoleBox" class="console">No run started.</pre>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div><h2>7. Analyse with WebLLM</h2><p>The backend supplies recorded fuzzing evidence; WebLLM receives a guarded prompt and produces an explanation for human review.</p></div>
+            <span class="badge">GUARDED TRIAGE</span>
+          </div>
+          <div class="actions"><button id="analyseBtn" class="btn primary" disabled>Analyse with WebLLM</button></div>
+          <label for="analysisBox" style="margin-top:13px">WebLLM analysis</label>
+          <textarea id="analysisBox" class="large" placeholder="Guarded analysis appears here after the fuzzing run."></textarea>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div><h2>8. Export Report</h2><p>Export combines the factual AFL++ evidence with the reviewed WebLLM analysis and preserves the project's conservative interpretation boundary.</p></div>
+            <span class="badge">REPORT</span>
+          </div>
+          <div class="actions"><button id="exportBtn" class="btn primary" disabled>Export Report</button></div>
+          <p id="reportStatus" class="hint">Run guarded analysis before exporting.</p>
+        </section>
+      </main>
     </div>
   </div>
 
-  <h2>Status</h2>
-  <div id="statusBox" class="status">Waiting for WebLLM module...</div>
-
-  <script type="module">
-    import { CreateMLCEngine, prebuiltAppConfig } from "https://esm.run/@mlc-ai/web-llm";
-
-    const modelSelect = document.getElementById("modelSelect");
-    const loadButton = document.getElementById("loadButton");
-    const generateButton = document.getElementById("generateButton");
-    const downloadRawButton = document.getElementById("downloadRawButton");
-    const downloadParsedButton = document.getElementById("downloadParsedButton");
-    const promptBox = document.getElementById("promptBox");
-    const outputBox = document.getElementById("outputBox");
-    const parsedBox = document.getElementById("parsedBox");
-    const statusBox = document.getElementById("statusBox");
-
-    let engine = null;
-    let selectedModel = null;
-
-    function setStatus(message) {
-      statusBox.textContent = message;
-    }
-
-    function getModelId(modelEntry) {
-      return modelEntry.model_id || modelEntry.model || modelEntry.id || String(modelEntry);
-    }
-
-    function populateModels() {
-      const modelIds = prebuiltAppConfig.model_list.map(getModelId).filter(Boolean);
-      modelIds.forEach((modelId) => {
-        const option = document.createElement("option");
-        option.value = modelId;
-        option.textContent = modelId;
-        modelSelect.appendChild(option);
-      });
-
-      const preferred = modelIds.find((m) => /qwen.*0\.5b.*instruct.*mlc/i.test(m))
-        || modelIds.find((m) => /qwen.*1\.5b.*instruct.*mlc/i.test(m))
-        || modelIds.find((m) => /phi.*mini.*instruct.*mlc/i.test(m))
-        || modelIds[0];
-
-      if (preferred) {
-        modelSelect.value = preferred;
-      }
-    }
-
-    function extractBytes(segment) {
-      const bytes = [];
-      const tokens = segment.match(/0x[0-9a-fA-F]{2}|\b[0-9a-fA-F]{2}\b|\b[0-9a-fA-F]{8,128}\b/g) || [];
-
-      for (const token of tokens) {
-        let cleaned = token.replace(/^0x/i, "").toLowerCase();
-        if (!/^[0-9a-f]+$/.test(cleaned)) continue;
-        if (cleaned.length % 2 !== 0) continue;
-
-        for (let i = 0; i < cleaned.length; i += 2) {
-          bytes.push(cleaned.slice(i, i + 2));
-        }
-      }
-
-      return bytes;
-    }
-
-    function pushSeedChunks(parsed, bytes, maxSeeds = 20, chunkBytes = 16) {
-      if (bytes.length < 2) return;
-
-      for (let i = 0; i < bytes.length && parsed.length < maxSeeds; i += chunkBytes) {
-        const chunk = bytes.slice(i, i + chunkBytes);
-        if (chunk.length < 2) continue;
-        const name = `seed_${String(parsed.length + 1).padStart(3, "0")}`;
-        parsed.push(`${name}: ${chunk.join("")}`);
-      }
-    }
-
-    function parseSeedLines(text) {
-      const parsed = [];
-      const labelledBlockRe = /\bseed[_-]?\d{1,3}\b\s*[:=]\s*([\s\S]*?)(?=\bseed[_-]?\d{1,3}\b\s*[:=]|$)/gi;
-      let match;
-
-      while ((match = labelledBlockRe.exec(text)) !== null && parsed.length < 20) {
-        const bytes = extractBytes(match[1]);
-        pushSeedChunks(parsed, bytes);
-      }
-
-      if (parsed.length === 0) {
-        const bytes = extractBytes(text);
-        pushSeedChunks(parsed, bytes);
-      }
-
-      return parsed.join("\n");
-    }
-
-    function downloadText(filename, text) {
-      const blob = new Blob([text], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    populateModels();
-
-    if (!navigator.gpu) {
-      setStatus("Warning: WebGPU does not appear to be available in this browser. Try latest Chrome or Edge with hardware acceleration enabled.");
-    } else {
-      setStatus("WebLLM module loaded. Select a model and click Load selected model. First load may take time because model weights must be downloaded and cached by the browser.");
-    }
-
-    loadButton.addEventListener("click", async () => {
-      selectedModel = modelSelect.value;
-      setStatus(`Loading model: ${selectedModel}\nThis may take several minutes on first run...`);
-      loadButton.disabled = true;
-      generateButton.disabled = true;
-
-      try {
-        engine = await CreateMLCEngine(selectedModel, {
-          initProgressCallback: (progress) => {
-            const text = typeof progress === "string" ? progress : JSON.stringify(progress, null, 2);
-            setStatus(`Loading model: ${selectedModel}\n${text}`);
-          },
-        });
-        setStatus(`Model loaded successfully: ${selectedModel}`);
-        generateButton.disabled = false;
-      } catch (err) {
-        setStatus(`Failed to load model: ${selectedModel}\n${err.stack || err.message || err}`);
-        loadButton.disabled = false;
-      }
-    });
-
-    generateButton.addEventListener("click", async () => {
-      if (!engine) {
-        setStatus("Load a model first.");
-        return;
-      }
-
-      outputBox.value = "";
-      parsedBox.value = "";
-      generateButton.disabled = true;
-      setStatus("Generating seed lines with WebLLM...");
-
-      try {
-        const reply = await engine.chat.completions.create({
-          messages: [
-            {
-              role: "system",
-              content: "You generate defensive fuzzing seed inputs only. Output seed lines only. No exploit instructions. No explanation. Use compact hex strings.",
-            },
-            {
-              role: "user",
-              content: promptBox.value,
-            },
-          ],
-          temperature: 0.4,
-          max_tokens: 700,
-        });
-
-        const content = reply.choices[0].message.content || "";
-        outputBox.value = content;
-        parsedBox.value = parseSeedLines(content);
-        const parsedCount = parsedBox.value.trim() ? parsedBox.value.trim().split(/\r?\n/).length : 0;
-        setStatus(`Generation complete. Parsed ${parsedCount} seed line(s). Long WebLLM byte sequences are split into 16-byte AFL++ seed files. Download the parsed output as webllm_generated_seeds.txt.`);
-      } catch (err) {
-        setStatus(`Generation failed.\n${err.stack || err.message || err}`);
-      } finally {
-        generateButton.disabled = false;
-      }
-    });
-
-    downloadRawButton.addEventListener("click", () => {
-      downloadText("webllm_raw_output.txt", outputBox.value);
-    });
-
-    downloadParsedButton.addEventListener("click", () => {
-      downloadText("webllm_generated_seeds.txt", parsedBox.value || outputBox.value);
-    });
-  </script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
