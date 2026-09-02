@@ -1,129 +1,208 @@
-# WebLLM-Driven AFL++ Seed Generation Demo
+# WebLLM + AFL++ Open5GS Workbench
 
 ## Purpose
 
-This demo adds a small WebLLM-driven component to the existing LLM-assisted AFL++ fuzzing workflow.
+This is the integrated browser interface for the FYP workflow. It connects the existing browser-local WebLLM seed generator to the controlled local Open5GS/AFL++ backend and the guarded post-fuzzing analysis flow.
 
-The aim is to show that a browser-based local LLM can generate fuzzing seed inputs that are then passed into the existing AFL++ Open5GS harness.
-
-This supports the edge-device / low-cost local LLM angle of the project.
-
-## Workflow
+The final interaction is:
 
 ```text
-WebLLM browser demo
-        ↓
-Generate Open5GS NAS Registration Request seed hex strings
-        ↓
-Convert hex strings into binary AFL++ seed files
-        ↓
-Run AFL++ against the existing Open5GS harness
-        ↓
-Collect fuzzer_stats, crash_count, and hang_count
-        ↓
-Summarise the WebLLM-driven fuzzing workflow
+Load WebLLM
+    ↓
+Choose configured Open5GS target
+    ↓
+Generate candidate seeds
+    ↓
+Preview / validate seeds
+    ↓
+Start AFL++ fuzzing
+    ↓
+View live fuzzer_stats
+    ↓
+Review crash / hang evidence
+    ↓
+Analyse recorded evidence with WebLLM
+    ↓
+Export report
 ```
+
+WebLLM does not replace AFL++. WebLLM supplies local/browser LLM assistance; AFL++ remains the fuzzing engine and the Python backend is the controlled boundary between the webpage and Docker.
+
+## Architecture
+
+```text
+Browser
+├── WebLLM model (WebGPU)
+├── target selector
+├── seed generation / preview
+├── live statistics
+├── guarded result analysis
+└── report export
+        │
+        │ same-origin HTTP API
+        ▼
+Local Python backend
+├── configured target metadata
+├── seed validation / clean corpus
+├── Docker process manager
+├── AFL++ fuzzer_stats reader
+├── crash / hang counting
+└── evidence / report preparation
+        │
+        ▼
+Docker + AFL++ + Open5GS harness
+```
+
+The browser cannot submit arbitrary shell commands. The backend constructs a fixed Docker command for the configured Open5GS Registration Request target.
 
 ## Requirements
 
-Use a recent browser with WebGPU support, preferably Chrome or Edge.
+Before running the UI:
 
-The first model load may take several minutes because the model files are downloaded and cached by the browser.
+1. Docker Desktop must be running.
+2. The repository must contain the existing Open5GS checkout/build under `external/open5gs`.
+3. A recent Chrome or Edge browser with WebGPU support should be used.
+4. The `aflplusplus/aflplusplus` Docker image should be available (Docker can pull it if required).
 
-## Step 1: Run a local HTTP server
+The backend installs the small `libtalloc-dev`/`pkg-config` build prerequisites inside the fuzzing container before rebuilding the harness. The harness binary is a generated local artifact and should not be committed.
 
-From the repository root on Windows:
+## Start the integrated workbench on Windows CMD
+
+From the repository root:
 
 ```bat
 cd C:\Users\tjunw\FYP
-python -m http.server 8000
+set PYTHONPATH=src
+py -m fyp_llm_afl.api.server --port 8000
 ```
 
-Open this in the browser:
+Then open:
 
 ```text
-http://localhost:8000/webllm_demo/
+http://127.0.0.1:8000/webllm_demo/
 ```
 
-Do not open `index.html` directly as a local file. Use the local HTTP server.
+Do **not** use `python -m http.server` for the integrated workflow. A plain static server cannot start AFL++, read live statistics, or export backend evidence.
 
-## Step 2: Generate WebLLM seed lines
+## Workflow details
 
-1. Select a small model from the dropdown.
-2. Click `Load selected model`.
-3. Wait for the model to finish loading.
-4. Click `Generate WebLLM seeds`.
-5. Download the parsed output as:
+### 1. Load WebLLM
+
+Choose a small WebLLM model. The page prefers a small Qwen instruct model when available. Model inference is performed locally in the browser through WebGPU.
+
+### 2. Choose Open5GS target
+
+Target definitions are loaded from `configs/*.json`. The current enabled backend target is:
 
 ```text
-webllm_generated_seeds.txt
+open5gs_registration_request
+ogs_nas_5gs_decode_registration_request()
 ```
 
-## Step 3: Save the generated seed transcript
+### 3. Generate seeds
 
-Create the report folder if it does not already exist:
-
-```bat
-mkdir reports\open5gs\phase5_webllm_demo
-```
-
-Copy the downloaded `webllm_generated_seeds.txt` into:
+WebLLM generates labelled compact hexadecimal lines such as:
 
 ```text
-reports/open5gs/phase5_webllm_demo/webllm_generated_seeds.txt
+seed_001: 4101f000
+seed_002: 7e0041012e00
 ```
 
-## Step 4: Convert WebLLM hex output into AFL++ binary seed files
+### 4. Preview / validate seeds
 
-Run:
+The browser lets the user review/edit the generated output before sending it to the backend.
 
-```bat
-python scripts\import_webllm_hex_seeds.py --input reports\open5gs\phase5_webllm_demo\webllm_generated_seeds.txt --output targets\open5gs\seeds_registration_webllm --clean
+The backend then:
+
+- strictly validates labelled hexadecimal seed lines;
+- writes only binary `.bin` seed files;
+- removes duplicates through `seed_corpus.py`;
+- writes a clean corpus and manifest;
+- prevents README/CSV files from becoming AFL++ seed inputs.
+
+The clean corpus is stored under:
+
+```text
+targets/open5gs/seeds_registration_webllm_clean/
 ```
 
-Check the generated files:
+### 5. Start fuzzing
 
-```bat
-dir targets\open5gs\seeds_registration_webllm
+The UI supports a short smoke test or the 15-minute demonstration run. The backend starts a named Docker container, rebuilds the existing instrumented Open5GS harness, and invokes `scripts/run_open5gs_fuzz.sh`.
+
+The existing NAS dictionary can optionally be enabled from the UI.
+
+### 6. Live statistics
+
+The page polls the backend every two seconds. The backend reads the AFL++ `fuzzer_stats` file from the mounted output directory and reports values such as:
+
+- runtime;
+- executions;
+- executions/sec;
+- corpus count;
+- bitmap coverage;
+- edges;
+- stability;
+- timeouts;
+- crashes;
+- hangs;
+- max depth.
+
+The browser therefore shows the fuzzing progress without requiring the user to inspect the AFL++ terminal directly.
+
+### 7. Analyse with WebLLM
+
+When the run is no longer active, the browser requests a factual evidence bundle from the backend. The backend creates a guarded prompt containing the recorded AFL++ evidence and crash/hang counts.
+
+That prompt is analysed by the same browser-local WebLLM model.
+
+The guardrails state that:
+
+- a crash is not automatically a confirmed vulnerability;
+- a no-crash run does not prove that the target is secure;
+- conclusions must be based on recorded evidence;
+- real vulnerability claims require reproduction, source/sanitizer evidence, and human review;
+- exploit instructions are outside the workflow.
+
+### 8. Export report
+
+The report export combines:
+
+- the workflow description;
+- validated-seed information;
+- factual AFL++ statistics;
+- crash/hang counts;
+- the WebLLM guarded analysis;
+- the interpretation boundary.
+
+A copy is saved under:
+
+```text
+reports/open5gs/webllm_ui_run/exported_webllm_fuzzing_report.md
 ```
 
-## Step 5: Run a short AFL++ WebLLM-seed experiment
+and a Markdown copy is downloaded by the browser.
 
-Use the same Open5GS harness as the previous phases.
+## Backend API
 
-A 10 to 15 minute run is sufficient because this phase demonstrates the WebLLM-driven workflow rather than trying to outperform the earlier 30-minute and 2-hour experiments.
+The browser uses these fixed endpoints:
 
-Inside the AFL++ Docker container:
-
-```bash
-cd /work/targets/open5gs
-rm -rf out_registration_webllm_15m
-timeout 15m afl-fuzz -i seeds_registration_webllm -o out_registration_webllm_15m -- ./harness_registration_request @@
+```text
+GET  /api/health
+GET  /api/targets
+POST /api/seeds/validate
+POST /api/fuzz/start
+POST /api/fuzz/stop
+GET  /api/fuzz/status
+GET  /api/fuzz/results
+GET  /api/triage/evidence
+POST /api/report/export
 ```
 
-## Step 6: Save AFL++ evidence
-
-Inside Docker:
-
-```bash
-mkdir -p /work/reports/open5gs/phase5_webllm_demo
-cp out_registration_webllm_15m/default/fuzzer_stats /work/reports/open5gs/phase5_webllm_demo/fuzzer_stats.txt
-find out_registration_webllm_15m/default/crashes -type f ! -name README.txt | wc -l > /work/reports/open5gs/phase5_webllm_demo/crash_count.txt
-find out_registration_webllm_15m/default/hangs -type f ! -name README.txt | wc -l > /work/reports/open5gs/phase5_webllm_demo/hang_count.txt
-```
+There is intentionally no generic command-execution endpoint.
 
 ## Reporting interpretation
 
-Do not claim that WebLLM replaces AFL++.
+The WebLLM-driven workflow is evidence that a browser-local small language model can be integrated as an assistant around an AFL++ fuzzing workflow. It should not be reported as evidence that WebLLM itself is a fuzzer or that the local model independently proves vulnerabilities.
 
-Correct interpretation:
-
-```text
-WebLLM was used as a browser-based local LLM component to generate candidate fuzzing seeds. These seeds were then imported into the existing AFL++ Open5GS fuzzing workflow. This demonstrates how the LLM-assisted seed-generation component can be moved into a local browser or edge-device style environment.
-```
-
-If no crashes or hangs are found, report it conservatively:
-
-```text
-The WebLLM-driven seed experiment completed without crashes or hangs. This does not prove the target is secure; it only shows that the WebLLM-generated seeds were compatible with the existing AFL++ workflow.
-```
+If a run records zero crashes and zero hangs, the correct statement is that no crash or hang was observed during that recorded run. It is not proof that Open5GS is vulnerability-free.
