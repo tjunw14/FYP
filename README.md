@@ -63,6 +63,7 @@ Use this mainly for:
 - generating reports
 - pushing/pulling GitHub changes
 - light testing
+- running the WebLLM browser workbench when Docker and Open5GS are available locally
 
 ### Windows PC with RTX 2060 Super
 
@@ -190,27 +191,121 @@ Guarded triage
 Export report
 ```
 
+### Important runtime requirement
+
+The WebLLM page has two parts:
+
+1. The browser frontend, which loads WebLLM and generates seed lines.
+2. The Python backend, which validates seeds, starts Docker, builds/runs the Open5GS AFL++ harness, reads `fuzzer_stats`, and exports evidence.
+
+A plain static server such as `python -m http.server` can load the page, but it cannot start fuzzing because it does not provide the `/api/fuzz/start`, `/api/fuzz/status`, or `/api/fuzz/results` backend routes.
+
+Use the custom backend server instead:
+
+```bash
+python -m fyp_llm_afl.api.server --port 8000
+```
+
+Docker Desktop must also be running before pressing **Start fuzzing**. Confirm this with:
+
+```bash
+docker ps
+```
+
+If `docker ps` fails, start Docker Desktop first and wait until `docker ps` succeeds.
+
 ### Run on Windows CMD
 
-Docker Desktop must already be running and the existing Open5GS checkout/build must be present under `external/open5gs`.
+Prerequisites:
 
-From the repository root:
+- Docker Desktop installed and running.
+- The existing Open5GS checkout/build is present under `external/open5gs`.
+- The repository branch is `architecture-integration`.
+
+Start Docker Desktop from CMD if it is not already open:
+
+```bat
+start "" "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+```
+
+Wait for Docker to finish starting, then verify:
+
+```bat
+docker ps
+```
+
+Run the WebLLM/AFL++ workbench backend:
 
 ```bat
 cd C:\Users\tjunw\FYP
+"C:\Program Files\Git\cmd\git.exe" checkout architecture-integration
+"C:\Program Files\Git\cmd\git.exe" pull
 set PYTHONPATH=src
 py -m fyp_llm_afl.api.server --port 8000
 ```
 
-Open:
+Open in Chrome or Edge:
 
 ```text
 http://127.0.0.1:8000/webllm_demo/
 ```
 
-Do not use `python -m http.server` for this integrated demo. The custom local server provides the fixed backend API required to start/stop the configured AFL++ run, read live `fuzzer_stats`, provide evidence for WebLLM triage, and export the report.
+Recommended workflow in the page:
 
-The browser does not expose arbitrary shell execution. It can only request the configured Open5GS Registration Request workflow.
+1. Confirm the backend status shows connected.
+2. Load the WebLLM model.
+3. Select the Open5GS Registration Request target.
+4. Generate seed lines.
+5. Validate the generated seeds.
+6. Start fuzzing.
+7. Wait for AFL++ results.
+8. Analyse the recorded evidence with WebLLM.
+9. Export the report.
+
+### Run on macOS Terminal
+
+Prerequisites:
+
+- Docker Desktop for Mac installed and running.
+- The existing Open5GS checkout/build is present under `external/open5gs`.
+- The repository branch is `architecture-integration`.
+- A recent Chrome or Edge browser is recommended for WebLLM/WebGPU.
+
+Start Docker Desktop from Terminal if it is not already open:
+
+```bash
+open -a Docker
+```
+
+Wait for Docker to finish starting, then verify:
+
+```bash
+docker ps
+```
+
+Run the WebLLM/AFL++ workbench backend:
+
+```bash
+cd ~/FYP
+git checkout architecture-integration
+git pull
+export PYTHONPATH=src
+python3 -m fyp_llm_afl.api.server --port 8000
+```
+
+Open in Chrome or Edge:
+
+```text
+http://127.0.0.1:8000/webllm_demo/
+```
+
+Use the same page workflow as Windows: load WebLLM, generate seeds, validate seeds, start fuzzing, inspect AFL++ statistics, run guarded analysis, and export the report.
+
+### Why Docker is required
+
+The browser can run WebLLM, but it cannot directly execute AFL++ or Open5GS. When **Start fuzzing** is clicked, the backend starts a Docker container using the repository-mounted AFL++ environment. Docker is therefore required for the fuzzing stage even though the seed-generation stage runs in the browser.
+
+The browser does not expose arbitrary shell execution. It can only request the configured Open5GS Registration Request workflow through the local backend API.
 
 ## Command-line architecture helpers
 
