@@ -171,8 +171,8 @@ async function generateSeeds() {
         },
         { role: "user", content: els.promptBox.value },
       ],
-      temperature: 0.35,
-      max_tokens: 700,
+      temperature: 0.2,
+      max_tokens: 1000,
     });
     const raw = reply.choices?.[0]?.message?.content || "";
     const parsed = extractSeedLines(raw);
